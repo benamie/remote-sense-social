@@ -29,6 +29,3 @@ landsat
 radiometric-resolution
 resampling-and-reprojection
 additional-exercises
-fig:digimage
-fig:pixel
-fig:spectralres

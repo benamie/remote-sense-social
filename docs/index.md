@@ -1,6 +1,6 @@
 ---
 title: "Remote Sensing in the Social Sciences"
-date: "AAEC 6984, Prof. Benami, Fall 2021"
+date: "Fall 2021"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 ---
