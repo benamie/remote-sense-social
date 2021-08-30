@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>PreLab: Getting Started | Remote Sensing in the Social Sciences</title>
+  <meta name="description" content="PreLab: Getting Started | Remote Sensing in the Social Sciences" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="PreLab: Getting Started | Remote Sensing in the Social Sciences" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PreLab: Getting Started | Remote Sensing in the Social Sciences" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="lab1.html"/>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html"><i class="fa fa-check"></i>PreLab: Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="0.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#data-and-methods"><i class="fa fa-check"></i><b>0.1</b> Data and Methods</a></li>
+<li class="chapter" data-level="0.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images-and-image-collections"><i class="fa fa-check"></i><b>0.2</b> Images and Image Collections</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images"><i class="fa fa-check"></i><b>0.2.1</b> Images</a></li>
+<li class="chapter" data-level="0.2.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#image-collections"><i class="fa fa-check"></i><b>0.2.2</b> Image Collections</a></li>
+<li class="chapter" data-level="0.2.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#sensed-versus-derived-imagery"><i class="fa fa-check"></i><b>0.2.3</b> Sensed versus Derived Imagery</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#geometries"><i class="fa fa-check"></i><b>0.3</b> Geometries</a></li>
+<li class="chapter" data-level="0.4" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features-and-feature-collections"><i class="fa fa-check"></i><b>0.4</b> Features and Feature Collections</a><ul>
+<li class="chapter" data-level="0.4.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features"><i class="fa fa-check"></i><b>0.4.1</b> Features</a></li>
+<li class="chapter" data-level="0.4.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#feature-collections"><i class="fa fa-check"></i><b>0.4.2</b> Feature Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#methods-reducers"><i class="fa fa-check"></i><b>0.5</b> Methods: Reducers</a></li>
+<li class="chapter" data-level="0.6" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#joins-and-arrays"><i class="fa fa-check"></i><b>0.6</b> Joins and Arrays</a><ul>
+<li class="chapter" data-level="0.6.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#join"><i class="fa fa-check"></i><b>0.6.1</b> Join</a></li>
+<li class="chapter" data-level="0.6.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#arrays"><i class="fa fa-check"></i><b>0.6.2</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="0.7" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#additional-resources"><i class="fa fa-check"></i><b>0.7</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>1</b> Remote Sensing Background</a><ul>
+<li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#overview-1"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1.1" data-path="lab1.html"><a href="lab1.html#what-is-a-digital-image"><i class="fa fa-check"></i><b>1.1</b> What is a digital image?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="lab1.html"><a href="lab1.html#from-digital-image-to-geospatial-image"><i class="fa fa-check"></i><b>1.1.1</b> From digital image to geospatial image</a></li>
+<li class="chapter" data-level="1.1.2" data-path="lab1.html"><a href="lab1.html#visualize-a-digital-image"><i class="fa fa-check"></i><b>1.1.2</b> Visualize a Digital Image</a></li>
+<li class="chapter" data-level="1.1.3" data-path="lab1.html"><a href="lab1.html#digital-image-visualization-and-stretching"><i class="fa fa-check"></i><b>1.1.3</b> Digital Image Visualization and Stretching</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lab1.html"><a href="lab1.html#spatial-resolution"><i class="fa fa-check"></i><b>1.2</b> Spatial Resolution</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="lab1.html"><a href="lab1.html#modis"><i class="fa fa-check"></i><b>1.2.1</b> MODIS</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lab1.html"><a href="lab1.html#multispectral-scanners"><i class="fa fa-check"></i><b>1.2.2</b> Multispectral Scanners</a></li>
+<li class="chapter" data-level="1.2.3" data-path="lab1.html"><a href="lab1.html#thematic-mapper-tm"><i class="fa fa-check"></i><b>1.2.3</b> Thematic Mapper (TM)</a></li>
+<li class="chapter" data-level="1.2.4" data-path="lab1.html"><a href="lab1.html#national-agriculture-imagery-program-naip"><i class="fa fa-check"></i><b>1.2.4</b> National Agriculture Imagery Program (NAIP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lab1.html"><a href="lab1.html#spectral-resolution"><i class="fa fa-check"></i><b>1.3</b> Spectral Resolution</a></li>
+<li class="chapter" data-level="1.4" data-path="lab1.html"><a href="lab1.html#temporal-resolution"><i class="fa fa-check"></i><b>1.4</b> Temporal Resolution</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="lab1.html"><a href="lab1.html#modis-1"><i class="fa fa-check"></i><b>1.4.1</b> MODIS</a></li>
+<li class="chapter" data-level="1.4.2" data-path="lab1.html"><a href="lab1.html#landsat"><i class="fa fa-check"></i><b>1.4.2</b> Landsat</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="lab1.html"><a href="lab1.html#radiometric-resolution"><i class="fa fa-check"></i><b>1.5</b> Radiometric Resolution</a></li>
+<li class="chapter" data-level="1.6" data-path="lab1.html"><a href="lab1.html#resampling-and-reprojection"><i class="fa fa-check"></i><b>1.6</b> Resampling and ReProjection</a></li>
+<li class="chapter" data-level="1.7" data-path="lab1.html"><a href="lab1.html#additional-exercises"><i class="fa fa-check"></i><b>1.7</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#where-to-submit"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Remote Sensing in the Social Sciences</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="prelab-getting-started" class="section level1 unnumbered">
+<h1>PreLab: Getting Started</h1>
+<div id="overview" class="section level2 unnumbered">
+<h2>Overview</h2>
+<p>The purpose of this lab is to introduce some of the functionality and structure of Google Earth Engine (GEE) before we get into the practical labs. This tutorial will provide a brief introduction to the GEE Javascript interface (the Code Editor) and using GEE resources. At the completion of the lab, you will be able to access GEE imagery, upload your own assets, and explore the metadata for a given feature.</p>
+<div id="learning-outcomes" class="section level4 unnumbered">
+<h4>Learning Outcomes</h4>
+<ul>
+<li>Navigate basic GEE Resources</li>
+<li>Describe the major GEE data types and their associated methods</li>
+</ul>
+</div>
+<div id="setting-up-an-account" class="section level4 unnumbered">
+<h4>Setting up an Account</h4>
+<p>To begin, ensure you sign-up for the Google Earth Engine <a href="https://signup.earthengine.google.com">here</a>. Registration is free and straightforward, but it takes approximately 24 hours to be approved to use the code editor. While waiting, let’s get familiar with the Google Earth Engine. The video below is a quick introduction to Google Earth Engine that Ozzy assembled to to get you familiar with the available resources.</p>
+<p><a href="https://www.youtube.com/watch?v=Ypo28T6wPbQ">Video</a></p>
+</div>
+<div id="importing-data" class="section level4 unnumbered">
+<h4>Importing data</h4>
+<p>In addition to the petabytes of satellite imagery and products that GEE has available, Google Earth Engine also allows you to work with your own raster, vector, and tabular data. <!--You are able to import raster imagery, vector imagery, and tabular data and then incorporate those assets into your analysis.-->
+This is process is automatically linked to the Google Drive account that signed up for GEE.</p>
+<p>If you are not familiar with Google Drive, the ‘<a href="https://support.google.com/a/users/answer/9282958?hl=en">Getting Started Guide</a>’ reviews the basics of initializing and organizing your Google Drive account. Although Google Cloud Platform Storage is beyond the scope of this course, below is some additional helpful documentation on working with external data.</p>
+<ul>
+<li><a href="https://developers.google.com/earth-engine/guides/asset_manager">Managing Assets</a></li>
+<li><a href="https://developers.google.com/earth-engine/guides/image_upload">Import Raster</a></li>
+<li><a href="https://developers.google.com/earth-engine/guides/table_upload">Import Vector / Tabular Data</a> ** Note that GEE only supports Shapefiles and <code>.csv</code>files ***</li>
+<li><a href="https://developers.google.com/earth-engine/guides/exporting">Exporting Data</a></li>
+</ul>
+</div>
+<div id="gecomputation-with-gee-server-vs.-client" class="section level4 unnumbered">
+<h4>Gecomputation with GEE: Server vs. Client</h4>
+<p>Understanding the basics of how Google Earth Engine works is critical for its effective use. The Developer’s <a href="https://developers.google.com/earth-engine/guides/concepts_overview">overview</a> provides much more detail on the intricacies of how GEE processes data on the Google Cloud Platform, but in the simplest terms, there are two sides to the process - the <code>client</code> side and <code>server</code> side.</p>
+<p>When you open your web browser and begin to work in the code editor, that is considered the <code>client</code> side. You can write JavaScript code in the editor and the code will be processed within your browser. The code below simply creates a variables <code>x</code> and <code>y</code>, adds them together as the variable <code>z</code> and prints the result, which shows up in the console of the code editor. Even though the code is written in the GEE editor, it plays no role in the execution of this code - your browser executes it.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="prelab-getting-started.html#cb1-1"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="kw">var</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="prelab-getting-started.html#cb1-2"></a><span class="kw">var</span> z <span class="op">=</span> x <span class="op">+</span> y<span class="op">;</span></span>
+<span id="cb1-3"><a href="prelab-getting-started.html#cb1-3"></a><span class="at">print</span>(z)</span></code></pre></div>
+<p>To begin using the cloud computing resources of GEE effectively, we can then call upon the server side of the operations. Let’s say we want to import an image collection. In the snippet below, you can see that there is an <code>ee</code> before the <code>ImageCollection</code> constructor. In simple terms, this signals to Earth Engine that we will be using its resources. Without that indicator, GEE will cede operations to the server.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="prelab-getting-started.html#cb2-1"></a><span class="kw">var</span> sentinelCollection <span class="op">=</span> <span class="va">ee</span>.<span class="at">ImageCollection</span>(<span class="st">&#39;COPERNICUS/S2_SR&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Over time, you will gain experience understanding the role of working with JavaScript on the <code>client</code> side and the <code>server</code> side, but the main point in this section is that when programming, we will be building ‘packages’ that draw upon GEE resources to complete their operations.</p>
+<p>An extension of this topic is listed <a href="https://developers.google.com/earth-engine/guides/client_server">here</a>, along with discussions of programming specific topics (i.e., mapping instead of looping).</p>
+</div>
+<div id="javascript" class="section level4 unnumbered">
+<h4>JavaScript</h4>
+<p>The intent of this course is not to teach the intricacies of programming within JavaScript. JavaScript is the core language for web development, and you will likely find that many of the tutorials and resources you find will not be directly relevant to the type of JavaScript that you will need to work in Earth Engine (ie, working with React, JQuery, dynamic app development, etc). JavaScript was chosen because it is an extremely popular language (~97% of websites use it in some fashion) and as an object-oriented language, it is well-suited to pair objects (in this case, imagery provided by Google Earth Engine) with methods (such as using the <code>reduce</code> function to summarize the analytical information from a processed image).</p>
+<p>Several excellent resources exist that can help you in working with JavaScript. One such resource is <a href="https://javascript.info">Javascript.info</a>, which provides a thorough overview of working with JavaScript. In this tutorial, focus on part I, as part II and III are focused on web development.</p>
+<p><a href="https://www.w3schools.com/js/default.asp">W3Schools</a> provides good information on each individual component of working with JavaScript. For instance, if you see the word <code>var</code> and wanted more information on it, W3Schools has some helpful definitions and code snippets that will be of use.</p>
+<p>Finally, <a href="http://www.javascriptbook.com">JavaScript &amp; JQuery</a> is an excellent, well-designed book that goes through the fundamentals of working with JavaScript and provides helpful illustrations and use cases. The second half of the book is outside the scope of this course, but if you did want to extend your skillset, this book is a great starting point.</p>
+</div>
+</div>
+<div id="data-and-methods" class="section level2">
+<h2><span class="header-section-number">0.1</span> Data and Methods</h2>
+<p><strong>Core Components of Google Earth Engine Operations</strong></p>
+<p>Most Google Earth Engine tutorials begin with an introduction to the data structures and the operations you can use to analyze your data structures. To work effectively with GEE, it is essential that you understand these core components and how to complete basic operations with each of them.</p>
+<p><a href="https://developers.google.com/earth-engine/guides">Intro to Data</a></p>
+<ul>
+<li><a href="https://developers.google.com/earth-engine/guides/image_overview"><code>Image</code></a>
+<ul>
+<li>Raster Image, a fundamental data type within Earth Engine</li>
+</ul></li>
+<li><a href="https://developers.google.com/earth-engine/guides/ic_creating"><code>ImageCollection</code></a>
+<ul>
+<li>A “stack” or sequence of images with the same attributes</li>
+</ul></li>
+<li><a href="https://developers.google.com/earth-engine/guides/geometries"><code>Geometry</code></a>
+<ul>
+<li>Vector data either built within Earth Engine or imported</li>
+</ul></li>
+<li><a href="https://developers.google.com/earth-engine/guides/features"><code>Feature</code></a>
+<ul>
+<li><code>Geometry</code> with specific attributes.</li>
+</ul></li>
+<li><a href="https://developers.google.com/earth-engine/guides/feature_collections"><code>FeatureCollection</code></a>
+<ul>
+<li>Set of features that share a similar theme</li>
+</ul></li>
+<li><a href="https://developers.google.com/earth-engine/guides/reducers_intro"><code>Reducer</code></a>
+<ul>
+<li>A method used to compute statistics or perform aggregations on the data over space, time, bands, arrays, and other data structures.</li>
+</ul></li>
+<li><a href="https://developers.google.com/earth-engine/guides/joins_intro"><code>Join</code></a>
+<ul>
+<li>A method to combine datasets (<code>Image</code> or <code>Feature</code> collections) based on time, location, or another specified attribute</li>
+</ul></li>
+<li><a href="https://developers.google.com/earth-engine/guides/arrays_intro"><code>Array</code></a>
+<ul>
+<li>A flexible (albeit sometimes inefficient) data structure that can be used for multi-dimensional analyses.</li>
+</ul></li>
+</ul>
+</div>
+<div id="images-and-image-collections" class="section level2">
+<h2><span class="header-section-number">0.2</span> Images and Image Collections</h2>
+<div id="images" class="section level3">
+<h3><span class="header-section-number">0.2.1</span> Images</h3>
+<p><strong>Images</strong> are <strong>Raster</strong> objects composed of:</p>
+<ul>
+<li>Bands, or layers with a unique:
+<ul>
+<li>Name</li>
+<li>Data type</li>
+<li>Scale</li>
+<li>Mask</li>
+<li>Projection</li>
+</ul></li>
+<li>Metadata, stored as a set of properties for that band.</li>
+</ul>
+<p>You can create images from constants, lists, or other objects. In the code editor ‘docs’, you’ll find numerous processes you can apply to images.</p>
+<p>Ensure that you do not confuse an individual image with an image collection, which is a set of images grouped together, most often as a time series, and often known as a <code>stack</code>.</p>
+</div>
+<div id="image-collections" class="section level3">
+<h3><span class="header-section-number">0.2.2</span> Image Collections</h3>
+<p>Let’s analyze the code below, which is an established method of extracting one individual image from an image collection. You can copy and paste this code snippet into the code editor to follow along.</p>
+<p>On the first line, we see that we are creating a JavaScript variable named <code>first</code>, and then using <code>ee</code> in front of <code>ImageCollection</code>, which signifies we are requesting information from GEE. The data we are importing (‘COPERNICUS/S2_SR’) is the Sentinel-2 MSI: MultiSpectral Instrument, Level-2A, with more information found in the dataset <a href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en#description">documentation</a>.</p>
+<p>The next four steps further refine the extraction of an image from an image collection.</p>
+<ol style="list-style-type: decimal">
+<li><code>.filterBounds</code> filters data to the area specified, in this case a geometry Point that was created within GEE.</li>
+<li><code>.filterDate</code> filters between the two dates specified (filtering down to images collected in 2019)</li>
+<li><code>.sort</code> organizes the images in descending order based upon the perentage of cloudy pixels (this is an attribute of the image, which can be found in the ‘Image Properties’ tab in the dataset documentation)</li>
+<li><code>.first</code> is a JavaScript method of choosing the first image in the list of sorted images</li>
+</ol>
+<p>As a result, we can now use the JavaScript variable ‘first’ to visualize the image.</p>
+<p><code>Map.centerObject()</code> centers the map on the image, and the number is the amount of zoom. The higher that value is, the more zoomed in the image is - you’ll likely have to adjust via trial-and-error to find the best fit.</p>
+<p><code>Map.addLayer()</code> adds the visualization layer to the map. Image/image collections will each have a unique naming convention of their bands, so you will have to reference the documentation. GEE uses Red-Green-Blue ordering (as opposed to the popular Computer Vision framework, OpenCV, which uses a Blue-Green-Red convention). <code>min</code> and <code>max</code> are the values that normalize the value of each pixel to the conventional 0-255 color scale. In this case, although the maximum value of a pixel in all three of those bands is 2000, for visualization purposes GEE will normalize that to 255, the max value in a standard 8-bit image.</p>
+<p>There is a comprehensive <a href="https://developers.google.com/earth-engine/guides/image_visualization">guide</a> to working on visualization with different types of imagery that goes quite in-depth on working with different types of imagery. It is a worthwhile read, and covers some interesting topics such as false-color composites, mosaicking and single-band visualization. Work with some of the code-snippets to understand how to build visualizations for different sets of imagery.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="prelab-getting-started.html#cb3-1"></a><span class="kw">var</span> first <span class="op">=</span> <span class="va">ee</span>.<span class="at">ImageCollection</span>(<span class="st">&#39;COPERNICUS/S2_SR&#39;</span>)</span>
+<span id="cb3-2"><a href="prelab-getting-started.html#cb3-2"></a>                .<span class="at">filterBounds</span>(<span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Point</span>(<span class="op">-</span><span class="fl">70.48</span><span class="op">,</span> <span class="fl">43.3631</span>))</span>
+<span id="cb3-3"><a href="prelab-getting-started.html#cb3-3"></a>                .<span class="at">filterDate</span>(<span class="st">&#39;2019-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2019-12-31&#39;</span>)</span>
+<span id="cb3-4"><a href="prelab-getting-started.html#cb3-4"></a>                .<span class="at">sort</span>(<span class="st">&#39;CLOUDY_PIXEL_PERCENTAGE&#39;</span>)</span>
+<span id="cb3-5"><a href="prelab-getting-started.html#cb3-5"></a>                .<span class="at">first</span>()<span class="op">;</span></span>
+<span id="cb3-6"><a href="prelab-getting-started.html#cb3-6"></a><span class="va">Map</span>.<span class="at">centerObject</span>(first<span class="op">,</span> <span class="dv">11</span>)<span class="op">;</span></span>
+<span id="cb3-7"><a href="prelab-getting-started.html#cb3-7"></a><span class="va">Map</span>.<span class="at">addLayer</span>(first<span class="op">,</span> <span class="op">{</span><span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2000</span><span class="op">},</span> <span class="st">&#39;first&#39;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="sensed-versus-derived-imagery" class="section level3">
+<h3><span class="header-section-number">0.2.3</span> Sensed versus Derived Imagery</h3>
+<p>One additional note: GEE provides a rich suite of datasets, and while many of them are traditional sensed imagery, others are derived datasets. For instance, the <em>Global Map of Oil Palm Plantations</em> <a href="https://developers.google.com/earth-engine/datasets/catalog/BIOPAMA_GlobalOilPalm_v1">dataset</a> provides is derived from analysis on the Sentinel composite imagery. If you look at the ‘Bands’, there are only three values, which refer to categories of palm plantations. Datasets such as these will have different methods for visualizing the data or working as a mosaic.</p>
+</div>
+</div>
+<div id="geometries" class="section level2">
+<h2><span class="header-section-number">0.3</span> Geometries</h2>
+<p>Google Earth Engine handles vector data with the Geometry type. Traditionally, this means</p>
+<ul>
+<li>Point</li>
+<li>Line</li>
+<li>Polygon</li>
+</ul>
+<p>However, GEE has several different nuances.</p>
+<ul>
+<li><code>Point</code></li>
+<li><code>LineString</code>
+<ul>
+<li>List of Points that do not start and end at the same location</li>
+</ul></li>
+<li><code>LinearRing</code>
+<ul>
+<li>LineString which does start and end at the same location</li>
+</ul></li>
+<li><code>Polygon</code>
+<ul>
+<li>List of LinearRing’s - first item of the list is the outer shell and other components of the list are interior shells</li>
+</ul></li>
+</ul>
+<p>GEE also recognizes <code>MultiPoint</code>, <code>MultiLineString</code> and <code>MultiPolygon</code>, which are simply collections of more than one element. Additionally, you can combine any of these together to form a <code>MultiGeometry</code>. Here is a quick <a href="https://www.youtube.com/watch?v=OdBhndxgN48">video</a> of working with the Geometry tools within GEE.</p>
+<p>Once you have a set of geometries, there are geospatial operations you can use for analysis, such as building buffer zones, area analysis, rasterization, etc. The <a href="https://developers.google.com/earth-engine/guides/geometric_operations">documentation</a> contains some basic examples to show you how to get started, although there are many more functions listed under the ‘Docs’ tab in the Code Editor.</p>
+<p><!-- ![Screen Shot 2021-08-21 at 12.33.24 PM](./im1.png) --></p>
+<div class="figure"><span style="display:block;" id="fig:code-editor"></span>
+<img src="clip_image001.png" alt="A view of the google earth engine code editor" width="80%" />
+<p class="caption">
+Figure 0.1: A view of the google earth engine code editor
+</p>
+</div>
+</div>
+<div id="features-and-feature-collections" class="section level2">
+<h2><span class="header-section-number">0.4</span> Features and Feature Collections</h2>
+<div id="features" class="section level3">
+<h3><span class="header-section-number">0.4.1</span> Features</h3>
+<p>At the most basic definition, a Feature in GEE is an object which stores a <code>geometry</code> property (<code>Point</code>, <code>Line</code>, <code>Polygon</code>) along with it’s associated properties. GEE uses the GeoJSON format to store and transmit these features. In the previous video, we saw how to build geometries within Google Earth Engine, a feature adds meaningful information to it. This would be a good section to review working with dictionaries with JavaScript.</p>
+<p>Let’s say we created an individual point, which we want to associate with data that we collected. The first line establishes the variable <code>point</code>, which is then used as the <code>geometry</code> to create a <code>feature</code>. The curly braces represent a JavaScript dictionary, which creates Key:Value pairs, which in our case is the type of tree and a measurement of the size. this new variable, <code>treeFeature</code>, now contains geographic information along with attribute data about that point.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="prelab-getting-started.html#cb4-1"></a><span class="co">// geometry created from within GEE</span></span>
+<span id="cb4-2"><a href="prelab-getting-started.html#cb4-2"></a><span class="kw">var</span> point <span class="op">=</span> <span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Point</span>([<span class="op">-</span><span class="fl">79.68</span><span class="op">,</span> <span class="fl">42.06</span>])<span class="op">;</span></span>
+<span id="cb4-3"><a href="prelab-getting-started.html#cb4-3"></a><span class="co">// Create a Feature from the geometry</span></span>
+<span id="cb4-4"><a href="prelab-getting-started.html#cb4-4"></a><span class="kw">var</span> treeFeature <span class="op">=</span> <span class="va">ee</span>.<span class="at">Feature</span>(point<span class="op">,</span> <span class="op">{</span><span class="dt">type</span><span class="op">:</span> <span class="st">&#39;Pine&#39;</span><span class="op">,</span> <span class="dt">size</span><span class="op">:</span> <span class="dv">15</span><span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<p>Obviously this is just one point, but JavaScript and GEE engine provide functionality for bringing different data sources together and automatically associating geometries with attribute data. This can be done within GEE or outside, depending on your preferences.</p>
+</div>
+<div id="feature-collections" class="section level3">
+<h3><span class="header-section-number">0.4.2</span> Feature Collections</h3>
+<p>Just like the relationship between images and image collections, Feature Collections are Features that can be grouped together for ease of use and analysis. They can be different types and combinations of geometry, as well as associated tabular data. The code segment from the documentation consolidates the operations discussed earlier. Each line has an interior layer which creates the geometry (<code>ee.Geometry.---()</code> ), which is then associated with attribute data (information within the {} ) and then converted to a Feature. This variable is a JavaScript<code>list</code>, which contains three separate features. This is then converted to a Feature Collection with the command <code>ee.FeatureCollection(features)</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="prelab-getting-started.html#cb5-1"></a><span class="co">// Make a list of Features.</span></span>
+<span id="cb5-2"><a href="prelab-getting-started.html#cb5-2"></a><span class="kw">var</span> features <span class="op">=</span> [</span>
+<span id="cb5-3"><a href="prelab-getting-started.html#cb5-3"></a>  <span class="va">ee</span>.<span class="at">Feature</span>(<span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Rectangle</span>(<span class="fl">30.01</span><span class="op">,</span> <span class="fl">59.80</span><span class="op">,</span> <span class="fl">30.59</span><span class="op">,</span> <span class="fl">60.15</span>)<span class="op">,</span> <span class="op">{</span><span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Voronoi&#39;</span><span class="op">}</span>)<span class="op">,</span></span>
+<span id="cb5-4"><a href="prelab-getting-started.html#cb5-4"></a>  <span class="va">ee</span>.<span class="at">Feature</span>(<span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Point</span>(<span class="op">-</span><span class="fl">73.96</span><span class="op">,</span> <span class="fl">40.781</span>)<span class="op">,</span> <span class="op">{</span><span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Thiessen&#39;</span><span class="op">}</span>)<span class="op">,</span></span>
+<span id="cb5-5"><a href="prelab-getting-started.html#cb5-5"></a>  <span class="va">ee</span>.<span class="at">Feature</span>(<span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Point</span>(<span class="fl">6.4806</span><span class="op">,</span> <span class="fl">50.8012</span>)<span class="op">,</span> <span class="op">{</span><span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Dirichlet&#39;</span><span class="op">}</span>)</span>
+<span id="cb5-6"><a href="prelab-getting-started.html#cb5-6"></a>]<span class="op">;</span></span>
+<span id="cb5-7"><a href="prelab-getting-started.html#cb5-7"></a></span>
+<span id="cb5-8"><a href="prelab-getting-started.html#cb5-8"></a><span class="co">// Create a FeatureCollection from the list and print it.</span></span>
+<span id="cb5-9"><a href="prelab-getting-started.html#cb5-9"></a><span class="kw">var</span> fromList <span class="op">=</span> <span class="va">ee</span>.<span class="at">FeatureCollection</span>(features)<span class="op">;</span></span>
+<span id="cb5-10"><a href="prelab-getting-started.html#cb5-10"></a><span class="at">print</span>(fromList)<span class="op">;</span></span></code></pre></div>
+<p>If you take this code block and run it in Google Earth Engine, you can see the information that is contained within the FeatureCollection, which has three elements (Features) and two columns (the <code>index</code> and the <code>properties</code>). By clicking on the dropdown next to each one, you can see that the first feature is a Polygon that has the name of ‘Voronoi’.</p>
+<p><img src="im2.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>Once you have information in a Feature Collection, you can filter it to find specific information, such as the name of an object or based on the size of a polygon, or provide aggregated analysis. The <a href="https://developers.google.com/earth-engine/guides/features">documentation</a> on working with Feature Collections is comprehensive, and provides many ideas on how to use them efficiently in in your analysis.</p>
+</div>
+</div>
+<div id="methods-reducers" class="section level2">
+<h2><span class="header-section-number">0.5</span> Methods: Reducers</h2>
+<p>Up until now, we have focused on objects: Images, Features, and Geometries. Reducers are a method of aggregating data for analysis. For instance, we could take an Image Collection and use <code>reducer</code> to find the average value at each pixel, resulting in a single layer. Or we could reduce an image to a set of regions, grouping similar data together to create a simplifed map. The applications of Reducer are endless, and can be applied to both Images and Features. There are different functions for different object types, and Reducer can be both combined and sequenced to create a chain of analysis. From the documentation, the code chunk below creates the variable <code>collection</code> which is a collection that is filtered to the year 2016 and defined to a specific point. The variable <code>extrema</code> then reduces the dataset to identify the minimum and maximum value at that specific point for every band.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="prelab-getting-started.html#cb6-1"></a><span class="co">// Load and filter the Sentinel-2 image collection.</span></span>
+<span id="cb6-2"><a href="prelab-getting-started.html#cb6-2"></a><span class="kw">var</span> collection <span class="op">=</span> <span class="va">ee</span>.<span class="at">ImageCollection</span>(<span class="st">&#39;COPERNICUS/S2&#39;</span>)</span>
+<span id="cb6-3"><a href="prelab-getting-started.html#cb6-3"></a>    .<span class="at">filterDate</span>(<span class="st">&#39;2016-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2016-12-31&#39;</span>)</span>
+<span id="cb6-4"><a href="prelab-getting-started.html#cb6-4"></a>    .<span class="at">filterBounds</span>(<span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Point</span>([<span class="op">-</span><span class="fl">81.31</span><span class="op">,</span> <span class="fl">29.90</span>]))<span class="op">;</span></span>
+<span id="cb6-5"><a href="prelab-getting-started.html#cb6-5"></a><span class="co">// Reduce the collection.</span></span>
+<span id="cb6-6"><a href="prelab-getting-started.html#cb6-6"></a><span class="kw">var</span> extrema <span class="op">=</span> <span class="va">collection</span>.<span class="at">reduce</span>(<span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">minMax</span>())<span class="op">;</span></span></code></pre></div>
+<p>If you print <code>extrema</code> in the console, you can see that the result is 32 separate ‘bands’, which represents the minimum and maximum value for all 16 bands in the Sentinel data. In the screenshot below, you can expand the first ‘band’, which identifies the attributes of the minimum value of Band 1.</p>
+<p><img src="im3.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>There are hundreds of different operations for using <code>Reducer</code>, with the functions listed on the left hand table under ‘Docs’. Certain functions will only work with specific object types, but follow along with the Reducer <a href="https://developers.google.com/earth-engine/guides/reducers_intro">documentation</a> to get a better understanding of how to aggregate data and extract meaningful results. Getting familiar with Reducer is an essential component to working with Google Earth Engine.</p>
+<p><img src="im4.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="joins-and-arrays" class="section level2">
+<h2><span class="header-section-number">0.6</span> Joins and Arrays</h2>
+<div id="join" class="section level3">
+<h3><span class="header-section-number">0.6.1</span> Join</h3>
+<p>If you have programmed in the past, joining data togetgher is likely a familiar concept. This process assicates information from one set of data with relevant data from another set on a specific attribute. Let’s say you have an Image Collection of Landsat data that is filtered to the first six months of the year 2016 and a bounding box of your area of study. You also have a table of Redwood tree locations that is filtered to the same area of study, although it contains information over the past decade. You can use a Join to associate information about the trees from the Feature Collection and include it in the Image Collection, keeping only the relevant data. You now have a dataset with useful information from both the Image Collection and Feature Collection in one location. Although there are different types of joins, the process brings information together, keeping only relevant information. The <a href="https://developers.google.com/earth-engine/guides/joins_save_all">documentation</a> on Joins goes over specific examples and concepts, but a crucial component is understanding the type of join you need the three most prominent within GEE are:</p>
+<ul>
+<li>Left Join
+<ul>
+<li>Keeps all the information from the primary dataset, and only information that joins from the secondary datset</li>
+</ul></li>
+<li>Inner Join
+<ul>
+<li>Keeps only the information where the primary and secondary data match</li>
+</ul></li>
+<li>Spatial Join
+<ul>
+<li>A join based on spatial location (ie, keep only the geometry points that fall within a specified buffer)</li>
+</ul></li>
+</ul>
+<p>GEE provides some unique types of joins, including ‘Save-All’, ‘Save-Best’ and ‘Save-First’, which are useful if you want to look at a specific area.</p>
+</div>
+<div id="arrays" class="section level3">
+<h3><span class="header-section-number">0.6.2</span> Arrays</h3>
+<p>Arrays are a collection of data where information is stored contiguously - matrices are a multi-dimensional array. For instance, an image might have 1024 rows and 1024 columns. Each row is an array, each column is an array, and taken together, you have a 2-dimensional array, also known as a matrix. If the image has three separate color channels, then that is a 3-dimensional array. Some of the terminology changes depending on discipline (ie, physics vs. computer science), but if you are familiar with working with matrices and arrays in programming languages such as Matlab or OpenCV, it is important to understand the role of arrays within GEE.</p>
+<p>In fact, Google Earth Engine states that working with arrays outside of the established functions that they have built is not recommended, as GEE is not specifically designed for array-based math, and will lead to unoptimized performance.</p>
+<p>There is a very informative <a href="https://developers.google.com/earth-engine/guides/arrays_intro">video</a> that delves into the engineering behind Google Earth Engine, but in this course we will only be doing a limited amount with array transformations and Eigen Analysis. In many cases, you will probably be better off aggregating the specific data and then conducting array mathematics with programming frameworks geared to that context.</p>
+</div>
+</div>
+<div id="additional-resources" class="section level2">
+<h2><span class="header-section-number">0.7</span> Additional Resources</h2>
+<ul>
+<li>Google Earth Engine <a href="https://earthengine.google.com">link</a></li>
+<li>Code Editor <a href="https://developers.google.com/earth-engine/guides/playground?hl=en">Map</a> – what all the features on the code editor mean</li>
+<li><a href="https://developers.google.com/earth-engine/datasets/">Datasets</a></li>
+<li><a href="https://earthengine.google.com/case_studies/">Case Studies</a></li>
+<li>Google Earth Engine <a href="https://medium.com/google-earth">Blog</a></li>
+<li><a href="https://developers.google.com/earth-engine/tutorials/tutorials">Video</a> tutorials on using GEE (from the Earth Engine Users’ Summit)</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

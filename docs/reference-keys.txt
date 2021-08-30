@@ -1,3 +1,7 @@
+fig:code-editor
+fig:digimage
+fig:pixel
+fig:spectralres
 data-and-methods
 images-and-image-collections
 images
