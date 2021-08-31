@@ -39,7 +39,7 @@ As scholars interested in using remote sensing data for public social science re
 
 **License and Attribution**
 
-The foundation of the first series of lab exercises were generously shared with us by [Nicholas Clinton](https://research.google/people/NicholasEtienneClinton/) of Google and [Dr. David Saah](https://www.usfca.edu/faculty/david-saah) of the University of San Francisco, Geospatial Analysis Lab.  We ([Elinor Benami]( https://www.ebenami.com/) and [Ozzy Campos](https://ozzycampos.com/)) thank them for this great public good and take responsibility for any errors that arose from our adaptation. 
+The foundation of the first series of lab exercises were generously shared with us by [Nicholas Clinton](https://research.google/people/NicholasEtienneClinton/) of Google and [Dr. David Saah](https://www.usfca.edu/faculty/david-saah) of the University of San Francisco Geospatial Analysis Lab.  We ([Elinor Benami]( https://www.ebenami.com/) and [Ozzy Campos](https://ozzycampos.com/)) thank them for this great public good and take responsibility for any errors that arose from our adaptation. 
 
 <p align="center">
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
