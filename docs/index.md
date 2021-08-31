@@ -2,13 +2,19 @@
 title: "Remote Sensing in the Social Sciences"
 date: "Fall 2021"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+always_allow_html: true
+output:
+  bookdown::html_document2: default
+  bookdown::pdf_document2:
+    keep_tex: true
+
+ 
 ---
 
 
 
 # Introduction {-}
-Research in remote sensing data acquisition and analysis has evolved drastically over the past few decades. In the earliest years of satellite-based remote sensing analysis, only a handful of governments had the capability to deploy satellites and reliably process satellite imagery, and its use was largely limited to the military and intelligence communities. 
+Research involving remote sensing data acquisition and analysis has evolved significantly in the past few decades. In the earliest years of satellite-based remote sensing analysis, only a handful of governments had the capability to deploy satellites and reliably process satellite imagery, and its use was largely limited to the military and intelligence communities. 
 
 In the late 1950s, the US and Europe established the National Aeronautics and Space Administration (NASA) and the (predecessors to) the European Space Agency (ESA) so as to support a civilian space program as well as space and aeronautics research. 
 

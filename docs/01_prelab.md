@@ -165,10 +165,9 @@ Once you have a set of geometries, there are geospatial operations you can use f
 
  <!-- ![Screen Shot 2021-08-21 at 12.33.24 PM](./im1.png) -->
  
-<div class="figure">
-<img src="clip_image001.png" alt="A view of the google earth engine code editor" width="80%" />
-<p class="caption">(\#fig:code-editor)A view of the google earth engine code editor</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{clip_image001} \caption{A view of the google earth engine code editor}(\#fig:code-editor)
+\end{figure}
 
 ## Features and Feature Collections
 
@@ -205,7 +204,8 @@ print(fromList);
 
 If you take this code block and run it in Google Earth Engine, you can see the information that is contained within the FeatureCollection, which has three elements (Features) and two columns (the `index` and the `properties`). By clicking on the dropdown next to each one, you can see that the first feature is a Polygon that has the name of 'Voronoi'.
 
-<img src="im2.png" width="50%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=0.5\linewidth]{im2} \end{center}
 
 Once you have information in a Feature Collection, you can filter it to find specific information, such as the name of an object or based on the size of a polygon, or provide aggregated analysis. The [documentation](https://developers.google.com/earth-engine/guides/features) on working with Feature Collections  is comprehensive, and provides many ideas on how to use them efficiently in in your analysis. 
 
@@ -223,11 +223,13 @@ var extrema = collection.reduce(ee.Reducer.minMax());
 
 If you print `extrema` in the console, you can see that the result is 32 separate 'bands', which represents the minimum and maximum value for all 16 bands in the Sentinel data. In the screenshot below, you can expand the first 'band', which identifies the attributes of the minimum value of Band 1. 
 
-<img src="im3.png" width="50%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=0.5\linewidth]{im3} \end{center}
 
 There are hundreds of different operations for using `Reducer`, with the functions listed on the left hand table under 'Docs'. Certain functions will only work with specific object types, but follow along with the Reducer [documentation](https://developers.google.com/earth-engine/guides/reducers_intro) to get a better understanding of how to aggregate data and extract meaningful results. Getting familiar with Reducer is an essential component to working with Google Earth Engine. 
 
-<img src="im4.png" width="50%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=0.5\linewidth]{im4} \end{center}
 
 
 ## Joins and Arrays
