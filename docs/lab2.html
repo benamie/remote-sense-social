@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 2 Digital Imagery &amp; Image Processing | Remote Sensing in the Social Sciences</title>
+  <meta name="description" content="Lab 2 Digital Imagery &amp; Image Processing | Remote Sensing in the Social Sciences" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lab 2 Digital Imagery &amp; Image Processing | Remote Sensing in the Social Sciences" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lab 2 Digital Imagery &amp; Image Processing | Remote Sensing in the Social Sciences" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab1.html"/>
+
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html"><i class="fa fa-check"></i>PreLab: Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="0.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#data-and-methods"><i class="fa fa-check"></i><b>0.1</b> Data and Methods</a></li>
+<li class="chapter" data-level="0.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images-and-image-collections"><i class="fa fa-check"></i><b>0.2</b> Images and Image Collections</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images"><i class="fa fa-check"></i><b>0.2.1</b> Images</a></li>
+<li class="chapter" data-level="0.2.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#image-collections"><i class="fa fa-check"></i><b>0.2.2</b> Image Collections</a></li>
+<li class="chapter" data-level="0.2.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#sensed-versus-derived-imagery"><i class="fa fa-check"></i><b>0.2.3</b> Sensed versus Derived Imagery</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#geometries"><i class="fa fa-check"></i><b>0.3</b> Geometries</a></li>
+<li class="chapter" data-level="0.4" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features-and-feature-collections"><i class="fa fa-check"></i><b>0.4</b> Features and Feature Collections</a><ul>
+<li class="chapter" data-level="0.4.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features"><i class="fa fa-check"></i><b>0.4.1</b> Features</a></li>
+<li class="chapter" data-level="0.4.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#feature-collections"><i class="fa fa-check"></i><b>0.4.2</b> Feature Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#methods-reducers"><i class="fa fa-check"></i><b>0.5</b> Methods: Reducers</a></li>
+<li class="chapter" data-level="0.6" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#joins-and-arrays"><i class="fa fa-check"></i><b>0.6</b> Joins and Arrays</a><ul>
+<li class="chapter" data-level="0.6.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#join"><i class="fa fa-check"></i><b>0.6.1</b> Join</a></li>
+<li class="chapter" data-level="0.6.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#arrays"><i class="fa fa-check"></i><b>0.6.2</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="0.7" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#additional-resources"><i class="fa fa-check"></i><b>0.7</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>1</b> Remote Sensing Background</a><ul>
+<li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#overview-1"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1.1" data-path="lab1.html"><a href="lab1.html#what-is-a-digital-image"><i class="fa fa-check"></i><b>1.1</b> What is a digital image?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="lab1.html"><a href="lab1.html#from-digital-image-to-geospatial-image"><i class="fa fa-check"></i><b>1.1.1</b> From digital image to geospatial image</a></li>
+<li class="chapter" data-level="1.1.2" data-path="lab1.html"><a href="lab1.html#visualize-a-digital-image"><i class="fa fa-check"></i><b>1.1.2</b> Visualize a Digital Image</a></li>
+<li class="chapter" data-level="1.1.3" data-path="lab1.html"><a href="lab1.html#digital-image-visualization-and-stretching"><i class="fa fa-check"></i><b>1.1.3</b> Digital Image Visualization and Stretching</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lab1.html"><a href="lab1.html#spatial-resolution"><i class="fa fa-check"></i><b>1.2</b> Spatial Resolution</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="lab1.html"><a href="lab1.html#modis"><i class="fa fa-check"></i><b>1.2.1</b> MODIS</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lab1.html"><a href="lab1.html#multispectral-scanners"><i class="fa fa-check"></i><b>1.2.2</b> Multispectral Scanners</a></li>
+<li class="chapter" data-level="1.2.3" data-path="lab1.html"><a href="lab1.html#thematic-mapper-tm"><i class="fa fa-check"></i><b>1.2.3</b> Thematic Mapper (TM)</a></li>
+<li class="chapter" data-level="1.2.4" data-path="lab1.html"><a href="lab1.html#national-agriculture-imagery-program-naip"><i class="fa fa-check"></i><b>1.2.4</b> National Agriculture Imagery Program (NAIP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lab1.html"><a href="lab1.html#spectral-resolution"><i class="fa fa-check"></i><b>1.3</b> Spectral Resolution</a></li>
+<li class="chapter" data-level="1.4" data-path="lab1.html"><a href="lab1.html#temporal-resolution"><i class="fa fa-check"></i><b>1.4</b> Temporal Resolution</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="lab1.html"><a href="lab1.html#modis-1"><i class="fa fa-check"></i><b>1.4.1</b> MODIS</a></li>
+<li class="chapter" data-level="1.4.2" data-path="lab1.html"><a href="lab1.html#landsat"><i class="fa fa-check"></i><b>1.4.2</b> Landsat</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="lab1.html"><a href="lab1.html#radiometric-resolution"><i class="fa fa-check"></i><b>1.5</b> Radiometric Resolution</a></li>
+<li class="chapter" data-level="1.6" data-path="lab1.html"><a href="lab1.html#resampling-and-reprojection"><i class="fa fa-check"></i><b>1.6</b> Resampling and ReProjection</a></li>
+<li class="chapter" data-level="1.7" data-path="lab1.html"><a href="lab1.html#additional-exercises"><i class="fa fa-check"></i><b>1.7</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#where-to-submit"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>2</b> Digital Imagery &amp; Image Processing</a><ul>
+<li class="chapter" data-level="" data-path="lab2.html"><a href="lab2.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="lab2.html"><a href="lab2.html#searching-for-imagery-exercise-1"><i class="fa fa-check"></i><b>2.1</b> Searching for Imagery (Exercise 1)</a></li>
+<li class="chapter" data-level="2.2" data-path="lab2.html"><a href="lab2.html#visualizing-landsat-imagery"><i class="fa fa-check"></i><b>2.2</b> Visualizing Landsat Imagery</a></li>
+<li class="chapter" data-level="2.3" data-path="lab2.html"><a href="lab2.html#plot-at-sensor-radiance"><i class="fa fa-check"></i><b>2.3</b> Plot at-Sensor Radiance</a></li>
+<li class="chapter" data-level="2.4" data-path="lab2.html"><a href="lab2.html#plot-top-of-atmosphere-toa-reflectance"><i class="fa fa-check"></i><b>2.4</b> Plot Top-of-Atmosphere (TOA) Reflectance</a></li>
+<li class="chapter" data-level="2.5" data-path="lab2.html"><a href="lab2.html#plot-surface-reflectance"><i class="fa fa-check"></i><b>2.5</b> Plot Surface Reflectance</a></li>
+<li class="chapter" data-level="2.6" data-path="lab2.html"><a href="lab2.html#additional-exercises-1"><i class="fa fa-check"></i><b>2.6</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab2.html"><a href="lab2.html#where-to-submit-1"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Remote Sensing in the Social Sciences</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab2" class="section level1">
+<h1><span class="header-section-number">Lab 2</span> Digital Imagery &amp; Image Processing</h1>
+<style type="text/css">
+.blackbox {
+  padding: 1em;
+  background: black;
+  color: white;
+  border: 2px solid orange;
+  border-radius: 10px;
+}
+.center {
+  text-align: center;
+}
+</style>
+<div id="overview-2" class="section level2 unnumbered">
+<h2>Overview</h2>
+<p>The purpose of this lab is to enable you to search, find and visualize imagery in Google Earth Engine. At completion, you should be able to understand the difference between radiance and reflectance, load imagery with the units of interest (radiance or reflectance, for example), make true color and false color composites and visually identify land cover types based on spectral characteristics.</p>
+<div id="learning-outcomes-2" class="section level4 unnumbered">
+<h4>Learning Outcomes</h4>
+<ul>
+<li>Search and import imagery in GEE</li>
+<li>Extract single scenes from collections of images</li>
+<li>Create and visualize different composites according to desired parameters</li>
+<li>Use the Inspector tab to assess pixel values</li>
+<li>Understand the difference between radiance and reflectance through visualization</li>
+</ul>
+</div>
+</div>
+<div id="searching-for-imagery-exercise-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> Searching for Imagery (Exercise 1)</h2>
+<p>The Landsat program is a joint NASA/USGS program that has launched a sequence of Earth observation satellites, named Landsat 1, 2,… etc. The Landsat program has resulted in the <a href="https://www.youtube.com/embed/ZZx1xmNGcXI?list=PLD240BBC85537B9BE">longest continuous observation of the Earth’s surface</a>. In this exercise, you will load a Landsat scene over your area of interest, inspect the units and make a plot of radiance. Specifically, use imagery from the Landsat 8, the most recent of the <a href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-8">sequence of Landsat satellites</a>. To inspect a Landsat 8 image (also called a <em>scene</em>) in your region of interest (ROI), define your ROI as a point, filter the image collection to get a scene with few clouds, and display some information about the image in the console.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Search for ‘San Francisco’ in the playground search bar and click the result under “Places” to pan and zoom the map to San Francisco.</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sfgeeexample"></span>
+<img src="sf_gee_example.png" alt="Playground Search for San Francisco in the GEE Console" width="95%" />
+<p class="caption">
+Figure 2.1: Playground Search for San Francisco in the GEE Console
+</p>
+</div>
+<!-- ![Map  Description automatically generated](./clip_image001.png) -->
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Use the <a href="https://developers.google.com/earth-engine/playground#geometry-tools">geometry tools</a> to make a point in San Francisco (Exit the drawing tool when you’re finished). Name the resultant <a href="https://developers.google.com/earth-engine/playground#imports">import</a> ‘point’ by clicking on the import name (‘geometry’ by default).</p></li>
+<li><p>Search for ‘landsat 8 raw’ and import the ‘USGS Landsat 8 Collection 1 Tier 1 Raw Scenes’ ImageCollection. Name the import <code>landsat</code>.</p></li>
+<li><p>Filter the <code>ImageCollection</code> by date and location, sort by a metadata property called <code>CLOUD_COVER</code> and get the first image out of this sorted collection:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="lab2.html#cb1-1"></a><span class="co">//  Note that we need to cast the result of first() to Image.   </span></span>
+<span id="cb1-2"><a href="lab2.html#cb1-2"></a><span class="kw">var</span> image <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(landsat        </span>
+<span id="cb1-3"><a href="lab2.html#cb1-3"></a>                     <span class="co">//  Filter to get only images in the specified range.  </span></span>
+<span id="cb1-4"><a href="lab2.html#cb1-4"></a>                     .<span class="at">filterDate</span>(<span class="st">&#39;2014-01-01&#39;</span><span class="op">,</span>  <span class="st">&#39;2014-12-31&#39;</span>)        </span>
+<span id="cb1-5"><a href="lab2.html#cb1-5"></a>                     <span class="co">//  Filter to get only images at the location of the point.     </span></span>
+<span id="cb1-6"><a href="lab2.html#cb1-6"></a>                     .<span class="at">filterBounds</span>(point)        </span>
+<span id="cb1-7"><a href="lab2.html#cb1-7"></a>                     <span class="co">//  Sort the collection by a metadata property.     </span></span>
+<span id="cb1-8"><a href="lab2.html#cb1-8"></a>                     .<span class="at">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)        </span>
+<span id="cb1-9"><a href="lab2.html#cb1-9"></a>                     <span class="co">//  Get the first image out of this collection.     </span></span>
+<span id="cb1-10"><a href="lab2.html#cb1-10"></a>                     .<span class="at">first</span>())<span class="op">;</span>  </span></code></pre></div></li>
+<li><p>The variable <code>image</code> now stores a reference to an object of type <code>ee.Image</code>. Display a human-readable representation of the image by printing it to the console.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="lab2.html#cb2-1"></a>  <span class="co">//  Print the information to the console </span></span>
+<span id="cb2-2"><a href="lab2.html#cb2-2"></a>  <span class="at">print</span>(<span class="st">&#39;A Landsat scene:&#39;</span><span class="op">,</span> image)<span class="op">;</span>  </span></code></pre></div></li>
+<li><p>Activate the <a href="https://developers.google.com/earth-engine/playground#console-tab"><strong>Console</strong></a> and observe that after the descriptive text, an object is displayed. Expand and explore the object by clicking the little triangle (►) next to the image name to see more information stored in that object. Specifically, expand <code>properties</code> and inspect the long list of metadata items stored as properties of the image. This is where that <code>CLOUD_COVER</code> property you just used is stored.</p></li>
+<li><p>Note that there are band specific coefficients (<code>RADIANCE_ADD_*</code>, <code>RADIANCE_MULT_*</code> where * is a band name) in the metadata for converting from the digital number (DN) stored by the image into physical units of radiance. These coefficients will be useful in later exercises.</p></li>
+</ol>
+</div>
+<div id="visualizing-landsat-imagery" class="section level2">
+<h2><span class="header-section-number">2.2</span> Visualizing Landsat Imagery</h2>
+<p>Recall that <a href="https://svs.gsfc.nasa.gov/cgi-bin/details.cgi?aid=11491">Landsat 8 measures radiance in multiple spectral bands</a>. A common way to visualize images is to set the red band to display in red, the green band to display in green and the blue band to display in blue. This means trying to match the <a href="http://landsat.gsfc.nasa.gov/?p=5779">spectral response of the instrument</a> to the spectral response of the photoreceptors in the human eye. It’s not a perfect match. Despite that, a visualization done in this manner is called a <em>true-color</em> image. When the display bands don’t match human visual perception, the resultant visualization is called a <em>false-color composite</em>. In this exercise, you will make several different visualizations of the scene you found in exercise 1.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Add the image found in exercise 1 to the map display with the following code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="lab2.html#cb3-1"></a><span class="co">//  Define visualization parameters in a JavaScript dictionary.   </span></span>
+<span id="cb3-2"><a href="lab2.html#cb3-2"></a><span class="kw">var</span> trueColor <span class="op">=</span> <span class="op">{</span>    </span>
+<span id="cb3-3"><a href="lab2.html#cb3-3"></a>  <span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span>    </span>
+<span id="cb3-4"><a href="lab2.html#cb3-4"></a>  <span class="dt">min</span><span class="op">:</span> <span class="dv">4000</span><span class="op">,</span>    </span>
+<span id="cb3-5"><a href="lab2.html#cb3-5"></a>  <span class="dt">max</span><span class="op">:</span> <span class="dv">12000</span><span class="op">};</span>  </span>
+<span id="cb3-6"><a href="lab2.html#cb3-6"></a><span class="co">// Add the image to the  map, using the visualization parameters.   </span></span>
+<span id="cb3-7"><a href="lab2.html#cb3-7"></a><span class="va">Map</span>.<span class="at">addLayer</span>(image<span class="op">,</span> trueColor<span class="op">,</span> <span class="st">&#39;true-color image&#39;</span>)<span class="op">;</span>  </span></code></pre></div></li>
+<li><p>Observe that this Image is displayed according to the visualization instructions in the trueColor dictionary object. Specifically, bands is a list of three bands to display as red, green and blue, respectively (first band is red, second is green, third is blue). To understand where these band names come from, inspect the bands property of the image in the <strong>Console</strong>. To understand how to match bands to colors, see <a href="http://landsat.usgs.gov/band_designations_landsat_satellites.php">this helpful page</a> and <a href="http://landsat.usgs.gov/L8_band_combos.php">this one</a>.</p></li>
+<li><p>There is more than one way to discover the appropriate min and max values to display. Try going to the <a href="https://developers.google.com/earth-engine/playground#inspector-tab"><strong>Inspector</strong> tab</a> and clicking somewhere on the map. Note that value in each band, in the pixel where you clicked, is displayed as a list in the <strong>Inspector</strong>. Try clicking on dark and bright objects to get a sense of the range of pixel values. Also note that the <a href="https://developers.google.com/earth-engine/playground#layer-manager">layer manager</a> in the upper right of the map display lets you automatically compute a linear stretch based on the pixels in the map display.</p></li>
+<li><p>Define a new set of visualization parameters and use them to add the image to the map as a false-color composite. This particular set of bands results in a <em>color-IR composite</em> because the near infra-red (NIR) band is set to red:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="lab2.html#cb4-1"></a><span class="co">//  Define false-color visualization parameters.   </span></span>
+<span id="cb4-2"><a href="lab2.html#cb4-2"></a><span class="kw">var</span> falseColor <span class="op">=</span> <span class="op">{</span>    <span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span>]<span class="op">,</span>    <span class="dt">min</span><span class="op">:</span> <span class="dv">4000</span><span class="op">,</span>    <span class="dt">max</span><span class="op">:</span> <span class="dv">13000</span>   <span class="op">};</span>  </span>
+<span id="cb4-3"><a href="lab2.html#cb4-3"></a><span class="co">// Add the image to the  map, using the visualization parameters.   </span></span>
+<span id="cb4-4"><a href="lab2.html#cb4-4"></a><span class="va">Map</span>.<span class="at">addLayer</span>(image<span class="op">,</span> falseColor<span class="op">,</span> <span class="st">&#39;false-color composite&#39;</span>)<span class="op">;</span> </span></code></pre></div></li>
+<li><p>Try playing with band combinations, min and max DNs to achieve different visualizations. Note that you can compare the displays by toggling layers on and off with the layer manager.</p></li>
+</ol>
+</div>
+<div id="plot-at-sensor-radiance" class="section level2">
+<h2><span class="header-section-number">2.3</span> Plot at-Sensor Radiance</h2>
+<p>The image data you have used so far is stored as DNs. To convert DN values into at-sensor <a href="https://en.wikipedia.org/wiki/Radiance">radiance</a> units in Watts/m2/sr/𝝁m, use a linear equation of the form</p>
+<p><span class="math display">\[ L_𝝀 = a_{\lambda} * DN_{\lambda} + b_{\lambda}  \qquad (1) \]</span></p>
+<p>Note that every term is indexed by lambda ({}, the symbol for wavelength) because the coefficients are different in each band. See <a href="http://www.sciencedirect.com/science/article/pii/S0034425709000169">Chander et al. (2009)</a> for details on this linear transformation between DN and radiance. In this exercise, you will generate a radiance image and examine the differences in radiance from different targets.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Perform the transformation in equation 1 using the Earth Engine function for converting Landsat imagery to radiance in Watts/m2/sr/𝝁m. It will automatically look up the right metadata values for each band and apply the equation for you</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="lab2.html#cb5-1"></a><span class="co">//  Use these bands.    </span></span>
+<span id="cb5-2"><a href="lab2.html#cb5-2"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">&#39;B1&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span><span class="op">,</span> <span class="st">&#39;B10&#39;</span><span class="op">,</span> <span class="st">&#39;B11&#39;</span>]<span class="op">;</span>  </span>
+<span id="cb5-3"><a href="lab2.html#cb5-3"></a><span class="co">// Get an image that  contains only the bands of interest.   </span></span>
+<span id="cb5-4"><a href="lab2.html#cb5-4"></a><span class="kw">var</span> dnImage <span class="op">=</span> <span class="va">image</span>.<span class="at">select</span>(bands)<span class="op">;</span>  </span>
+<span id="cb5-5"><a href="lab2.html#cb5-5"></a><span class="co">// Apply the  transformation.   </span></span>
+<span id="cb5-6"><a href="lab2.html#cb5-6"></a><span class="kw">var</span> radiance <span class="op">=</span>  <span class="va">ee</span>.<span class="va">Algorithms</span>.<span class="va">Landsat</span>.<span class="at">calibratedRadiance</span>(dnImage)<span class="op">;</span>  </span>
+<span id="cb5-7"><a href="lab2.html#cb5-7"></a><span class="co">// Display the result.   </span></span>
+<span id="cb5-8"><a href="lab2.html#cb5-8"></a><span class="kw">var</span> radParams <span class="op">=</span> <span class="op">{</span><span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">100</span><span class="op">};</span>   </span>
+<span id="cb5-9"><a href="lab2.html#cb5-9"></a><span class="va">Map</span>.<span class="at">addLayer</span>(radiance<span class="op">,</span> radParams<span class="op">,</span> <span class="st">&#39;radiance&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<p>Note that this code applies the transformation to a subset of bands (specified by a list of band names) obtained from the image using select(). That is to facilitate interpretation of the radiance spectrum by removing the panchromatic band (‘B8’), an atmospheric absorption band (‘B9’) and the QA band (‘BQA’). Also note that the visualization parameters are different to account for the radiance units.</p></li>
+<li><p>Inspect the radiance image by activating the <strong>Inspector</strong> and clicking locations on the map. (It may be easier if you turn off the other images you’re displaying by commenting `Map.addLayer() lines from previous exercises. Comment a line with the Ctrl-/ shortcut or two forward slashes at the start of the line). Click on different land cover types and in the <strong>Inspector</strong>, and click the chart icon (<img src="chart_icon_gee.png" alt="img" />) to get a chart of the pixel values. If the shape of the chart resembles Figure 1, that’s because the radiance (in bands 1-7) is mostly reflected solar irradiance. The radiance detected in bands 10-11 is thermal, and is <em>emitted</em> (not reflected) from the surface.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:irradiancewavelength"></span>
+<img src="irradiance_wavelength.png" alt="Solar irradiance. Data sources: 6000K blackbody spectrum from http://astrogeology.usgs.gov/tools/thermal-radiance-calculator, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from http://rredc.nrel.gov/solar/spectra/am1.5/" width="100%" />
+<p class="caption">
+Figure 2.2: Solar irradiance. Data sources: 6000K blackbody spectrum from <a href="http://astrogeology.usgs.gov/tools/thermal-radiance-calculator" class="uri">http://astrogeology.usgs.gov/tools/thermal-radiance-calculator</a>, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from <a href="http://rredc.nrel.gov/solar/spectra/am1.5/" class="uri">http://rredc.nrel.gov/solar/spectra/am1.5/</a>
+</p>
+</div>
+<!-- **Figure 1**. Solar irradiance. Data sources: 6000K blackbody spectrum from http://astrogeology.usgs.gov/tools/thermal-radiance-calculator, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from http://rredc.nrel.gov/solar/spectra/am1.5/.  -->
+</div>
+<div id="plot-top-of-atmosphere-toa-reflectance" class="section level2">
+<h2><span class="header-section-number">2.4</span> Plot Top-of-Atmosphere (TOA) Reflectance</h2>
+<p>The Landsat sensor is in orbit approximately 700 kilometers above Earth. The ratio of upward (reflected from the target at Earth’s surface) radiance measured by the sensor to downward radiance from the sun is a unitless ratio called <a href="https://en.wikipedia.org/wiki/Reflectance">reflectance</a>. (In fact it’s more complicated than that because radiance is a directional quantity, but this definition captures the basic idea). Because this ratio is computed using whatever radiance the sensor measures (which may contain all sorts of atmospheric effects), it’s called <em>at-sensor</em> or <em>top-of-atmosphere</em> (TOA) reflectance. In this exercise, you will load TOA reflectance data and examine spectra at representative locations.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>To get TOA data for landsat, a transformation of digital numbers is performed as described in <a href="http://www.sciencedirect.com/science/article/pii/S0034425709000169">Chander et al. (2009)</a>. This transformation is automatically done by Earth Engine. Search for ‘landsat 8 toa’ and import the ‘USGS Landsat 8 Collection 1 Tier 1 TOA Reflectance’ ImageCollection. Name the import ‘toa’. This collection stores TOA images which can be filtered as in exercise 1, substituting ‘toa’ for ‘landsat’ as the collection variable. A shortcut is to find the image ID from the printout of image (defined in exercise 1), then copy this ID directly into the Image constructor, appending _TOA to the collection name (the difference is shown in bold):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="lab2.html#cb6-1"></a><span class="kw">var</span> toaImage <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(<span class="st">&#39;LANDSAT/LC08/C01/T1_TOA/LC08_044034_20141012&#39;</span>)<span class="op">;</span>  </span></code></pre></div></li>
+<li><p>Since reflectance is a unitless ratio in [0, 1], change the visualization parameters to correctly display the TOA data:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="lab2.html#cb7-1"></a><span class="va">Map</span>.<span class="at">addLayer</span>(toaImage<span class="op">,</span> <span class="op">{</span><span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span>  <span class="st">&#39;toa&#39;</span>)<span class="op">;</span>  </span></code></pre></div></li>
+<li><p>Using the <strong>Inspector</strong>, click several locations on the map and examine the resultant spectra. It should be apparent, especially if you chart the spectra, that the scale of pixel values in different bands is drastically different. Specifically, bands 10-11 are not in [0, 1]. The reason is that these are thermal bands, and are converted to brightness temperature, in <a href="https://en.wikipedia.org/wiki/Kelvin">Kelvin</a>, as part of the TOA conversion. Very little radiance is reflected in this wavelength range; most is emitted from the Earth’s surface. That emitted radiance can be used to estimate <a href="https://en.wikipedia.org/wiki/Brightness_temperature">brightness temperature</a>, using the inverted <a href="https://en.wikipedia.org/wiki/Planck&#39;s_law">Planck equation</a>. Examine the temperature of various locations. Now add this command to the TOA image before adding it to the map to get only bands 1-9 <code>.select('B([0-9])')</code></p></li>
+<li><p>To make plots of reflectance, select the reflective bands from the TOA image and use the Earth Engine <a href="https://developers.google.com/earth-engine/charts">charting API</a>. To see a customized chart of reflectance at a point in Golden Gate Park, use:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="lab2.html#cb8-1"></a><span class="co">//  Hardcode a point in Golden Gate Park.   </span></span>
+<span id="cb8-2"><a href="lab2.html#cb8-2"></a><span class="kw">var</span> ggPark <span class="op">=</span> <span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Point</span>([<span class="op">-</span><span class="fl">122.4860</span><span class="op">,</span> <span class="fl">37.7692</span>])<span class="op">;</span>      </span>
+<span id="cb8-3"><a href="lab2.html#cb8-3"></a><span class="co">// Define reflective  bands as bands B1-B7. See the docs for slice().   </span></span>
+<span id="cb8-4"><a href="lab2.html#cb8-4"></a><span class="kw">var</span> reflectiveBands <span class="op">=</span> <span class="va">bands</span>.<span class="at">slice</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">7</span>)<span class="op">;</span>      </span>
+<span id="cb8-5"><a href="lab2.html#cb8-5"></a><span class="co">// See  http://landsat.usgs.gov/band_designations_landsat_satellites.php   </span></span>
+<span id="cb8-6"><a href="lab2.html#cb8-6"></a><span class="kw">var</span> wavelengths <span class="op">=</span> [<span class="fl">0.44</span><span class="op">,</span> <span class="fl">0.48</span><span class="op">,</span> <span class="fl">0.56</span><span class="op">,</span> <span class="fl">0.65</span><span class="op">,</span> <span class="fl">0.86</span><span class="op">,</span> <span class="fl">1.61</span><span class="op">,</span> <span class="fl">2.2</span>]<span class="op">;</span>      </span>
+<span id="cb8-7"><a href="lab2.html#cb8-7"></a><span class="co">// Select only the  reflectance bands of interest.   </span></span>
+<span id="cb8-8"><a href="lab2.html#cb8-8"></a><span class="kw">var</span> reflectanceImage <span class="op">=</span>  <span class="va">toaImage</span>.<span class="at">select</span>(reflectiveBands)<span class="op">;</span>      </span>
+<span id="cb8-9"><a href="lab2.html#cb8-9"></a><span class="co">// Define an object of  customization parameters for the chart.   </span></span>
+<span id="cb8-10"><a href="lab2.html#cb8-10"></a><span class="kw">var</span> options <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb8-11"><a href="lab2.html#cb8-11"></a>  <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Landsat  8 TOA spectrum in Golden Gate Park&#39;</span><span class="op">,</span>    </span>
+<span id="cb8-12"><a href="lab2.html#cb8-12"></a>               <span class="dt">hAxis</span><span class="op">:</span> <span class="op">{</span><span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Wavelength  (micrometers)&#39;</span><span class="op">},</span></span>
+<span id="cb8-13"><a href="lab2.html#cb8-13"></a>               <span class="dt">vAxis</span><span class="op">:</span> <span class="op">{</span><span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Reflectance&#39;</span><span class="op">},</span></span>
+<span id="cb8-14"><a href="lab2.html#cb8-14"></a>               <span class="dt">lineWidth</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb8-15"><a href="lab2.html#cb8-15"></a>               <span class="dt">pointSize</span><span class="op">:</span> <span class="dv">4</span><span class="op">};</span>      </span>
+<span id="cb8-16"><a href="lab2.html#cb8-16"></a><span class="co">// Make the chart, using  a 30 meter pixel.   </span></span>
+<span id="cb8-17"><a href="lab2.html#cb8-17"></a><span class="kw">var</span> chart <span class="op">=</span> <span class="va">ui</span>.<span class="va">Chart</span>.<span class="va">image</span>.<span class="at">regions</span>(</span>
+<span id="cb8-18"><a href="lab2.html#cb8-18"></a>  reflectanceImage<span class="op">,</span> </span>
+<span id="cb8-19"><a href="lab2.html#cb8-19"></a>  ggPark<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> wavelengths)</span>
+<span id="cb8-20"><a href="lab2.html#cb8-20"></a>        .<span class="at">setOptions</span>(options)<span class="op">;</span>      </span>
+<span id="cb8-21"><a href="lab2.html#cb8-21"></a><span class="co">// Display the chart.   </span></span>
+<span id="cb8-22"><a href="lab2.html#cb8-22"></a><span class="at">print</span>(chart)<span class="op">;</span>  </span></code></pre></div></li>
+</ol>
+<hr />
+<p><i class="fa fa-file"></i> <strong>1. Upload the TOA reflectance plot you generated and briefly describe its salient features </strong></p>
+<hr />
+<p>There are several new methods in this code. The Point constructor takes a list of coordinates as input, as an alternative to a “hand-made” point from the geometry drawing tools that is imported to the script. The <code>slice()</code> method gets entries in a list based on starting and ending indices. Search the docs (on the <strong>Docs</strong> tab) for ‘slice’ to find other places this method can be used. Construction of the chart is handled by an object of customization parameters (<a href="https://developers.google.com/earth-engine/charts_image_histogram">learn more about customizing charts</a>) passed to <a href="https://developers.google.com/earth-engine/charts_image_regions">Chart.image.regions()</a>.</p>
+</div>
+<div id="plot-surface-reflectance" class="section level2">
+<h2><span class="header-section-number">2.5</span> Plot Surface Reflectance</h2>
+<p>The ratio of upward radiance <em>at the Earth’s surface</em> to downward radiance <em>at the Earth’s surface</em> is called surface reflectance. Unlike TOA reflectance, in which those radiances are at the sensor, the radiances at the Earth’s surface have been affected by the atmosphere. The radiance incident on the target is affected by its downward path through the atmosphere. The radiance reflected by the target is affected by its upward path through the atmosphere to the sensor. Unravelling those effects is called atmospheric correction (“compensation” is probably a more accurate term) and is beyond our scope. However, helpful scientists at the USGS have already performed this correction for us.</p>
+<p>To explore Landsat surface reflectance data, search ‘Landsat 8 surface reflectance’ and import the ‘USGS Landsat 8 Surface Reflectance Tier 1’ <code>ImageCollection</code>. Name the import <code>sr</code>. Filter to the same date, location and cloudiness as with the raw and TOA collections and get the first image.</p>
+<hr />
+<p><i class="fa fa-file"></i><strong>2. Upload the surface reflectance plot you just generated and briefly describe its salient features. What differs or remains the same between the TOA plot and the surface reflectance plot? </strong></p>
+<hr />
+<p><i class="fa fa-file"></i><strong>3. When you add <code>sr</code> to the map, you will need to scale the imagery or change the visualization parameters. Why? Read the dataset description to find out. Hint: What is the scale factor for bands 1-9? </strong></p>
+<hr />
+</div>
+<div id="additional-exercises-1" class="section level2">
+<h2><span class="header-section-number">2.6</span> Additional Exercises</h2>
+<p><i class="fa fa-file"></i> <strong>4. In your code, set the value of a variable called <code>azimuth</code> to the solar azimuth of the image from 1d. Do not hardcode the number. Use <code>get()</code>. Print the result and show you set the value of <code>azimuth</code>.</strong></p>
+<hr />
+<p><i class="fa fa-file"></i> <strong>5. Add a layer to the map in which the image from 1d is displayed with band 7 set to red, band 5 set to green and band 3 set to blue. Upload a visual of the layer and show how you would display the layer name as <code>falsecolor</code>. </strong></p>
+<hr />
+<p><i class="fa fa-file"></i> <strong>6. What is the brightness temperature of the golden gate park point? Also show how you make a variable in your code called temperature and set it to the band 10 brightness temperature.</strong> Hint:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="lab2.html#cb9-1"></a><span class="kw">var</span>  temperature <span class="op">=</span> <span class="va">toaImage</span>.<span class="at">reduceRegion</span>(</span>
+<span id="cb9-2"><a href="lab2.html#cb9-2"></a>  <span class="op">{</span> <span class="op">&lt;</span>YOUR SOLUTION HERE<span class="op">&gt;</span>   <span class="op">}</span>)</span>
+<span id="cb9-3"><a href="lab2.html#cb9-3"></a>        .<span class="at">get</span>(  <span class="op">&lt;</span>YOUR SOLUTION  HERE<span class="op">&gt;</span>)<span class="op">;</span>  </span></code></pre></div>
+<p>Use <a href="https://developers.google.com/earth-engine/reducers_reduce_region">this guide</a> for help.</p>
+<hr />
+<p><i class="fa fa-file"></i> <strong>7. What is the surface reflectance (in [0,1], meaning you will need to apply the scale factor) in band 5 (NIR) at the golden gate park point? Also show how you make a variable in your code called <code>reflectance</code> that stores this value.</strong></p>
+<hr />
+</div>
+<div id="where-to-submit-1" class="section level2 unnumbered">
+<h2>Where to submit</h2>
+<p>Submit your responses to these questions on <a href="https://www.gradescope.com/courses/293173/assignments/1446622/submissions">Gradescope</a> by 10am on Wednesday, September 15. All students who have been attending class have already been enrolled in Gradescope, although if for some reason you need to sign up again, the access code for our course is <code>6PEW3W</code>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["labs-rsss.pdf"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
