@@ -206,18 +206,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="lab2" class="section level1">
 <h1><span class="header-section-number">Lab 2</span> Digital Imagery &amp; Image Processing</h1>
-<style type="text/css">
-.blackbox {
-  padding: 1em;
-  background: black;
-  color: white;
-  border: 2px solid orange;
-  border-radius: 10px;
-}
-.center {
-  text-align: center;
-}
-</style>
 <div id="overview-2" class="section level2 unnumbered">
 <h2>Overview</h2>
 <p>The purpose of this lab is to enable you to search, find and visualize imagery in Google Earth Engine. At completion, you should be able to understand the difference between radiance and reflectance, load imagery with the units of interest (radiance or reflectance, for example), make true color and false color composites and visually identify land cover types based on spectral characteristics.</p>
@@ -262,7 +250,7 @@ Figure 2.1: Playground Search for San Francisco in the GEE Console
 <li><p>The variable <code>image</code> now stores a reference to an object of type <code>ee.Image</code>. Display a human-readable representation of the image by printing it to the console.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="lab2.html#cb2-1"></a>  <span class="co">//  Print the information to the console </span></span>
 <span id="cb2-2"><a href="lab2.html#cb2-2"></a>  <span class="at">print</span>(<span class="st">&#39;A Landsat scene:&#39;</span><span class="op">,</span> image)<span class="op">;</span>  </span></code></pre></div></li>
-<li><p>Activate the <a href="https://developers.google.com/earth-engine/playground#console-tab"><strong>Console</strong></a> and observe that after the descriptive text, an object is displayed. Expand and explore the object by clicking the little triangle (►) next to the image name to see more information stored in that object. Specifically, expand <code>properties</code> and inspect the long list of metadata items stored as properties of the image. This is where that <code>CLOUD_COVER</code> property you just used is stored.</p></li>
+<li><p>Activate the <a href="https://developers.google.com/earth-engine/playground#console-tab"><strong>Console</strong></a> and observe that after the descriptive text, an object is displayed. Expand and explore the object by clicking the little triangle next to the image name to see more information stored in that object. Specifically, expand <code>properties</code> and inspect the long list of metadata items stored as properties of the image. This is where that <code>CLOUD_COVER</code> property you just used is stored.</p></li>
 <li><p>Note that there are band specific coefficients (<code>RADIANCE_ADD_*</code>, <code>RADIANCE_MULT_*</code> where * is a band name) in the metadata for converting from the digital number (DN) stored by the image into physical units of radiance. These coefficients will be useful in later exercises.</p></li>
 </ol>
 </div>
@@ -292,7 +280,7 @@ Figure 2.1: Playground Search for San Francisco in the GEE Console
 <h2><span class="header-section-number">2.3</span> Plot at-Sensor Radiance</h2>
 <p>The image data you have used so far is stored as DNs. To convert DN values into at-sensor <a href="https://en.wikipedia.org/wiki/Radiance">radiance</a> units in Watts/m2/sr/𝝁m, use a linear equation of the form</p>
 <p><span class="math display">\[ L_𝝀 = a_{\lambda} * DN_{\lambda} + b_{\lambda}  \qquad (1) \]</span></p>
-<p>Note that every term is indexed by lambda ({}, the symbol for wavelength) because the coefficients are different in each band. See <a href="http://www.sciencedirect.com/science/article/pii/S0034425709000169">Chander et al. (2009)</a> for details on this linear transformation between DN and radiance. In this exercise, you will generate a radiance image and examine the differences in radiance from different targets.</p>
+<p>Note that every term is indexed by lamda (<span class="math inline">\(\lambda\)</span>, the symbol for wavelength) because the coefficients are different in each band. See <a href="http://www.sciencedirect.com/science/article/pii/S0034425709000169">Chander et al. (2009)</a> for details on this linear transformation between DN and radiance. In this exercise, you will generate a radiance image and examine the differences in radiance from different targets.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Perform the transformation in equation 1 using the Earth Engine function for converting Landsat imagery to radiance in Watts/m2/sr/𝝁m. It will automatically look up the right metadata values for each band and apply the equation for you</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="lab2.html#cb5-1"></a><span class="co">//  Use these bands.    </span></span>
@@ -308,12 +296,12 @@ Figure 2.1: Playground Search for San Francisco in the GEE Console
 <li><p>Inspect the radiance image by activating the <strong>Inspector</strong> and clicking locations on the map. (It may be easier if you turn off the other images you’re displaying by commenting `Map.addLayer() lines from previous exercises. Comment a line with the Ctrl-/ shortcut or two forward slashes at the start of the line). Click on different land cover types and in the <strong>Inspector</strong>, and click the chart icon (<img src="chart_icon_gee.png" alt="img" />) to get a chart of the pixel values. If the shape of the chart resembles Figure 1, that’s because the radiance (in bands 1-7) is mostly reflected solar irradiance. The radiance detected in bands 10-11 is thermal, and is <em>emitted</em> (not reflected) from the surface.</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:irradiancewavelength"></span>
-<img src="irradiance_wavelength.png" alt="Solar irradiance. Data sources: 6000K blackbody spectrum from http://astrogeology.usgs.gov/tools/thermal-radiance-calculator, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from http://rredc.nrel.gov/solar/spectra/am1.5/" width="100%" />
+<img src="irradiance_wavelength.png" alt="Solar irradiance vs wavelenth" width="95%" />
 <p class="caption">
-Figure 2.2: Solar irradiance. Data sources: 6000K blackbody spectrum from <a href="http://astrogeology.usgs.gov/tools/thermal-radiance-calculator" class="uri">http://astrogeology.usgs.gov/tools/thermal-radiance-calculator</a>, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from <a href="http://rredc.nrel.gov/solar/spectra/am1.5/" class="uri">http://rredc.nrel.gov/solar/spectra/am1.5/</a>
+Figure 2.2: Solar irradiance vs wavelenth
 </p>
 </div>
-<!-- **Figure 1**. Solar irradiance. Data sources: 6000K blackbody spectrum from http://astrogeology.usgs.gov/tools/thermal-radiance-calculator, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from http://rredc.nrel.gov/solar/spectra/am1.5/.  -->
+<p>Data sources: 6000K blackbody spectrum from <a href="http://astrogeology.usgs.gov/tools/thermal-radiance-calculator" class="uri">http://astrogeology.usgs.gov/tools/thermal-radiance-calculator</a>, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from <a href="http://rredc.nrel.gov/solar/spectra/am1.5/" class="uri">http://rredc.nrel.gov/solar/spectra/am1.5/</a>.</p>
 </div>
 <div id="plot-top-of-atmosphere-toa-reflectance" class="section level2">
 <h2><span class="header-section-number">2.4</span> Plot Top-of-Atmosphere (TOA) Reflectance</h2>

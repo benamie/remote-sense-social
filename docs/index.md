@@ -4,10 +4,13 @@ date: "Fall 2021 | AAEC 6984 | Prof Benami"
 site: bookdown::bookdown_site
 always_allow_html: true
 output:
-  bookdown::html_document2: default
+  html_document:
+    toc: true
   bookdown::pdf_document2:
-    keep_tex: true
+    latex_engine: xelatex
+    toc: true
 ---
+
 
 
 
