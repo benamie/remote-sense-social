@@ -230,4 +230,4 @@ Use [this guide](https://developers.google.com/earth-engine/reducers_reduce_regi
 
 
 ## Where to submit {-}
-Submit your responses to these questions on [Gradescope](https://www.gradescope.com/courses/293173/assignments/1446622/submissions) by 10am on Wednesday, September 15. All students who have been attending class have already been enrolled in Gradescope, although if for some reason you need to sign up again, the access code for our course is `6PEW3W`.
+Submit your responses to these questions on [Gradescope](https://www.gradescope.com/courses/293173/assignments/1446622/submissions) by 10am on Wednesday, September 15. If needed, the access code for our course is `6PEW3W`.
