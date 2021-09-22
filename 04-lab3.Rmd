@@ -1,4 +1,4 @@
-# Spectral Indices & Transformations
+# Spectral Indices & Transformations {#lab3}
 
 ## Overview{-}
 The purpose of this lab is to enable you to extract, visualize, combine, and transform spectral data in GEE so as to highlight and indicate the relative abundance of particular features of interest from an image. At completion, you should be able to understand the difference between wavelengths, load visualizations displaying relevant indices, compare the relevant applications for varying spectral transformations, and compute and examine image texture.
@@ -182,6 +182,7 @@ Map.addLayer(bai, {min: 0, max: 400,  palette: burnPalette}, 'BAI');
 ```
 
 ---
+
 <i class="fa fa-file"></i> **2c. Compare NDBI and the BAI displayed results -- what do you observe?**
 
 ---
