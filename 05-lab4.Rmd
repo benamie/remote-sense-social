@@ -273,19 +273,12 @@ You should see something like the following chart, in which the number of trees 
 
 ![Chart, scatter chart  Description automatically generated](./Im_04_01.png)
 
- 
-
 First, note that we always get very good accuracy in this simple example. Second, note that 10 is not the optimal number of trees, but after adding more (up to about 20 or 30), we don't get much more accuracy for the increased computational burden. So 20 trees is probably a good number to use in the context of this example.
 
 ## Assignment
 
 Design a four-class classification for your area of interest. Decide on suitable input data and manually collect training points (or polygons) if necessary. Tune a random forest classifier. In your code, have a variable called trees that sets the optimal number of trees according to your hyperparameter tuning. Have a variable called `maxAccuracy` that stores the estimated accuracy for the optimal number of trees.
 
- 
-
-
-
-
-
 ## Where to submit {-}
+
 Submit your responses to these questions on [Gradescope](https://www.gradescope.com/courses/293173/assignments/1446622/submissions) by 10am on Wednesday, September 30. If needed, the access code for our course is `6PEW3W`.
