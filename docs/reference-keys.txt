@@ -64,8 +64,7 @@ supervised-classification
 accuracy-assessment
 hyperparameter-tuning
 additional-exercises-3
-linear-regression
-linear-regression-1
+lab5
 regression
 ordinary-least-squares-ols
 nonlinear-regression
@@ -74,7 +73,4 @@ multi-temporal-data-in-earth-engine
 data-preparation-and-preprocessing
 linear-modeling-of-time
 estimate-seasonality-with-a-harmonic-model
-what-do-you-observe-when-comparing-the-linear-regression-to-the-cart-regression-are-the-prediction-values-similar-if-the-output-for-both-are-similar-does-the-value-seem-to-match-the-background-imagery
-lab5
 additional-exercises-4
-look-in-google-scholar-to-identify-2-3-publications-that-have-used-a-harmonic-regression-in-a-time-series-analysis-of-remotely-sensed-data-in-particular.-provide-citations-for-the-articles-and-then-describe-for-what-purposes-was-the-technique-used-and-what-was-the-justification-provided-for-its-use.
