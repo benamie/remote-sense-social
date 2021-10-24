@@ -39,7 +39,7 @@ A digital image 8 pixels wide by 8 pixels tall could thus look like the image be
 
 ```{r digimage, fig.cap='Digital Image Example', out.width='50%', fig.asp=.75, echo = FALSE, fig.align = "center"}
 
-knitr::include_graphics("clip_image003.png")
+knitr::include_graphics("./im/im_02_01.png")
 
 ```
   
@@ -79,7 +79,7 @@ Each pixel has a position, measured with respect to the axes of some coordinate 
   
 ```{r pixel, fig.cap='A pixel, raster, and a CRS', out.width='80%', fig.asp=.75, echo = FALSE, fig.align = "center"}
 
-knitr::include_graphics("clip_image002.png")
+knitr::include_graphics("./im/im_02_02.png")
 ```
   
 
@@ -337,7 +337,7 @@ A figure representing common optical sensors and their spectral resolution can b
 
 ```{r spectralres, fig.cap='Common Optical Sensors and their Spectral Resolution', out.width='100%', fig.asp=.75, echo = FALSE, fig.align = "center"}
 
-knitr::include_graphics("common_optical_sensors_spectral_resolution.png")
+knitr::include_graphics("./im/im_02_03.png")
 
 ```
 
@@ -507,16 +507,10 @@ Now that we have some familiarity with higher quality images, lets look at a few
 
 <i class="fa fa-file"></i>
 **Question 5: What is the obvious (hint: post-2003) problem with the Landsat 7 image? What is the nature of that problem and what have some researchers done to try to correct it?** (please research online in addition to using what you have learned in class/from the book)
-
-
-
-
 ---
 
 <i class="fa fa-file"></i>
 **Question 6: Name three major changes you can view in the Blacksburg Area in the last decade using any of the above imagery (and state the source).**
-
-
 
 ---
 

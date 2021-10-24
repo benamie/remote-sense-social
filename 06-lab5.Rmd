@@ -78,9 +78,9 @@ var trainingImage = ee.Image(1)
   .addBands(percentTree);
 ```
 
-If you print `trainingImage` to the console, you will see that the format of the data that we have follows the typical equation for linear regression. <img src="./im_05_05.png" alt="Screen Shot 2021-09-26 at 10.14.35 AM" style="zoom:33%;" />
+If you print `trainingImage` to the console, you will see that the format of the data that we have follows the typical equation for linear regression. <img src="./im/im_06_05.png" alt="Screen Shot 2021-09-26 at 10.14.35 AM" style="zoom:33%;" />
 
-<img src="./im_05_01.png" alt="Screen Shot 2021-09-26 at 10.11.32 AM" style="zoom:45%;" />
+<img src="./im/im_06_01.png" alt="Screen Shot 2021-09-26 at 10.11.32 AM" style="zoom:45%;" />
 
 Sample 1000 pixels out of `trainingImage`, to get a table of Feature Collections, each containing a value for each band (1-7), a value for the 'Percent Tree Cover', and a constant (value of 1).
 
@@ -113,7 +113,7 @@ var regression = training.reduceColumns({
 
 Print `regression` - we now have a coefficient for each of the predictor variables (in the order specified by the inputs list), along with a value for residuals (the difference between the observed and predicted values).
 
-<img src="./im_05_02.png" alt="Screen Shot 2021-09-26 at 10.48.48 AM" style="zoom:50%;" />
+<img src="./im/im_06_02.png" alt="Screen Shot 2021-09-26 at 10.48.48 AM" style="zoom:50%;" />
 
 To use the coefficients to make a prediction in every pixel, first turn the output coefficients into an image, then perform the multiplication and addition that implements **βp**: 
 
@@ -252,7 +252,7 @@ print(l8Chart);
 
 You should see something an output similar to this. Note that you can see a very slight upwards trend of the value at the point. Additionally, within each year there is seasonality, which means that there is a pattern that repeats within the year. 
 
-![Chart, scatter chart  Description automatically generated](./im_05_03.png)
+![Chart, scatter chart  Description automatically generated](./im/im_06_03.png)
 
  
 
@@ -260,7 +260,7 @@ You should see something an output similar to this. Note that you can see a very
 
 Lots of interesting analyses can be done to time series by harnessing the `linearRegression()` [reducer](https://developers.google.com/earth-engine/api_docs#eereducerlinearregression). To Estimate linear trend over time, consider the following linear model, where *epsilon* is a random error:
 
-<img src="./im_05_05.png" style="zoom:33%;" />
+<img src="./im/im_06_05.png" style="zoom:33%;" />
 
 This is the model behind the trendline added to the chart you just created. This model is useful for detrending data and reducing variability. For now, the goal is to discover the values of the *β*'s in each pixel.
 
@@ -309,8 +309,6 @@ print(detrendedChart);
 
 Rewrite for simplification:
 
-
-
 -----
 
 Consider the following linear model, where *e**t* is a random error, *A* is amplitude, *ω* is frequency, and *φ* is phase:
@@ -322,8 +320,6 @@ Consider the following linear model, where *e**t* is a random error, *A* is ampl
 Note that *β*2 = *A*cos(*φ*) and *β*3 = *A*sin(*φ*), implying *A* = (*β*22 + *β*32)½ and *φ* = atan(*β*3/*β*2). (See [Shumway and Stoffer (2017)](http://www.stat.pitt.edu/stoffer/tsa4/tsaEZ.pdf) equations 4.1 - 4.2). To fit this model to the time series, set *ω*=1 (one cycle per unit time) and use ordinary least squares regression.
 
 ----
-
-
 
 The setup for fitting the model is to first add the harmonic variables (the third and fourth terms of equation 2) to the image collection.
 
@@ -376,8 +372,7 @@ print(ui.Chart.image.series(fittedHarmonic.select(['fitted','NDVI']), roi,
 
 You should see something like:
 
-![Chart, line chart  Description automatically generated](./im_05_04.png)
-
+![Chart, line chart  Description automatically generated](./im/im_06_04.png)
 
 Although any coefficients can be mapped directly, it is useful and interesting to map the phase and amplitude of the estimated harmonic model. First, compute phase and amplitude from the coefficients, then map the resulting image. 
 
@@ -398,8 +393,6 @@ var rgb = ee.Image.cat([ phase,
                         ]).hsvToRgb()
 Map.addLayer(rgb, {}, 'phase (hue), amplitude (sat), ndvi (val)');
 ```
-
-
 
 -----
 
@@ -522,13 +515,11 @@ Fit the regression model using the linearRegression() reducer:
 var arIndependents = ee.List(['constant', 'NDVI_1', 'NDVI_2']);var ar2 = merged34 .select(arIndependents.add(dependent)) .reduce(ee.Reducer.linearRegression(arIndependents.length(), 1));// Turn the array image into a multi-band image of coefficients.var arCoefficients = ar2.select('coefficients') .arrayProject([0]) .arrayFlatten([arIndependents]);
 ```
 
-
 Compute the fitted values using an [expression](https://developers.google.com/earth-engine/image_math#expressions). Because this model is a function of previous pixel values, which may be masked, if any of the inputs to equation 3 are masked, the output of the equation will also be masked. That's why you should use an expression here, unlike the previous linear models of time. 
 
 ```javascript
 // Compute fitted values.var fittedAR = merged34.map(function(image) { return image.addBands(  image.expression('beta0 + beta1 * p1 + beta2 * p2', {   p1: image.select('NDVI_1'),   p2: image.select('NDVI_2'),   beta0: arCoefficients.select('constant'),   beta1: arCoefficients.select('NDVI_1'),   beta2: arCoefficients.select('NDVI_2')  }).rename('fitted'));});
 ```
-
 
 Plot the results. Note the missing values that result from masked data
 
@@ -537,11 +528,6 @@ print(ui.Chart.image.series(fittedAR.select(['fitted', 'NDVI']), roi, ee.Reducer
 ```
 
 At this stage, note that the missing data has become a real problem. Any data point for which at least one of the previous points is masked or missing is also masked. It may be possible to avoid this problem by substituting the output from equation 3 (the modeled value) for the missing or masked data. Unfortunately, the code to make that happen is not straightforward. If you're feeling brave, check out [this solution](https://code.earthengine.google.com/c5fbadc5136d94e80ba428376b05d148).
-
-
-
-
-
 
 ## Where to submit {-}
 
