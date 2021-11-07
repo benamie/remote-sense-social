@@ -277,7 +277,7 @@ First, note that we always get very good accuracy in this simple example. Second
 
 ## Assignment
 
-Design a four-class classification for your area of interest. Decide on suitable input data and manually collect training points (or polygons) if necessary. Tune a random forest classifier. In your code, have a variable called trees that sets the optimal number of trees according to your hyperparameter tuning. Have a variable called `maxAccuracy` that stores the estimated accuracy for the optimal number of trees.
+Design a four-class classification for your area of interest. Decide on suitable input data and manually collect training points (or polygons) if necessary. Tune a random forest classifier. In your code, have a variable called trees that sets the optimal number of trees according to your hyper-parameter tuning. Have a variable called `maxAccuracy` that stores the estimated accuracy for the optimal number of trees.
 
 ## Where to submit {-}
 
