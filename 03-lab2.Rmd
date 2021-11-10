@@ -19,9 +19,7 @@ The Landsat program is a joint NASA/USGS program that has launched a sequence of
 a. Search for 'San Francisco' in the playground search bar and click the result under “Places” to pan and zoom the map to San Francisco. 
 
 ```{r sfgeeexample, fig.cap='Playground Search for San Francisco in the GEE Console', out.width='95%', fig.asp=.75, echo = FALSE, fig.align = "center"}
-
-knitr::include_graphics("sf_gee_example.png")
-
+knitr::include_graphics("./im/im_03_01.png")
 ```
 
 <!-- ![Map  Description automatically generated](./clip_image001.png) -->
@@ -114,12 +112,12 @@ a. Perform the transformation in equation 1 using the Earth Engine function for 
 
     Note that this code applies the transformation to a subset of bands (specified by a list of band names) obtained from the image using select(). That is to facilitate interpretation of the radiance spectrum by removing the panchromatic band ('B8'), an atmospheric absorption band ('B9') and the QA band ('BQA'). Also note that the visualization parameters are different to account for the radiance units.
 
-  b. Inspect the radiance image by activating the **Inspector** and clicking locations on the map. (It may be easier if you turn off the other images you're displaying by commenting `Map.addLayer() lines from previous exercises. Comment a line with the Ctrl-/ shortcut or two forward slashes at the start of the line). Click on different land cover types and in the **Inspector**, and click the chart icon (![img](chart_icon_gee.png)) to get a chart of the pixel values. If the shape of the chart resembles Figure 1, that's because the radiance (in bands 1-7) is mostly reflected solar irradiance. The radiance detected in bands 10-11 is thermal, and is *emitted* (not reflected) from the surface.
+  b. Inspect the radiance image by activating the **Inspector** and clicking locations on the map. (It may be easier if you turn off the other images you're displaying by commenting `Map.addLayer() lines from previous exercises. Comment a line with the Ctrl-/ shortcut or two forward slashes at the start of the line). Click on different land cover types and in the **Inspector**, and click the chart icon (![img](./im/im_03_03.png)) to get a chart of the pixel values. If the shape of the chart resembles Figure 1, that's because the radiance (in bands 1-7) is mostly reflected solar irradiance. The radiance detected in bands 10-11 is thermal, and is *emitted* (not reflected) from the surface.
 
 
 ```{r irradiancewavelength, fig.cap ='Solar irradiance vs wavelenth. Data sources: 6000K blackbody spectrum from http://astrogeology.usgs.gov/tools/thermal-radiance-calculator, adjusted according to the solid angle subtended by the solar disk. TOA and sea level irradiance from http://rredc.nrel.gov/solar/spectra/am1.5/.', out.width='95%', fig.asp=.75, echo = FALSE, fig.align = "center"}
 
-knitr::include_graphics("irradiance_wavelength.png")
+knitr::include_graphics("./im/im_03_02.png")
 ```
 
 
@@ -207,16 +205,13 @@ To explore Landsat surface reflectance data, search 'Landsat 8 surface reflectan
 <i class="fa fa-file"></i> **5. Add a layer to the map in which the image from 1d is displayed with band 7 set to red, band 5 set to green and band 3 set to blue. Upload a visual of the layer and show how you would display the layer name as `falsecolor`. **
 
 ---
-
-
-
 <i class="fa fa-file"></i> **6.  What is the brightness temperature of the golden gate park point? Also show how you make a variable in your code called temperature and set it to the band 10 brightness temperature.** Hint:
 
-```javascript
-var  temperature = toaImage.reduceRegion(
-  { <YOUR SOLUTION HERE>   })
-		.get(  <YOUR SOLUTION  HERE>);  
-```
+  ```javascript
+  var  temperature = toaImage.reduceRegion(
+    { <YOUR SOLUTION HERE>   })
+  		.get(  <YOUR SOLUTION  HERE>);  
+  ```
 
 Use [this guide](https://developers.google.com/earth-engine/reducers_reduce_region) for help.
 
@@ -225,9 +220,6 @@ Use [this guide](https://developers.google.com/earth-engine/reducers_reduce_regi
 <i class="fa fa-file"></i> **7. What is the surface reflectance (in [0,1], meaning you will need to apply the scale factor) in band 5 (NIR) at the golden gate park point? Also show how you make a variable in your code called `reflectance` that stores this value.** 
 
 ---
-
-
-
 
 ## Where to submit {-}
 Submit your responses to these questions on [Gradescope](https://www.gradescope.com/courses/293173/assignments/1446622/submissions) by 10am on Wednesday, September 15. If needed, the access code for our course is `6PEW3W`.

@@ -1,43 +1,41 @@
-# Classification {#lab4}
+# Classification 
 
 ## Overview{-}
-Although humans can look at a satellite image and identify objects or land cover types based on their visual characteristics, it's typically both difficult and time consuming to do this consistently across large areas. To aid in this process, computers can employ a variety of machine learning techniques to more quickly evaluate patterns in the data and yield insights about what we can "see" in the imagery. Understanding image classification is an essential part of contemporary remote sensing, and opportunities abound for work in this growing field. 
 
-<!-- By training ML models to efficiently process the underlying data and return labeled information, we can focus on the insights that this information affords.  -->
+While it is possible for a human to look at a satellite image and identify objects or land cover types based on their visual characteristics, the sheer magnitude and volume of imagery makes it very difficult to do this manually. To compensate, machine learning allows computers to process this information much quicker than a human and find meaningful insights about what we see in the imagery. Image classification is an essential component in today's remote sensing, and there are many opportunities in this growing field. By training ML models to efficiently process the data and return labeled information, we can focus on the insights and higher-level insights.
 
-Google Earth Engine offers many different types of classification approaches. At a high level, we can think of classification as a way of "predicting" labels to attach to a given series of pixels. In this lab we will explore two main types of classification - supervised and unsupervised, and you become more familiar with the processes of training data collection, classifier selection, classifier training, and accuracy assessment. At completion, you should be able to apply these skills to assess change in a given area.
+Google Earth Engine offers many options in to work with classification which we will get familiar with. Most broadly, we can separate classification into two parts - supervised and unsupervised classification. We will introduce both components and work our way through several examples. 
 
-<!-- We will introduce both components and work our way through several examples.  -->
+## Introduction to Classification
 
-<!-- ## Introduction to Classification -->
-Within the context of image (land use) classification, let us define prediction as guessing the value of some geographic variable of interest `g`, using a function `G` that takes as input a pixel vector **`p`**:
+For present purposes, define prediction as guessing the value of some geographic variable of interest `g`, using a function `G` that takes as input a pixel vector **`p`**: 
 
 $$
 G_{t}(p_{i}) = g_{i}
 $$
-The *i* in this equation refers to a particular instance from a set of pixels. Think of *G* as a guessing function and $g_{i}$ as the guess for pixel *i*.  The **T** in the subscript of *G* refers to a *training set* (a set of known values for **p** and the correct *g*), used to infer the structure of *G*. You have to choose a suitable *G* to train with **T**.
+The *i* in this equation refers to a particular instance from a set of pixels. Think of *G* as a guessing function and $g_{i}$ as the guess for pixel *i*.  The **T** in the subscript of *G* refers to a *training set* (a set of known values for **p** and the correct *g*), used to infer the structure of *G*. You have to choose a suitable *G* to train with **T**. 
 
-When `g` is nominal, or a fixed category (ex., `{'water', 'vegetation', 'bare'}`), we call this classification.  When `g` is numeric (ex., `{0, 1, 2, 3}`), we call this regression.
+When `g` is nominal, or a fixed category (ex., {'water', 'vegetation', 'bare'}), we call this classification. 
 
-This is a very generalized description of the types problem addressed in a broad range of fields including mathematics, statistics, data mining, machine learning. For our purposes, we will go through some examples using these concepts in Google Earth Engine and then provide more resources for further reading at the end.
+When `g` is numeric (ex., {0, 1, 2, 3}), we call this regression. 
+
+This is an incredibly simplistic description of a problem addressed in a broad range of fields including mathematics, statistics, data mining, machine learning. For our purposes, we will go through some examples using these concepts in Google Earth Engine and then provide more resources for further reading at the end. 
 
 ## Unsupervised Classification
 
-Unsupervised classification finds unique groupings in the dataset without the need for training data. The computer will cycle through the pixels, look at the characteristics of the different bands you instruct it to view, and pixel-by-pixel begin to group information together. Perhaps pixels with a blue hue and a low NIR value are grouped together, while green-dominant pixels are also grouped together. The outcome of unsupervised classification is that each pixel is categorized within the context of the image, and there will be the number of categories specified. One important note, is that the number of clusters is set by the user, and this plays a major role in how the algorithm operates. Too many clusters may create unnecessary noise, while too few clusters may not have sufficient granularity.
+Unsupervised classification finds unique groupings in the dataset without manually developed training data. The computer will cycle through the pixels, look at the characteristics of the different bands, and pixel-by-pixel begin to group information together. Perhaps pixels with a blue hue and a low NIR value are grouped together, while green-dominant pixels are also grouped together. The outcome of unsupervised classification is that each pixel is categorized within the context of the image, and there will be the number of categories specified. One important note, is that the number of clusters is set by the user, and this plays a major role in how the algorithm operates. Too many clusters creates unnecessary noise, while too few clusters does not have enough granularity.
 
 Google Earth Engine provides [documentation](https://developers.google.com/earth-engine/guides/clustering) on working with unsupervised classification within their ecosystem, and we will be focusing on the `ee.Clusterer` package, which provides a flexible unsupervised classification (or clustering) in an easy-to-use way.
 
-<!-- Clusterers are used in the same manner as classifiers in Earth Engine. -->
+Clusterers are used in the same manner as classifiers in Earth Engine. The general workflow for clustering is:
 
-The general workflow for clustering is as follows:
+1. Assemble features with numeric properties to find clusters
+2. Instantiate a clusterer - set its parameters if necessary
+3. Train the clusterer using the training data
+4. Apply the clusterer to an image or feature collection
+5. Label the clusters
 
-1. Assemble features with numeric properties you want as inputs for your clusterer
-2. Instantiate a clusterer and set its parameters if necessary (e.g., number of clusters)
-3. "Train" (build/run) the clusterer model by indicating which data it should use
-3. Apply the clusterer to predict the values in an image or feature collection 
-4. Assign a label the clusters
-
-Note that in this case, 'train' means to develop/run the model. Begin by creating a study region - in this case we will be working the Brazilian Amazon.
+Begin by creating a study region - in this case we will be working the Amazon Rainforest.
 
 ```javascript
 // Lab: Unsupervised Classification (Clustering)
@@ -51,7 +49,7 @@ Map.addLayer(region, {}, "Region");
 Map.centerObject(region, 10);
 ```
 
-Now let's add in a function to mask clouds and cloud shadows. 
+ 
 
 ```javascript
 // Function to mask clouds based on the pixel_qa band of Landsat 8 SR data.
@@ -68,7 +66,7 @@ function maskL8sr(image) {
 }
 ```
 
-Import Landsat 8 data, filter the data to the date range, apply the function to mask out pixels with clouds or cloud shadows rendering them unclear, and let's start to work within the study region. 
+ We will be working with Landsat data, which you can read in below. We will filter the data to the date range, map cloud pixels and work within the study region. 
 
 ```javascript
 // Load Landsat 8 annual composites.
@@ -88,10 +86,7 @@ Map.centerObject(region, 9);
 Map.addLayer(landsat, visParams, "Landsat 8 (2016)");
 ```
 
-In this example, we will randomly sample 5000 pixels in the region to build a clustering model - we will use this 'training' data to find clustering groups and then apply it to predict values in the rest of the data.  We will also set the variable `clusterNum` to identify how many categories to use. Start with 15, and modify based on the output and needs of your experiment. Note that we are using `ee.Clusterer.wekaKMeans`, which is a form of k-means clustering. 
-
-In brief, k-means clustering is one of the simplest and most common unsupervised learning algorithms. The k-means algorithm identifies k number of centroids, and then allocates every data point to the nearest cluster, while keeping the centroids as small as possible.
-
+In this case, we will randomly select a sample of 5000 pixels in the region to build a clustering model - we will use this 'training' data to find clustering groups and then apply it to the rest of the data  We will also set the variable `clusterNum` to idenfity how many categories to use. Start with 15, and modify based on the output and needs of your experiment. Note that we are using `ee.Clusterer.wekaKMeans`, 
 
 ```javascript
 // Create a training dataset.
@@ -110,29 +105,22 @@ print("result", result.getInfo());
 Map.addLayer(result.randomVisualizer(), {}, 'Unsupervised Classification');
 ```
 
-The resulting output shows a vivid display of colors. Under 'Layers', toggle the top-right of the map section and increase the transparency of the layer so as compare the classifed image to the natural color satellite imagery.
+As you can see from the output, the result is quite vivid. On the 'layers' toggle on the top-right of the map section, increase the transparency of the layer to compare it to the satellite imagery.
 
-Change the value of `clusterNum` and run through some different options to evaluate the impact of varying this input. Note that the output of an unsupervised clustering model is not specifying that each pixel should be a certain type of label (ex, the pixel is 'water'), but rather that these pixels have similar characteristics. 
+Change the variable `clusterNum` and run through some different options to find better results. Note that the output of an unsupervised clustering model is not specifying that each pixel should be a certain type of label (ex, the pixel is 'water'), but rather that these pixels have similar characteristics. 
 
-<!-- **Question**: If you were going to use a clustering model to identify water in the image, is 15 an appropriate cluster number?  -->
-
----
-
-<i class="fa fa-file"></i> **1. If you were going to use a clustering model to identify water in the image, is 15 an appropriate cluster number? What process or features would you look for to determine what an appropriate cluster number would be? What do you see when you adjust the number of clusters in this region?** 
-
----
-
-
+**Question**: If you were going to use a clustering model to identify water in the image, is 15 an appropriate cluster number? 
 
 ## Supervised Classification
-Supervised classification is an iterative process of obtaining training data, creating an initial model, reviewing the results and tuning the parameters. Many projects using supervised classification may take several months of years of fine-tuning, requiring constant refinement and maintenance. Below is a list of the steps of Supervised Learning according to GEE's [documentation](https://developers.google.com/earth-engine/classification):
-<!-- Just like in unsupervised classification, GEE offers [documentation](https://developers.google.com/earth-engine/classification) that provides several additions examples. -->
+
+Just like in unsupervised classification, GEE has [documentation](https://developers.google.com/earth-engine/classification) that works through several examples. Supervised classification is an iterative process of obtaining training data, creating an initial model, reviewing the results and tuning the parameters. Many projects using supervised classification may take several months of years of fine-tuning, requiring constant refinement and maintenance. Below is a list of the steps of Supervised learning according to GEE. 
 
 1. Collect the training data 
 2. Instantiate the classifier
 3. Train the classifier
 4. Classify the image 
-5. Tune the model
+5. Tune the model. 
+
 
 We will begin by creating training data manually within GEE. Using the geometry tools and the Landsat composite as a background, we can digitize training polygons. We’ll need to do two things: identify where polygons occur on the ground, and label them with the proper class number.
 
@@ -145,13 +133,14 @@ We will begin by creating training data manually within GEE. Using the geometry 
 var trainingFeatures = bare.merge(vegetation).merge(water);
 ```
 
-In the merged `FeatureCollection`, each Feature should have a property called 'class' where the classes are consecutive integers, one for each class, starting at 0. Verify that this is true. 
+In the merged FeatureCollection, each Feature should have a property called 'class' where the classes are consecutive integers, one for each class, starting at 0. Verify that this is true. 
 
 For Landsat, we will use the following bands for their predictive values - we could just keep the visual bands, but using a larger number of predictive values in many cases improves the model's ability to find relationships and patterns in the data. 
 
 ```javascript
 var predictionBands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B10', 'B11'];
 ```
+
 Create a training set **T** for the classifier by sampling the Landsat composite with the merged features.
 
 ```javascript
@@ -163,7 +152,7 @@ var classifierTraining = landsat.select(predictionBands)
   });
 ```
 
-The choice of classifier is not always obvious, but a Classification and Regression Tree -- often abbreviated as CART (a [decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning) when running in classification mode) is an excellent starting point. Instantiate a CART and train it.
+The choice of classifier is not always obvious, but a CART (a [decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning) when running in classification mode) is an excellent starting point. Instantiate a CART and train it.
 
 ```javascript
 var classifier = ee.Classifier.smileCart().train({
@@ -173,7 +162,7 @@ var classifier = ee.Classifier.smileCart().train({
 });
 ```
 
-Classify the image and display the output.
+Classify the image and visualize the image. 
 
 ```javascript
 var classified = landsat.select(predictionBands)
@@ -186,15 +175,12 @@ Map.addLayer(classified,
 
 Inspect the result. Some things to test if the result is unsatisfactory:
 
-1. *Use other classifiers*. Try some of the other classifiers in Earth Engine to see if the result is better or different. You can find different classifiers under `Docs` on the left panel of the console. 
-2. *Different (or more) training data.* Try adjusting the shape and/or size of your training polygons to have a more representative sample of your classes. It is very common to either underfit or overfit your model when beginning the process. 
-3. *Add more predictors.* For example, you can adding spectral indices to the input variables.
-
----
-
-<i class="fa fa-file"></i> **2. Pursue at least two of the three options above to adjust your supervised classification. Describe what you do and how it affects your results, providing visuals where useful to support your text. ** 
-
----
+1. Other classifiers
+   1. Try some of the other classifiers in Earth Engine to see if the result is better or different. You can find different classifiers under `Docs` on the left panel of the console. 
+2. Different (or more) training data.
+   1. Try adjusting the shape and/or size of your training polygons to have a more representative sample of your classes. It is very common to either underfit or overfit your model when beginning the process. 
+3. Add more predictors. 
+   1. Try adding spectral indices to the input variables.
 
 ## Accuracy Assessment
 
@@ -209,7 +195,7 @@ var trainingSet = trainingTesting.filter(ee.Filter.lessThan('random',  0.6));
 var testingSet = trainingTesting.filter(ee.Filter.greaterThanOrEquals('random', 0.6));  
 ```
 
-Train the classifier with the `trainingSet`:
+Train the classifier with the trainingSet:
 
 ```javascript
 var trained = ee.Classifier.smileCart().train({
@@ -219,7 +205,7 @@ var trained = ee.Classifier.smileCart().train({
 });  
 ```
 
-Classify the `testingSet` and get a confusion matrix. Note that the classifier automatically adds a property called 'classification', which is compared to the 'class' property added when you imported your polygons:
+Classify the testingSet and get a confusion matrix. Note that the classifier automatically adds a property called 'classification', which is compared to the 'class' property added when you imported your polygons:
 
 ```javascript
 var confusionMatrix =  ee.ConfusionMatrix(testingSet.classify(trained)
@@ -227,7 +213,7 @@ var confusionMatrix =  ee.ConfusionMatrix(testingSet.classify(trained)
                                                         predicted: 'classification'}));  
 ```
 
-Print the confusion (error) matrix and expand the object to inspect the matrix. The entries represent the number of pixels. Items on the diagonal represent correct classification. Items off the diagonal are misclassifications, where the class in row *i* is classified as column *j*. It's also possible to get basic descriptive statistics from the confusion matrix. For example:
+Print the confusion matrix and expand the object to inspect the matrix. The entries represent the number of pixels. Items on the diagonal represent correct classification. Items off the diagonal are misclassifications, where the class in row *i* is classified as column *j*. It's also possible to get basic descriptive statistics from the confusion matrix. For example:
 
 ```javascript
 print('Confusion matrix:', confusionMatrix);
@@ -238,17 +224,9 @@ print('Consumers Accuracy:', confusionMatrix.consumersAccuracy());
 
 Note that you can test different classifiers by replacing CART with some other classifier of interest. Also note that as a result of the randomness in the partition, you may get different results from different runs. 
 
----
-
-<i class="fa fa-file"></i> **3. Upload your confusion (error) matrix for your preferred classification and describe the content of the table in terms of overall accuracy as well as user and producer error. ** 
-
----
-
 ## Hyperparameter Tuning
 
-Another fancy classifier is called a random forest ([Breiman 2001](https://link.springer.com/article/10.1023/A:1010933404324)). A random forest is a ensemble model consisting of many decision trees that only contain a random selection of the input data. The simple logic underpinning random forests is that individual predictions from decision trees may not be accurate, but once combined, the average predictions from the trees will more closely approximate the truth.
-<!-- , or a collection of random trees in that the predictions are used to compute an average (regression) or vote on a label (classification).  -->
-Random forests can be used for both computing averages (regression) or determining labels (classification), and they rank among some of the most common as well as high-performing classification approahces. Because random forests tend to perform well, we need to make things a little harder for this exercise to be interesting. Let's do that by adding noise to the training data:
+Another fancy classifier is called a random forest ([Breiman 2001](https://link.springer.com/article/10.1023/A:1010933404324)). A random forest is a collection of random trees in that the predictions of which are used to compute an average (regression) or vote on a label (classification). Their adaptability makes them one of the most effective classification models, and is an excellent starting point. Because random forests are so good, we need to make things a little harder for it to be interesting. Do that by adding noise to the training data:
 
 ```javascript
 var sample = landsat.select(predictionBands).sampleRegions(
@@ -266,7 +244,7 @@ var classified =  landsat.select(predictionBands).classify(classifier);   Map.ad
              ['red', 'green', 'blue']}, 'classified')                                                                     
 ```
 
-Note that the only parameter to the classifier is the number of trees (10). How many trees should you use? Making that choice is often done through a process of choosing 'optimal' model arguments prior to running the learning algorithm -- the process often called hyperparameter tuning. For example,  
+Note that the only parameter to the classifier is the number of trees (10). How many trees should you use? Making that choice is best done by hyperparameter tuning. For example,  
 
 ```javascript
 var sample  = sample.randomColumn();
@@ -293,35 +271,14 @@ print(ui.Chart.array.values({
 
 You should see something like the following chart, in which the number of trees is on the x-axis and estimated accuracy is on the y-axis:
 
-![](./Im_04_01.png)
+![Chart, scatter chart  Description automatically generated](./im/im_05_01.png)
 
-First, note that we always get very high accuracy in this simple example. Second, note
-<!-- that while 10 is not the optimal number of trees,  -->
-adding more 
-<!-- (up to about 20 or 30)  -->
-trees eventually doesn't yield much more accuracy for the increased computational burden we impose. 
+First, note that we always get very good accuracy in this simple example. Second, note that 10 is not the optimal number of trees, but after adding more (up to about 20 or 30), we don't get much more accuracy for the increased computational burden. So 20 trees is probably a good number to use in the context of this example.
 
+## Assignment
 
----
-
-<i class="fa fa-file"></i> **4. Upload the resulting graphic and interpret its output. ** 
-
----
-
-<!-- Base don this graphic, 20 trees is probably a good number to use in the context of this example. -->
-
-## Additional Exercises
-
-Design a four-class classification for your area of interest. Decide on suitable input data and manually collect training points (or polygons) if necessary. Tune a random forest classifier. In your code, have a variable called trees that sets the optimal number of trees according to your hyperparameter tuning process. Have a variable called `maxAccuracy` that stores the estimated accuracy for the optimal number of trees.
-
- 
----
-
-<i class="fa fa-file"></i> **5. Upload your resulting classified image and describe the location and labels. Provide the confusion/error matrix for this region, the optimal number of trees, and `maxAccuracy` for the optimal number of trees. Are you satisfied with the classification output? Why or why not? ** 
-
----
-
-
+Design a four-class classification for your area of interest. Decide on suitable input data and manually collect training points (or polygons) if necessary. Tune a random forest classifier. In your code, have a variable called trees that sets the optimal number of trees according to your hyper-parameter tuning. Have a variable called `maxAccuracy` that stores the estimated accuracy for the optimal number of trees.
 
 ## Where to submit {-}
+
 Submit your responses to these questions on [Gradescope](https://www.gradescope.com/courses/293173/assignments/1446622/submissions) by 10am on Wednesday, September 30. If needed, the access code for our course is `6PEW3W`.

@@ -1,4 +1,4 @@
-# Spectral Indices & Transformations {#lab3}
+# Spectral Indices & Transformations
 
 ## Overview{-}
 The purpose of this lab is to enable you to extract, visualize, combine, and transform spectral data in GEE so as to highlight and indicate the relative abundance of particular features of interest from an image. At completion, you should be able to understand the difference between wavelengths, load visualizations displaying relevant indices, compare the relevant applications for varying spectral transformations, and compute and examine image texture.
@@ -8,7 +8,7 @@ Spectral indices are based on the fact that reflectance spectra of different lan
 
 ```{r specindices, fig.cap='Sample Spectral Reflectance Curves', out.width='95%', fig.asp=.75, echo = FALSE, fig.align = "center"}
 
-knitr::include_graphics("spectral_indices_lab3.png")
+knitr::include_graphics("./im/im_04_01.png")
 
 ```
 
@@ -182,7 +182,6 @@ Map.addLayer(bai, {min: 0, max: 400,  palette: burnPalette}, 'BAI');
 ```
 
 ---
-
 <i class="fa fa-file"></i> **2c. Compare NDBI and the BAI displayed results -- what do you observe?**
 
 ---
@@ -254,7 +253,7 @@ where **p_0** is the original *p*x1 pixel vector (a stack of the *p* band values
 
  
 ```{r tasselcap, fig.cap='Tassel Cap Illustration', out.width='95%', fig.asp=.75, echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tassel_cap_lab3.png")
+knitr::include_graphics("./im/im_04_02.png")
 ```
 
 
@@ -414,7 +413,7 @@ Your chart should look something like:
 
 ```{r spectralchartlab3, fig.cap='Spectral Chart', out.width='95%', fig.asp=.75, echo = FALSE, fig.align = "center"}
 
-knitr::include_graphics("spectral_chart_lab3.png")
+knitr::include_graphics("./im/im_04_03.png")
 
 ```
 
@@ -817,12 +816,9 @@ ii. Gradients in the NIR band indicate transitions in vegetation. For an in-dept
 <!--   Map.addLayer(gearys, {min: 20, max: 2500}, "Geary's C"); -->
 <!--   ``` -->
 
-
-
 ## Additional Exercises
     
 <i class="fa fa-file"></i> **5a. Look in google scholar to identify 2-3 publications that have used NDVI and two-three that used EVI. For what purposes were these indices used and what was the justification provided for that index? **
-
 
 <i class="fa fa-file"></i> **5b. Discuss a spectral index that we did not cover in this lab relates to your area of research/interest. What is the the name of the spectral index, the formula used to calculate it, and what is it used to detect? Provide a citation of an academic article that has fruitfully used that index. **
 
@@ -830,10 +826,5 @@ ii. Gradients in the NIR band indicate transitions in vegetation. For an in-dept
 
 ---
 
-
 ## Where to submit {-}
 Submit your responses to these questions on [Gradescope](https://www.gradescope.com/courses/293173/assignments/1446622/submissions) by 10am on Wednesday, September 22. If needed, the access code for our course is `6PEW3W`.
-
-
-
-
