@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 4 Spectral Transformation | Remote Sensing in the Social Sciences</title>
+  <meta name="description" content="Lab 4 Spectral Transformation | Remote Sensing in the Social Sciences" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lab 4 Spectral Transformation | Remote Sensing in the Social Sciences" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lab 4 Spectral Transformation | Remote Sensing in the Social Sciences" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="spectral-indices-transformations.html"/>
+
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html"><i class="fa fa-check"></i>PreLab: Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="0.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#data-and-methods"><i class="fa fa-check"></i><b>0.1</b> Data and Methods</a></li>
+<li class="chapter" data-level="0.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images-and-image-collections"><i class="fa fa-check"></i><b>0.2</b> Images and Image Collections</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images"><i class="fa fa-check"></i><b>0.2.1</b> Images</a></li>
+<li class="chapter" data-level="0.2.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#image-collections"><i class="fa fa-check"></i><b>0.2.2</b> Image Collections</a></li>
+<li class="chapter" data-level="0.2.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#sensed-versus-derived-imagery"><i class="fa fa-check"></i><b>0.2.3</b> Sensed versus Derived Imagery</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#geometries"><i class="fa fa-check"></i><b>0.3</b> Geometries</a></li>
+<li class="chapter" data-level="0.4" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features-and-feature-collections"><i class="fa fa-check"></i><b>0.4</b> Features and Feature Collections</a><ul>
+<li class="chapter" data-level="0.4.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features"><i class="fa fa-check"></i><b>0.4.1</b> Features</a></li>
+<li class="chapter" data-level="0.4.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#feature-collections"><i class="fa fa-check"></i><b>0.4.2</b> Feature Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#methods-reducers"><i class="fa fa-check"></i><b>0.5</b> Methods: Reducers</a></li>
+<li class="chapter" data-level="0.6" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#joins-and-arrays"><i class="fa fa-check"></i><b>0.6</b> Joins and Arrays</a><ul>
+<li class="chapter" data-level="0.6.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#join"><i class="fa fa-check"></i><b>0.6.1</b> Join</a></li>
+<li class="chapter" data-level="0.6.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#arrays"><i class="fa fa-check"></i><b>0.6.2</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="0.7" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#additional-resources"><i class="fa fa-check"></i><b>0.7</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>1</b> Remote Sensing Background</a><ul>
+<li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#overview-1"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1.1" data-path="lab1.html"><a href="lab1.html#what-is-a-digital-image"><i class="fa fa-check"></i><b>1.1</b> What is a digital image?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="lab1.html"><a href="lab1.html#from-digital-image-to-geospatial-image"><i class="fa fa-check"></i><b>1.1.1</b> From digital image to geospatial image</a></li>
+<li class="chapter" data-level="1.1.2" data-path="lab1.html"><a href="lab1.html#visualize-a-digital-image"><i class="fa fa-check"></i><b>1.1.2</b> Visualize a Digital Image</a></li>
+<li class="chapter" data-level="1.1.3" data-path="lab1.html"><a href="lab1.html#digital-image-visualization-and-stretching"><i class="fa fa-check"></i><b>1.1.3</b> Digital Image Visualization and Stretching</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lab1.html"><a href="lab1.html#spatial-resolution"><i class="fa fa-check"></i><b>1.2</b> Spatial Resolution</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="lab1.html"><a href="lab1.html#modis"><i class="fa fa-check"></i><b>1.2.1</b> MODIS</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lab1.html"><a href="lab1.html#multispectral-scanners"><i class="fa fa-check"></i><b>1.2.2</b> Multispectral Scanners</a></li>
+<li class="chapter" data-level="1.2.3" data-path="lab1.html"><a href="lab1.html#thematic-mapper-tm"><i class="fa fa-check"></i><b>1.2.3</b> Thematic Mapper (TM)</a></li>
+<li class="chapter" data-level="1.2.4" data-path="lab1.html"><a href="lab1.html#national-agriculture-imagery-program-naip"><i class="fa fa-check"></i><b>1.2.4</b> National Agriculture Imagery Program (NAIP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lab1.html"><a href="lab1.html#spectral-resolution"><i class="fa fa-check"></i><b>1.3</b> Spectral Resolution</a></li>
+<li class="chapter" data-level="1.4" data-path="lab1.html"><a href="lab1.html#temporal-resolution"><i class="fa fa-check"></i><b>1.4</b> Temporal Resolution</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="lab1.html"><a href="lab1.html#modis-1"><i class="fa fa-check"></i><b>1.4.1</b> MODIS</a></li>
+<li class="chapter" data-level="1.4.2" data-path="lab1.html"><a href="lab1.html#landsat"><i class="fa fa-check"></i><b>1.4.2</b> Landsat</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="lab1.html"><a href="lab1.html#radiometric-resolution"><i class="fa fa-check"></i><b>1.5</b> Radiometric Resolution</a></li>
+<li class="chapter" data-level="1.6" data-path="lab1.html"><a href="lab1.html#resampling-and-reprojection"><i class="fa fa-check"></i><b>1.6</b> Resampling and ReProjection</a></li>
+<li class="chapter" data-level="1.7" data-path="lab1.html"><a href="lab1.html#additional-exercises"><i class="fa fa-check"></i><b>1.7</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#where-to-submit"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>2</b> Digital Imagery &amp; Image Processing</a><ul>
+<li class="chapter" data-level="" data-path="lab2.html"><a href="lab2.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="lab2.html"><a href="lab2.html#searching-for-imagery-exercise-1"><i class="fa fa-check"></i><b>2.1</b> Searching for Imagery (Exercise 1)</a></li>
+<li class="chapter" data-level="2.2" data-path="lab2.html"><a href="lab2.html#visualizing-landsat-imagery"><i class="fa fa-check"></i><b>2.2</b> Visualizing Landsat Imagery</a></li>
+<li class="chapter" data-level="2.3" data-path="lab2.html"><a href="lab2.html#plot-at-sensor-radiance"><i class="fa fa-check"></i><b>2.3</b> Plot at-Sensor Radiance</a></li>
+<li class="chapter" data-level="2.4" data-path="lab2.html"><a href="lab2.html#plot-top-of-atmosphere-toa-reflectance"><i class="fa fa-check"></i><b>2.4</b> Plot Top-of-Atmosphere (TOA) Reflectance</a></li>
+<li class="chapter" data-level="2.5" data-path="lab2.html"><a href="lab2.html#plot-surface-reflectance"><i class="fa fa-check"></i><b>2.5</b> Plot Surface Reflectance</a></li>
+<li class="chapter" data-level="2.6" data-path="lab2.html"><a href="lab2.html#additional-exercises-1"><i class="fa fa-check"></i><b>2.6</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab2.html"><a href="lab2.html#where-to-submit-1"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html"><i class="fa fa-check"></i><b>3</b> Spectral Indices &amp; Transformations</a><ul>
+<li class="chapter" data-level="" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#spectral-indices"><i class="fa fa-check"></i><b>3.1</b> Spectral Indices</a></li>
+<li class="chapter" data-level="3.2" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#important-indices"><i class="fa fa-check"></i><b>3.2</b> Important Indices</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#normalized-difference-vegetation-index-ndvi"><i class="fa fa-check"></i><b>3.2.1</b> Normalized Difference Vegetation Index (NDVI)</a></li>
+<li class="chapter" data-level="3.2.2" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#enhanced-vegetation-index-evi"><i class="fa fa-check"></i><b>3.2.2</b> Enhanced Vegetation Index (EVI)</a></li>
+<li class="chapter" data-level="3.2.3" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#normalized-difference-water-index-ndwi"><i class="fa fa-check"></i><b>3.2.3</b> Normalized Difference Water Index (NDWI)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#normalized-difference-water-body-index-ndwbi"><i class="fa fa-check"></i><b>3.2.4</b> Normalized Difference Water <em>Body</em> Index (NDWBI)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#normalized-difference-bare-index-ndbi"><i class="fa fa-check"></i><b>3.2.5</b> Normalized Difference Bare Index (NDBI)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#burned-area-index-bai"><i class="fa fa-check"></i><b>3.2.6</b> Burned Area Index (BAI)</a></li>
+<li class="chapter" data-level="3.2.7" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#normalized-burn-ratio-thermal-nbrt"><i class="fa fa-check"></i><b>3.2.7</b> Normalized Burn Ratio Thermal (NBRT)</a></li>
+<li class="chapter" data-level="3.2.8" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#normalized-difference-snow-index-ndsi"><i class="fa fa-check"></i><b>3.2.8</b> Normalized Difference Snow Index (NDSI)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#linear-transformations"><i class="fa fa-check"></i><b>3.3</b> Linear Transformations</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#tasseled-cap-tc"><i class="fa fa-check"></i><b>3.3.1</b> Tasseled cap (TC)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>3.4</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="3.5" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#spectral-unmixing"><i class="fa fa-check"></i><b>3.5</b> Spectral Unmixing</a></li>
+<li class="chapter" data-level="3.6" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#hue-saturation-value-transform"><i class="fa fa-check"></i><b>3.6</b> Hue-Saturation-Value Transform</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="spectral-transformation.html"><a href="spectral-transformation.html"><i class="fa fa-check"></i><b>4</b> Spectral Transformation</a><ul>
+<li class="chapter" data-level="4.1" data-path="spectral-transformation.html"><a href="spectral-transformation.html#linear-filtering"><i class="fa fa-check"></i><b>4.1</b> Linear Filtering</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="spectral-transformation.html"><a href="spectral-transformation.html#smoothing"><i class="fa fa-check"></i><b>4.1.1</b> Smoothing</a></li>
+<li class="chapter" data-level="4.1.2" data-path="spectral-transformation.html"><a href="spectral-transformation.html#edge-detection"><i class="fa fa-check"></i><b>4.1.2</b> Edge Detection</a></li>
+<li class="chapter" data-level="4.1.3" data-path="spectral-transformation.html"><a href="spectral-transformation.html#gradients"><i class="fa fa-check"></i><b>4.1.3</b> Gradients</a></li>
+<li class="chapter" data-level="4.1.4" data-path="spectral-transformation.html"><a href="spectral-transformation.html#sharpening"><i class="fa fa-check"></i><b>4.1.4</b> Sharpening</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="spectral-transformation.html"><a href="spectral-transformation.html#non-linear-filtering"><i class="fa fa-check"></i><b>4.2</b> Non-Linear Filtering</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="spectral-transformation.html"><a href="spectral-transformation.html#median"><i class="fa fa-check"></i><b>4.2.1</b> Median</a></li>
+<li class="chapter" data-level="4.2.2" data-path="spectral-transformation.html"><a href="spectral-transformation.html#mode"><i class="fa fa-check"></i><b>4.2.2</b> Mode</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="spectral-transformation.html"><a href="spectral-transformation.html#morphological-processing"><i class="fa fa-check"></i><b>4.3</b> Morphological Processing</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="spectral-transformation.html"><a href="spectral-transformation.html#dilation-max"><i class="fa fa-check"></i><b>4.3.1</b> Dilation (Max)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="spectral-transformation.html"><a href="spectral-transformation.html#erosion-min"><i class="fa fa-check"></i><b>4.3.2</b> Erosion (Min)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="spectral-transformation.html"><a href="spectral-transformation.html#opening"><i class="fa fa-check"></i><b>4.3.3</b> Opening</a></li>
+<li class="chapter" data-level="4.3.4" data-path="spectral-transformation.html"><a href="spectral-transformation.html#closing"><i class="fa fa-check"></i><b>4.3.4</b> Closing</a></li>
+<li class="chapter" data-level="4.3.5" data-path="spectral-transformation.html"><a href="spectral-transformation.html#texture"><i class="fa fa-check"></i><b>4.3.5</b> Texture</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="spectral-transformation.html"><a href="spectral-transformation.html#standard-deviation-sd"><i class="fa fa-check"></i><b>4.4</b> Standard Deviation (SD)</a></li>
+<li class="chapter" data-level="4.5" data-path="spectral-transformation.html"><a href="spectral-transformation.html#entropy"><i class="fa fa-check"></i><b>4.5</b> Entropy</a></li>
+<li class="chapter" data-level="4.6" data-path="spectral-transformation.html"><a href="spectral-transformation.html#gray-level-co-occurrence-matrices-glcm"><i class="fa fa-check"></i><b>4.6</b> Gray-level Co-Occurrence Matrices (GLCM)</a></li>
+<li class="chapter" data-level="4.7" data-path="spectral-transformation.html"><a href="spectral-transformation.html#spatial-statistics"><i class="fa fa-check"></i><b>4.7</b> Spatial statistics</a></li>
+<li class="chapter" data-level="" data-path="spectral-transformation.html"><a href="spectral-transformation.html#where-to-submit-2"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Remote Sensing in the Social Sciences</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spectral-transformation" class="section level1">
+<h1><span class="header-section-number">Lab 4</span> Spectral Transformation</h1>
+<div id="linear-filtering" class="section level2">
+<h2><span class="header-section-number">4.1</span> Linear Filtering</h2>
+<p>In the present context, linear <em>filtering</em> (or <a href="http://www.dspguide.com/ch24/1.htm">convolution</a>) refers to a linear combination of pixel values in a neighborhood. The neighborhood is specified by a <a href="https://en.wikipedia.org/wiki/Kernel_(image_processing)">kernel</a>, where the weights of the kernel determine the coefficients in the linear combination. (For this lab, the terms <em>kernel</em> and <em>filter</em> are interchangeable.) Filtering an image can be useful for extracting image information at different <a href="http://www.dspguide.com/ch24/5.htm">spatial frequencies</a>. For this reason, smoothing filters are called <em>low-pass</em> filters (they let <em>low</em>-frequency data <em>pass</em> through) and edge detection filters are called <em>high-pass</em> filters. To implement filtering in Earth Engine use <a href="https://developers.google.com/earth-engine/guides/image_convolutions">image.convolve()</a> with an ee.Kernel for the argument.</p>
+<div id="smoothing" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Smoothing</h3>
+<p>Smoothing means to convolve an image with a smoothing kernel.</p>
+<p>A simple smoothing filter is a square kernel with uniform weights that sum to one. Convolving with this kernel sets each pixel to the mean of its neighborhood. Print a square kernel with uniform weights (this is sometimes called a “pillbox” or “boxcar” filter):</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a href="spectral-transformation.html#cb38-1"></a><span class="co">// Print a uniform kernel to see its weights.</span></span>
+<span id="cb38-2"><a href="spectral-transformation.html#cb38-2"></a><span class="at">print</span>(<span class="st">&#39;A uniform kernel:&#39;</span><span class="op">,</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">square</span>(<span class="dv">2</span>))<span class="op">;</span></span></code></pre></div>
+<p>Expand the kernel object in the console to see the weights. This kernel is defined by how many pixels it covers (i.e. radius is in units of ‘pixels’). A kernel with radius defined in ‘meters’ adjusts its size in pixels, so you can’t visualize its weights, but it’s more flexible in terms of adapting to inputs of different scale. In the following, use kernels with radius defined in meters except to visualize the weights.</p>
+<p>Define a kernel in with 2-meter radius (Which corresponds to how many pixels in the NAIP image? Hint: try <a href="https://developers.google.com/earth-engine/guides/projections">projection.nominalScale()</a>, convolve the image with the kernel and compare the input image with the smoothed image:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb39-1"><a href="spectral-transformation.html#cb39-1"></a><span class="co">// Define a square, uniform kernel.</span></span>
+<span id="cb39-2"><a href="spectral-transformation.html#cb39-2"></a><span class="kw">var</span> uniformKernel <span class="op">=</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">square</span>(<span class="op">{</span></span>
+<span id="cb39-3"><a href="spectral-transformation.html#cb39-3"></a> <span class="dt">radius</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb39-4"><a href="spectral-transformation.html#cb39-4"></a> <span class="dt">units</span><span class="op">:</span> <span class="st">&#39;meters&#39;</span><span class="op">,</span></span>
+<span id="cb39-5"><a href="spectral-transformation.html#cb39-5"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb39-6"><a href="spectral-transformation.html#cb39-6"></a><span class="co">// Filter the image by convolving with the smoothing filter.</span></span>
+<span id="cb39-7"><a href="spectral-transformation.html#cb39-7"></a><span class="kw">var</span> smoothed <span class="op">=</span> <span class="va">image</span>.<span class="at">convolve</span>(uniformKernel)<span class="op">;</span></span>
+<span id="cb39-8"><a href="spectral-transformation.html#cb39-8"></a><span class="va">Map</span>.<span class="at">addLayer</span>(smoothed<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span><span class="op">},</span> <span class="st">&#39;smoothed image&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>To make the image even more smooth, try increasing the size of the neighborhood by increasing the pixel radius.</p>
+<p>A Gaussian kernel can also be used for smoothing. Think of filtering with a Gaussian kernel as computing the weighted average in each pixel’s neighborhood. For example:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb40-1"><a href="spectral-transformation.html#cb40-1"></a><span class="co">// Print a Gaussian kernel to see its weights.</span></span>
+<span id="cb40-2"><a href="spectral-transformation.html#cb40-2"></a><span class="at">print</span>(<span class="st">&#39;A Gaussian kernel:&#39;</span><span class="op">,</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">gaussian</span>(<span class="dv">2</span>))<span class="op">;</span></span>
+<span id="cb40-3"><a href="spectral-transformation.html#cb40-3"></a><span class="co">// Define a square Gaussian kernel:</span></span>
+<span id="cb40-4"><a href="spectral-transformation.html#cb40-4"></a><span class="kw">var</span> gaussianKernel <span class="op">=</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">gaussian</span>(<span class="op">{</span></span>
+<span id="cb40-5"><a href="spectral-transformation.html#cb40-5"></a> <span class="dt">radius</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb40-6"><a href="spectral-transformation.html#cb40-6"></a> <span class="dt">units</span><span class="op">:</span> <span class="st">&#39;meters&#39;</span><span class="op">,</span></span>
+<span id="cb40-7"><a href="spectral-transformation.html#cb40-7"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb40-8"><a href="spectral-transformation.html#cb40-8"></a><span class="co">// Filter the image by convolving with the Gaussian filter.</span></span>
+<span id="cb40-9"><a href="spectral-transformation.html#cb40-9"></a><span class="kw">var</span> gaussian <span class="op">=</span> <span class="va">image</span>.<span class="at">convolve</span>(gaussianKernel)<span class="op">;</span></span>
+<span id="cb40-10"><a href="spectral-transformation.html#cb40-10"></a><span class="va">Map</span>.<span class="at">addLayer</span>(gaussian<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span><span class="op">},</span> <span class="st">&#39;Gaussian smoothed image&#39;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="edge-detection" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Edge Detection</h3>
+<p>Convolving with an edge-detection kernel is used to find rapid changes in DNs that usually signify edges of objects represented in the image data.</p>
+<p>A classic edge detection kernel is the <a href="https://en.wikipedia.org/wiki/Discrete_Laplace_operator">Laplacian</a> kernel. Investigate the kernel weights and the image that results from convolving with the Laplacian:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb41-1"><a href="spectral-transformation.html#cb41-1"></a><span class="co">// Define a Laplacian filter.</span></span>
+<span id="cb41-2"><a href="spectral-transformation.html#cb41-2"></a><span class="kw">var</span> laplacianKernel <span class="op">=</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">laplacian8</span>()<span class="op">;</span></span>
+<span id="cb41-3"><a href="spectral-transformation.html#cb41-3"></a><span class="co">// Print the kernel to see its weights.</span></span>
+<span id="cb41-4"><a href="spectral-transformation.html#cb41-4"></a><span class="at">print</span>(laplacianKernel)<span class="op">;</span></span>
+<span id="cb41-5"><a href="spectral-transformation.html#cb41-5"></a><span class="co">// Filter the image by convolving with the Laplacian filter.</span></span>
+<span id="cb41-6"><a href="spectral-transformation.html#cb41-6"></a><span class="kw">var</span> edges <span class="op">=</span> <span class="va">image</span>.<span class="at">convolve</span>(laplacianKernel)</span>
+<span id="cb41-7"><a href="spectral-transformation.html#cb41-7"></a>       .<span class="at">reproject</span>(<span class="st">&#39;EPSG:26910&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb41-8"><a href="spectral-transformation.html#cb41-8"></a><span class="va">Map</span>.<span class="at">addLayer</span>(edges<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span><span class="op">},</span> <span class="st">&#39;Laplacian filtered image&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Other edge detection kernels include the <a href="https://en.wikipedia.org/wiki/Sobel_operator">Sobel</a>, <a href="https://en.wikipedia.org/wiki/Prewitt_operator">Prewitt</a> and <a href="https://en.wikipedia.org/wiki/Roberts_cross">Roberts</a> kernels. <a href="https://developers.google.com/earth-engine/image_edges">Learn more about additional edge detection methods in Earth Engine</a>.</p>
+</div>
+<div id="gradients" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Gradients</h3>
+<p>Image gradient is the change in pixel values over space (analogous to computing slope from a DEM).</p>
+<p>In Earth Engine, use <a href="https://developers.google.com/earth-engine/guides/image_gradients">image.gradient()</a> to compute the gradient in an image band. For example, gradients in the NIR band indicate transitions in vegetation:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb42-1"><a href="spectral-transformation.html#cb42-1"></a><span class="co">// Compute the image gradient in the X and Y directions.</span></span>
+<span id="cb42-2"><a href="spectral-transformation.html#cb42-2"></a><span class="kw">var</span> xyGrad <span class="op">=</span> <span class="va">image</span>.<span class="at">select</span>(<span class="st">&#39;N&#39;</span>).<span class="at">gradient</span>()<span class="op">;</span></span>
+<span id="cb42-3"><a href="spectral-transformation.html#cb42-3"></a><span class="co">// Compute the magnitude of the gradient.</span></span>
+<span id="cb42-4"><a href="spectral-transformation.html#cb42-4"></a><span class="kw">var</span> gradient <span class="op">=</span> <span class="va">xyGrad</span>.<span class="at">select</span>(<span class="st">&#39;x&#39;</span>).<span class="at">pow</span>(<span class="dv">2</span>)</span>
+<span id="cb42-5"><a href="spectral-transformation.html#cb42-5"></a>    .<span class="at">add</span>(<span class="va">xyGrad</span>.<span class="at">select</span>(<span class="st">&#39;y&#39;</span>).<span class="at">pow</span>(<span class="dv">2</span>)).<span class="at">sqrt</span>()</span>
+<span id="cb42-6"><a href="spectral-transformation.html#cb42-6"></a>        .<span class="at">reproject</span>(<span class="st">&#39;EPSG:26910&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb42-7"><a href="spectral-transformation.html#cb42-7"></a><span class="co">// Compute the direction of the gradient.</span></span>
+<span id="cb42-8"><a href="spectral-transformation.html#cb42-8"></a><span class="kw">var</span> direction <span class="op">=</span> <span class="va">xyGrad</span>.<span class="at">select</span>(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb42-9"><a href="spectral-transformation.html#cb42-9"></a>                .<span class="at">atan2</span>(<span class="va">xyGrad</span>.<span class="at">select</span>(<span class="st">&#39;x&#39;</span>))</span>
+<span id="cb42-10"><a href="spectral-transformation.html#cb42-10"></a>                .<span class="at">reproject</span>(<span class="st">&#39;EPSG:26910&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb42-11"><a href="spectral-transformation.html#cb42-11"></a><span class="co">// Display the results.</span></span>
+<span id="cb42-12"><a href="spectral-transformation.html#cb42-12"></a><span class="va">Map</span>.<span class="at">setCenter</span>(<span class="op">-</span><span class="fl">122.054</span><span class="op">,</span> <span class="fl">37.7295</span><span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb42-13"><a href="spectral-transformation.html#cb42-13"></a><span class="va">Map</span>.<span class="at">addLayer</span>(direction<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">-3</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> <span class="st">&#39;png&#39;</span><span class="op">},</span> <span class="st">&#39;direction&#39;</span>)<span class="op">;</span></span>
+<span id="cb42-14"><a href="spectral-transformation.html#cb42-14"></a><span class="va">Map</span>.<span class="at">addLayer</span>(gradient<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">-10</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> <span class="st">&#39;png&#39;</span><span class="op">},</span> <span class="st">&#39;gradient&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>(Ignore the reproject() call for now. It is explained in section 6.)</p>
+<p>For an in-depth study of gradients in multi-spectral imagery, see <a href="http://www.sciencedirect.com/science/article/pii/0734189X86902239">Di Zenzo (1986)</a>.</p>
+</div>
+<div id="sharpening" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Sharpening</h3>
+<p>Image sharpening, or <a href="http://www.dspguide.com/ch24/2.htm">edge enhancement</a>, is related to the idea of the image second derivative. Specifically, mimic the perception of <a href="https://en.wikipedia.org/wiki/Mach_bands">Mach bands</a> in human optical response by adding the image to its second derivative.</p>
+<p>One implementation of this idea is to convolve an image with a Laplacian-of-a-Gaussian or <a href="https://en.wikipedia.org/wiki/Difference_of_Gaussians">Difference-of-Gaussians</a> filter (see <a href="http://www.sciencedirect.com/science/book/9780123694072">Schowengerdt 2007</a> for details), then add that to the input image:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb43-1"><a href="spectral-transformation.html#cb43-1"></a><span class="co">// Define a &quot;fat&quot; Gaussian kernel.</span></span>
+<span id="cb43-2"><a href="spectral-transformation.html#cb43-2"></a><span class="kw">var</span> fat <span class="op">=</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">gaussian</span>(<span class="op">{</span></span>
+<span id="cb43-3"><a href="spectral-transformation.html#cb43-3"></a>                <span class="dt">radius</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb43-4"><a href="spectral-transformation.html#cb43-4"></a>            <span class="dt">sigma</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb43-5"><a href="spectral-transformation.html#cb43-5"></a>            <span class="dt">magnitude</span><span class="op">:</span> <span class="dv">-1</span><span class="op">,</span></span>
+<span id="cb43-6"><a href="spectral-transformation.html#cb43-6"></a>            <span class="dt">units</span><span class="op">:</span> <span class="st">&#39;meters&#39;</span></span>
+<span id="cb43-7"><a href="spectral-transformation.html#cb43-7"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb43-8"><a href="spectral-transformation.html#cb43-8"></a><span class="co">// Define a &quot;skinny&quot; Gaussian kernel.</span></span>
+<span id="cb43-9"><a href="spectral-transformation.html#cb43-9"></a><span class="kw">var</span> skinny <span class="op">=</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">gaussian</span>(<span class="op">{</span></span>
+<span id="cb43-10"><a href="spectral-transformation.html#cb43-10"></a>            <span class="dt">radius</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb43-11"><a href="spectral-transformation.html#cb43-11"></a>            <span class="dt">sigma</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span></span>
+<span id="cb43-12"><a href="spectral-transformation.html#cb43-12"></a>            <span class="dt">units</span><span class="op">:</span> <span class="st">&#39;meters&#39;</span></span>
+<span id="cb43-13"><a href="spectral-transformation.html#cb43-13"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb43-14"><a href="spectral-transformation.html#cb43-14"></a><span class="co">// Compute a difference-of-Gaussians (DOG) kernel.</span></span>
+<span id="cb43-15"><a href="spectral-transformation.html#cb43-15"></a><span class="kw">var</span> dog <span class="op">=</span> <span class="va">fat</span>.<span class="at">add</span>(skinny)<span class="op">;</span></span>
+<span id="cb43-16"><a href="spectral-transformation.html#cb43-16"></a><span class="co">// Add the DoG filtered image to the original image.</span></span>
+<span id="cb43-17"><a href="spectral-transformation.html#cb43-17"></a><span class="kw">var</span> sharpened <span class="op">=</span> <span class="va">image</span>.<span class="at">add</span>(<span class="va">image</span>.<span class="at">convolve</span>(dog))<span class="op">;</span></span>
+<span id="cb43-18"><a href="spectral-transformation.html#cb43-18"></a><span class="va">Map</span>.<span class="at">addLayer</span>(sharpened<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span><span class="op">},</span> <span class="st">&#39;Edges enhanced&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>​ ii. Related concepts include <a href="http://www.dspguide.com/ch14/5.htm"><em>spectral inversion</em></a> from digital signal processing and <em>unsharp masking</em> (<a href="http://imagingbook.com/">Burger and Burge 2008</a>).</p>
+</div>
+</div>
+<div id="non-linear-filtering" class="section level2">
+<h2><span class="header-section-number">4.2</span> Non-Linear Filtering</h2>
+<p>The previous convolution examples can all be implemented as linear combinations of pixel values in a neighborhood (gradient needs a couple extra steps, but nevermind that). Non-linear functions applied to a neighborhood are also useful. Implement these functions in Earth Engine with the <a href="https://developers.google.com/earth-engine/guides/reducers_reduce_neighborhood">reduceNeighborhood()</a> method on images.</p>
+<div id="median" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Median</h3>
+<p>A median filter can be useful for denoising images. Specifically, suppose that random pixels in your image are saturated by anomalously high or low values that result from some noise process. Filtering the image with a mean filter (as in section 3.a.i) would result in pixel values getting polluted by noisy data. To avoid that, smooth the image with a median filter (reusing the 5x5 uniform kernel from above)</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb44-1"><a href="spectral-transformation.html#cb44-1"></a><span class="kw">var</span> median <span class="op">=</span> <span class="va">image</span>.<span class="at">reduceNeighborhood</span>(<span class="op">{</span></span>
+<span id="cb44-2"><a href="spectral-transformation.html#cb44-2"></a> <span class="dt">reducer</span><span class="op">:</span> <span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">median</span>()<span class="op">,</span> </span>
+<span id="cb44-3"><a href="spectral-transformation.html#cb44-3"></a> <span class="dt">kernel</span><span class="op">:</span> uniformKernel</span>
+<span id="cb44-4"><a href="spectral-transformation.html#cb44-4"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb44-5"><a href="spectral-transformation.html#cb44-5"></a><span class="va">Map</span>.<span class="at">addLayer</span>(median<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span><span class="op">},</span> <span class="st">&#39;Median&#39;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="mode" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Mode</h3>
+<p>For categorical maps, methods such as median and mean make little sense for aggregating nominal data. In these cases, use neighborhood mode to get the most frequently occurring value.</p>
+<p>For demonstration purposes, make a categorical map by thresholding the NIR band. Two classes, with labels 1 and 0 are the result</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb45-1"><a href="spectral-transformation.html#cb45-1"></a><span class="co">// Create and display a simple two-class image.</span></span>
+<span id="cb45-2"><a href="spectral-transformation.html#cb45-2"></a><span class="kw">var</span> veg <span class="op">=</span> <span class="va">image</span>.<span class="at">select</span>(<span class="st">&#39;N&#39;</span>).<span class="at">gt</span>(<span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb45-3"><a href="spectral-transformation.html#cb45-3"></a><span class="co">// Display the two-class (binary) result.</span></span>
+<span id="cb45-4"><a href="spectral-transformation.html#cb45-4"></a><span class="kw">var</span> binaryVis <span class="op">=</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span> [<span class="st">&#39;black&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span>]<span class="op">};</span></span>
+<span id="cb45-5"><a href="spectral-transformation.html#cb45-5"></a><span class="va">Map</span>.<span class="at">addLayer</span>(veg<span class="op">,</span> binaryVis<span class="op">,</span> <span class="st">&#39;veg&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Compute the mode in each 5x5 neighborhood</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb46-1"><a href="spectral-transformation.html#cb46-1"></a><span class="co">// Compute the mode in each 5x5 neighborhood and display the result.</span></span>
+<span id="cb46-2"><a href="spectral-transformation.html#cb46-2"></a><span class="kw">var</span> mode <span class="op">=</span> <span class="va">veg</span>.<span class="at">reduceNeighborhood</span>(<span class="op">{</span></span>
+<span id="cb46-3"><a href="spectral-transformation.html#cb46-3"></a> <span class="dt">reducer</span><span class="op">:</span> <span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">mode</span>()<span class="op">,</span> </span>
+<span id="cb46-4"><a href="spectral-transformation.html#cb46-4"></a> <span class="dt">kernel</span><span class="op">:</span> uniformKernel</span>
+<span id="cb46-5"><a href="spectral-transformation.html#cb46-5"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb46-6"><a href="spectral-transformation.html#cb46-6"></a><span class="va">Map</span>.<span class="at">addLayer</span>(mode<span class="op">,</span> binaryVis<span class="op">,</span> <span class="st">&#39;mode&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Compare the shape of patches in the mode image to the original veg image. Note the smoothing effect that the mode has on the shape of patches.</p>
+</div>
+</div>
+<div id="morphological-processing" class="section level2">
+<h2><span class="header-section-number">4.3</span> Morphological Processing</h2>
+<p>The idea of morphology is tied to the concept of objects in images. For example, suppose the patches of 1’s in the veg image from the previous section represent patches of vegetation.</p>
+<div id="dilation-max" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Dilation (Max)</h3>
+<p>If the patches underestimate the actual distribution of vegetation, or contain “holes”, a max filter can be applied to <a href="https://en.wikipedia.org/wiki/Dilation_(morphology)">dilate</a> the areas of vegetation</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb47-1"><a href="spectral-transformation.html#cb47-1"></a><span class="co">// Dilate by taking the max in each 5x5 neighborhood.</span></span>
+<span id="cb47-2"><a href="spectral-transformation.html#cb47-2"></a><span class="kw">var</span> max <span class="op">=</span> <span class="va">veg</span>.<span class="at">reduceNeighborhood</span>(<span class="op">{</span></span>
+<span id="cb47-3"><a href="spectral-transformation.html#cb47-3"></a> <span class="dt">reducer</span><span class="op">:</span> <span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">max</span>()<span class="op">,</span> </span>
+<span id="cb47-4"><a href="spectral-transformation.html#cb47-4"></a> <span class="dt">kernel</span><span class="op">:</span> uniformKernel</span>
+<span id="cb47-5"><a href="spectral-transformation.html#cb47-5"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb47-6"><a href="spectral-transformation.html#cb47-6"></a><span class="va">Map</span>.<span class="at">addLayer</span>(max<span class="op">,</span> binaryVis<span class="op">,</span> <span class="st">&#39;max&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Try increasing the amount of dilation by increasing the size of the kernel (i.e. increase the radius) or applying reduceNeighborhood() more than once.</p>
+</div>
+<div id="erosion-min" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Erosion (Min)</h3>
+<p>The opposite of dilation is <a href="https://en.wikipedia.org/wiki/Erosion_(morphology)">erosion</a>, for decreasing the size of the patches</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb48-1"><a href="spectral-transformation.html#cb48-1"></a><span class="co">// Erode by taking the min in each 5x5 neighborhood.</span></span>
+<span id="cb48-2"><a href="spectral-transformation.html#cb48-2"></a><span class="kw">var</span> min <span class="op">=</span> <span class="va">veg</span>.<span class="at">reduceNeighborhood</span>(<span class="op">{</span></span>
+<span id="cb48-3"><a href="spectral-transformation.html#cb48-3"></a> <span class="dt">reducer</span><span class="op">:</span> <span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">min</span>()<span class="op">,</span> </span>
+<span id="cb48-4"><a href="spectral-transformation.html#cb48-4"></a> <span class="dt">kernel</span><span class="op">:</span> uniformKernel</span>
+<span id="cb48-5"><a href="spectral-transformation.html#cb48-5"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb48-6"><a href="spectral-transformation.html#cb48-6"></a><span class="va">Map</span>.<span class="at">addLayer</span>(min<span class="op">,</span> binaryVis<span class="op">,</span> <span class="st">&#39;min&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Carefully inspect the result compared to the input. Note that the shape of the kernel affects the <em>shape</em> of the eroded patches (the same effect occurs in the dilationdialtion). Explore this effect by testing different shape kernels. As with the dilation, note that you can get more erosion by increasing the size of the kernel or applying the operation repetitively.</p>
+</div>
+<div id="opening" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Opening</h3>
+<p>To “open” possible “holes” in the patches, perform an erosion followed by a dilation. This process is called <a href="https://en.wikipedia.org/wiki/Opening_(morphology)">opening</a>. Try that by performing a dilation of the eroded image:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a href="spectral-transformation.html#cb49-1"></a><span class="co">// Perform an opening by dilating the eroded image.</span></span>
+<span id="cb49-2"><a href="spectral-transformation.html#cb49-2"></a><span class="kw">var</span> opened <span class="op">=</span> <span class="va">min</span>.<span class="at">reduceNeighborhood</span>(<span class="op">{</span></span>
+<span id="cb49-3"><a href="spectral-transformation.html#cb49-3"></a> <span class="dt">reducer</span><span class="op">:</span> <span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">max</span>()<span class="op">,</span> </span>
+<span id="cb49-4"><a href="spectral-transformation.html#cb49-4"></a> <span class="dt">kernel</span><span class="op">:</span> uniformKernel</span>
+<span id="cb49-5"><a href="spectral-transformation.html#cb49-5"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb49-6"><a href="spectral-transformation.html#cb49-6"></a><span class="va">Map</span>.<span class="at">addLayer</span>(opened<span class="op">,</span> binaryVis<span class="op">,</span> <span class="st">&#39;opened&#39;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="closing" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Closing</h3>
+<p>The opposite of opening is <a href="https://en.wikipedia.org/wiki/Closing_(morphology)">closing</a>, or dilation followed by erosion. Use this to “close” possible “holes” in the input patches</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb50-1"><a href="spectral-transformation.html#cb50-1"></a><span class="co">// Perform a closing by eroding the dilated image.</span></span>
+<span id="cb50-2"><a href="spectral-transformation.html#cb50-2"></a><span class="kw">var</span> closed <span class="op">=</span> <span class="va">max</span>.<span class="at">reduceNeighborhood</span>(<span class="op">{</span></span>
+<span id="cb50-3"><a href="spectral-transformation.html#cb50-3"></a> <span class="dt">reducer</span><span class="op">:</span> <span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">min</span>()<span class="op">,</span> </span>
+<span id="cb50-4"><a href="spectral-transformation.html#cb50-4"></a> <span class="dt">kernel</span><span class="op">:</span> uniformKernel</span>
+<span id="cb50-5"><a href="spectral-transformation.html#cb50-5"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb50-6"><a href="spectral-transformation.html#cb50-6"></a><span class="va">Map</span>.<span class="at">addLayer</span>(closed<span class="op">,</span> binaryVis<span class="op">,</span> <span class="st">&#39;closed&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Closely examine the difference between each morphological operation and the veg input. Tune these morphological operators by adjusting the size and shape of the kernel (also called a <a href="https://en.wikipedia.org/wiki/Structuring_element"><em>structuring element</em></a> in this context, because of its effect on the shape of the result), or applying the operations repeatedly.</p>
+</div>
+<div id="texture" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Texture</h3>
+<p>Define texture as some measure of DN distribution within a neighborhood. There are a variety of ways to <a href="https://developers.google.com/earth-engine/image_texture">compute texture in Earth Engine</a>.</p>
+</div>
+</div>
+<div id="standard-deviation-sd" class="section level2">
+<h2><span class="header-section-number">4.4</span> Standard Deviation (SD)</h2>
+<p>The SD measures the spread of the DN distribution in the neighborhood. A textureless neighborhood, in which there is only one DN, has SD=0. Compute neighborhood SD for the NAIP image with:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb51-1"><a href="spectral-transformation.html#cb51-1"></a><span class="co">// Define a big neighborhood with a 7-meter radius kernel.</span></span>
+<span id="cb51-2"><a href="spectral-transformation.html#cb51-2"></a><span class="kw">var</span> bigKernel <span class="op">=</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">square</span>(<span class="op">{</span></span>
+<span id="cb51-3"><a href="spectral-transformation.html#cb51-3"></a> <span class="dt">radius</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span></span>
+<span id="cb51-4"><a href="spectral-transformation.html#cb51-4"></a> <span class="dt">units</span><span class="op">:</span> <span class="st">&#39;meters&#39;</span></span>
+<span id="cb51-5"><a href="spectral-transformation.html#cb51-5"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb51-6"><a href="spectral-transformation.html#cb51-6"></a><span class="co">// Compute SD in a neighborhood.</span></span>
+<span id="cb51-7"><a href="spectral-transformation.html#cb51-7"></a><span class="kw">var</span> sd <span class="op">=</span> <span class="va">image</span>.<span class="at">reduceNeighborhood</span>(<span class="op">{</span></span>
+<span id="cb51-8"><a href="spectral-transformation.html#cb51-8"></a> <span class="dt">reducer</span><span class="op">:</span> <span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">stdDev</span>()<span class="op">,</span> </span>
+<span id="cb51-9"><a href="spectral-transformation.html#cb51-9"></a> <span class="dt">kernel</span><span class="op">:</span> bigKernel</span>
+<span id="cb51-10"><a href="spectral-transformation.html#cb51-10"></a><span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb51-11"><a href="spectral-transformation.html#cb51-11"></a><span class="va">Map</span>.<span class="at">addLayer</span>(sd<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">70</span><span class="op">},</span> <span class="st">&#39;SD&#39;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="entropy" class="section level2">
+<h2><span class="header-section-number">4.5</span> Entropy</h2>
+<p>For discrete valued inputs, you can compute <a href="https://en.wikipedia.org/wiki/Diversity_index#Shannon_index">entropy</a> in a neighborhood, where entropy in this context is like an index of DN diversity in the neighborhood:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb52-1"><a href="spectral-transformation.html#cb52-1"></a><span class="co">// Compute entropy in a neighborhood.</span></span>
+<span id="cb52-2"><a href="spectral-transformation.html#cb52-2"></a><span class="kw">var</span> entropy <span class="op">=</span> <span class="va">image</span>.<span class="at">entropy</span>(bigKernel)<span class="op">;</span></span>
+<span id="cb52-3"><a href="spectral-transformation.html#cb52-3"></a><span class="va">Map</span>.<span class="at">addLayer</span>(entropy<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">5</span><span class="op">},</span> <span class="st">&#39;entropy&#39;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="gray-level-co-occurrence-matrices-glcm" class="section level2">
+<h2><span class="header-section-number">4.6</span> Gray-level Co-Occurrence Matrices (GLCM)</h2>
+<p>The GLCM is computed by forming an <em>M</em>x<em>M</em> matrix for an image with <em>M possible DN values, then computing entry </em>i<em>,</em>j* as the frequency at which DN=<em>i</em> is adjacent to DN=<em>j</em>. A variety of texture metrics can be computed from that matrix, among them is contrast:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb53-1"><a href="spectral-transformation.html#cb53-1"></a><span class="co">// Use the GLCM to compute a large number of texture measures.</span></span>
+<span id="cb53-2"><a href="spectral-transformation.html#cb53-2"></a><span class="kw">var</span> glcmTexture <span class="op">=</span> <span class="va">image</span>.<span class="at">glcmTexture</span>(<span class="dv">7</span>)<span class="op">;</span></span>
+<span id="cb53-3"><a href="spectral-transformation.html#cb53-3"></a><span class="co">// Display the &#39;contrast&#39; results for the red, green and blue bands.</span></span>
+<span id="cb53-4"><a href="spectral-transformation.html#cb53-4"></a><span class="kw">var</span> contrastVis <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb53-5"><a href="spectral-transformation.html#cb53-5"></a> <span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;R_contrast&#39;</span><span class="op">,</span> <span class="st">&#39;G_contrast&#39;</span><span class="op">,</span> <span class="st">&#39;B_contrast&#39;</span>]<span class="op">,</span> </span>
+<span id="cb53-6"><a href="spectral-transformation.html#cb53-6"></a> <span class="dt">min</span><span class="op">:</span> <span class="dv">40</span><span class="op">,</span></span>
+<span id="cb53-7"><a href="spectral-transformation.html#cb53-7"></a> <span class="dt">max</span><span class="op">:</span> <span class="dv">2000</span></span>
+<span id="cb53-8"><a href="spectral-transformation.html#cb53-8"></a><span class="op">};</span></span>
+<span id="cb53-9"><a href="spectral-transformation.html#cb53-9"></a><span class="va">Map</span>.<span class="at">addLayer</span>(glcmTexture<span class="op">,</span> contrastVis<span class="op">,</span> <span class="st">&#39;contrast&#39;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="spatial-statistics" class="section level2">
+<h2><span class="header-section-number">4.7</span> Spatial statistics</h2>
+<p>Two interesting texture measures from the field of spatial statistics include local <a href="https://en.wikipedia.org/wiki/Moran&#39;s_I">Moran’s I</a> and local <a href="https://en.wikipedia.org/wiki/Geary&#39;s_C">Geary’s C</a> (<a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1538-4632.1995.tb00338.x/abstract">Anselin 1995</a>). To compute a local Geary’s C with the NAIP image as input, use:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb54-1"><a href="spectral-transformation.html#cb54-1"></a><span class="co">// Create a list of weights for a 9x9 kernel.</span></span>
+<span id="cb54-2"><a href="spectral-transformation.html#cb54-2"></a><span class="kw">var</span> list <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb54-3"><a href="spectral-transformation.html#cb54-3"></a><span class="co">// The center of the kernel is zero.</span></span>
+<span id="cb54-4"><a href="spectral-transformation.html#cb54-4"></a><span class="kw">var</span> centerList <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb54-5"><a href="spectral-transformation.html#cb54-5"></a><span class="co">// Assemble a list of lists: the 9x9 kernel weights as a 2-D matrix.</span></span>
+<span id="cb54-6"><a href="spectral-transformation.html#cb54-6"></a><span class="kw">var</span> lists <span class="op">=</span> [list<span class="op">,</span> list<span class="op">,</span> list<span class="op">,</span> list<span class="op">,</span> centerList<span class="op">,</span> list<span class="op">,</span> list<span class="op">,</span> list<span class="op">,</span> list]<span class="op">;</span></span>
+<span id="cb54-7"><a href="spectral-transformation.html#cb54-7"></a><span class="co">// Create the kernel from the weights.</span></span>
+<span id="cb54-8"><a href="spectral-transformation.html#cb54-8"></a><span class="co">// Non-zero weights represent the spatial neighborhood.</span></span>
+<span id="cb54-9"><a href="spectral-transformation.html#cb54-9"></a><span class="kw">var</span> kernel <span class="op">=</span> <span class="va">ee</span>.<span class="va">Kernel</span>.<span class="at">fixed</span>(<span class="dv">9</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> lists<span class="op">,</span> <span class="dv">-4</span><span class="op">,</span> <span class="dv">-4</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb54-10"><a href="spectral-transformation.html#cb54-10"></a><span class="co">// Use the max among bands as the input.</span></span>
+<span id="cb54-11"><a href="spectral-transformation.html#cb54-11"></a><span class="kw">var</span> maxBands <span class="op">=</span> <span class="va">image</span>.<span class="at">reduce</span>(<span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">max</span>())<span class="op">;</span></span>
+<span id="cb54-12"><a href="spectral-transformation.html#cb54-12"></a><span class="co">// Convert the neighborhood into multiple bands.</span></span>
+<span id="cb54-13"><a href="spectral-transformation.html#cb54-13"></a><span class="kw">var</span> neighs <span class="op">=</span> <span class="va">maxBands</span>.<span class="at">neighborhoodToBands</span>(kernel)<span class="op">;</span></span>
+<span id="cb54-14"><a href="spectral-transformation.html#cb54-14"></a><span class="co">// Compute local Geary&#39;s C, a measure of spatial association.</span></span>
+<span id="cb54-15"><a href="spectral-transformation.html#cb54-15"></a><span class="kw">var</span> gearys <span class="op">=</span> <span class="va">maxBands</span>.<span class="at">subtract</span>(neighs)</span>
+<span id="cb54-16"><a href="spectral-transformation.html#cb54-16"></a>                .<span class="at">pow</span>(<span class="dv">2</span>)</span>
+<span id="cb54-17"><a href="spectral-transformation.html#cb54-17"></a>                .<span class="at">reduce</span>(<span class="va">ee</span>.<span class="va">Reducer</span>.<span class="at">sum</span>())</span>
+<span id="cb54-18"><a href="spectral-transformation.html#cb54-18"></a>                .<span class="at">divide</span>(<span class="va">Math</span>.<span class="at">pow</span>(<span class="dv">9</span><span class="op">,</span> <span class="dv">2</span>))<span class="op">;</span></span>
+<span id="cb54-19"><a href="spectral-transformation.html#cb54-19"></a><span class="va">Map</span>.<span class="at">addLayer</span>(gearys<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2500</span><span class="op">},</span> <span class="st">&quot;Geary&#39;s C&quot;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="where-to-submit-2" class="section level2 unnumbered">
+<h2>Where to submit</h2>
+<p>Submit your responses to these questions on <a href="https://www.gradescope.com/courses/293173/assignments/1446622/submissions">Gradescope</a> by 10am on Wednesday, September 15. All students who have been attending class have already been enrolled in Gradescope, although if for some reason you need to sign up again, the access code for our course is <code>6PEW3W</code>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="spectral-indices-transformations.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["labs-rsss.pdf"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
