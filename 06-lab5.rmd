@@ -194,11 +194,11 @@ $$
 
 Note that $\beta_2 = Acos(\phi)$ and $\beta_3 = Asin(\phi)$, implying $A = (\beta_2^2 + \beta_3^2)^½$ and $\phi = atan(\frac{\beta_3}{\beta_2})$). 
 
-If the math here does not make sense, basically we are breaking up more complex curves into a set of simplified cosine waves and an additive term. Mark Jakubauskas has an informative paper that breaks down the process in this [paper](https://www.isprs.org/proceedings/xxxiii/congress/part4/384_xxxiii-part4.pdf). Building a harmonic model is used in many remote sensing applications because of its flexibility for accounting for cyclicality with simple 
+If the math here does not make sense, basically we are breaking up more complex curves into a set of simplified cosine waves and an additive term. Mark Jakubauskas has an informative paper that breaks down the process in this [paper](https://www.isprs.org/proceedings/xxxiii/congress/part4/384_xxxiii-part4.pdf), and there are many papers which elaborate more on the math behind harmonic models. Building a harmonic model is used in remote sensing applications because of its flexibility in accounting for cyclicality with simple, reproducible shapes. If there is a seasonal trend in the data, the ordered nature of a cosine curve can likely approximate it.  
 
- To fit this model to the time series, set $\omega$=1 (one cycle per unit time) and use ordinary least squares regression.
+ To fit this model to the time series, set $\omega$=1 (one cycle per unit time) and use ordinary least squares regression as the metric of error reduction. 
 
-The setup for fitting the model is to first add the harmonic variables (the third and fourth terms of equation 2) to the image collection.
+First, add the harmonic variables (the third and fourth terms of equation 2) to the image collection.
 
 ```javascript
 // Use these independent variables in the harmonic regression.
@@ -212,7 +212,7 @@ var harmonicLandsat = filteredLandsat.map(function(image) {
   });
 ```
 
-Fit the model as with the linear trend, using the `linearRegression()` reducer:
+Fit the model with a linear trend, using the `linearRegression()` reducer:
 
 ```javascript
 var harmonicTrend = harmonicLandsat
@@ -249,7 +249,7 @@ print(ui.Chart.image.series(fittedHarmonic.select(['fitted','NDVI']), roi,
   pointSize: 3,}));
 ```
 
-The harmonic overlay (red data points) does an adequate job of modeling the data - There is a datapoint in Feb 2021 that is significantly less, but this appears to be an outlier. Additionally, the model misses a significant dip in July 2015, although this might be due to the climate conditions that were irregular - other years did not have the same dip.  
+The harmonic model (red data points) does an adequate job of predicting the data - There is a datapoint in Feb 2021 that is significantly lower, but this appears to be an outlier. Additionally, the model misses a significant dip in July 2015, although this might be due to irregular climate conditions - other years did not have the same dip.  
 
 ![im_06_10](./im/im_06_05.png)
 
@@ -289,13 +289,100 @@ Map.addLayer(rgb, {}, 'phase (hue), amplitude (sat), ndvi (val)');
 
 ---
 
-A time series can be decomposed as the sum of sinusoids at different frequencies. The harmonic model presented here can be easily extended by adding bands that represent higher frequencies and the corresponding `sin()` band for a harmonic component to account for two cycles per year.  
+###  Complex Time Series Modeling
 
-You can look at this [example](https://code.earthengine.google.com/2669122497313113fc4bb81bc8352828) of using multiple sinusoids to build a more complex harmonic model. Note that each year there is a high peak in June and a secondary peak in January - this harmonic model consisting of two sinusoids is able to account for that. However, the error values in this case are high and the fit is quite inexact. In your research, this harmonic model might not be appropriate due to overfitting - in other words, this model might be providing a false sense of comfort in it's explanatory ability.  
+A time series can be decomposed as the sum of sinusoids at different frequencies. The harmonic model presented here can be extended by adding bands that represent higher frequencies and the corresponding `sin()` band for a harmonic component to account for two cycles per year.  
+
+You can look at this GEE [example](https://code.earthengine.google.com/2669122497313113fc4bb81bc8352828) of using multiple sinusoids to build a more complex harmonic model. Note that each year there is a high peak in June and a secondary peak in January - this harmonic model consisting of two sinusoids with separate frequencies and amplitudes is able to account for that. However, the error values in this model are high and the fit is quite inexact. We can see extreme drops in the NDVI value that the model misses, and several peaks each year that do not fit.
+
+
 
 ![im_06_11](./im/im_06_06.png)
 
+ More complex harmonic models might not be appropriate due to overfitting - in other words, this model might  provide a false sense of comfort in it's explanatory ability. Time Series modelling of remote sensing data is more difficult than many business or scientific contexts due to masked data, missing data, irregular atmospheric conditions and natural variability.
+
+### Exporting Data
+
+Many of you might be more familiar with building statistical models in other languages or tools, such as Python, R or JMP. After all, JavaScript was not built as a natural statistics tool, and being able to work with the data In that case, you'll likely want to export the data for your own analysis. There are several ways to do it, but the simplest method is to click the 'expand into new tab' button next to the chart that contains the data you want to work with (likely the raw NDVI data) - in the new tab, you can click 'Download .csv', which is a datatable that you can use with whichever software you prefer.
+
+![im_06_07](./im/im_06_07.png)
+
+## Time Series Thresholding
+
+Urban change detection is a burgeoning field in remote sensing that identifies historical urban development and works to predict where future urban development will occur. Remote sensing is a vital partner in this field, as it can provide an unbiased, quantitative assessment of change over time. For instance, [Greece](https://www.spiegel.de/international/europe/finding-swimming-pools-with-google-earth-greek-government-hauls-in-billions-in-back-taxes-a-709703.html) is using Google Earth Pro to scour the countryside for signs of tax evaders (ex., a luxury pool built without a permit may indicate sheltered money). Other countries are using classification models in Google Earth Engine to characterize urban development. 
+
+In this example, we will go over a simple, but very effective method of identifying urban development, based on real-world experience. In nearby Roanoke (located about 45 minutes east of Virginia Tech), like any other city, there has been significant construction in the past few years. About three years ago, a patch of land was converted from trees and pasture and construction began an assisted living facility. Let's test to see if we can identify this construction. We will use the Landsat 8 image collection (as we used earlier), and import our test point as `var roi`. The process of building the chart is the same as earlier, and we will use NDVI as our change metric, as we can hypothesize that new construction will greatly reduce NDVI. 
+
+```javascript
+// Test area - lat/long acquired from Google Maps
+var roi = ee.Geometry.Point([-79.98413, 37.2368]);
+var landsat_8_sr = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
+
+// This field contains UNIX time in milliseconds.
+var timeField = 'system:time_start';
+
+// Function to cloud mask from the pixel_qa band of Landsat 8 SR data.
+function maskL8sr(image) {
+  // Bits 3 and 5 are cloud shadow and cloud, respectively.
+  var cloudShadowBitMask = 1 << 3;
+  var cloudsBitMask = 1 << 5;
+  // Get the pixel QA band.
+  var qa = image.select('pixel_qa');
+  // Both flags should be set to zero, indicating clear conditions.
+  var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0)
+  .and(qa.bitwiseAnd(cloudsBitMask).eq(0));
+  // Return the masked image, scaled to reflectance, without the QA bands.
+  return image.updateMask(mask).divide(10000)
+  .select('B[0-9]*')
+  .copyProperties(image, [timeField]);
+}
+// Use this function to add variables for NDVI, time and a constant
+// to Landsat 8 imagery.
+var addVariables = function(image) {
+  // Compute time in fractional years since the epoch.
+  var date = ee.Date(image.get(timeField));
+  var years = date.difference(ee.Date('1970-01-01'), 'year');
+  // Return the image with the added bands.
+  return image
+  // Add an NDVI band.
+  .addBands(image.normalizedDifference(['B5', 'B4']).rename('NDVI'))
+  // Add a time band.
+  .addBands(ee.Image(years).rename('t'))
+  .float()
+  // Add a constant band.
+  .addBands(ee.Image.constant(1));
+};
+// Remove clouds, add variables and filter to the area of interest.
+var filteredLandsat = landsat_8_sr
+.filterBounds(roi)
+.map(maskL8sr)
+.map(addVariables);
+// Plot a time series of NDVI at a single location.
+var l8Chart = ui.Chart.image.series(filteredLandsat.select('NDVI'), roi)
+  .setChartType('ScatterChart')
+  .setOptions({
+   title: 'Landsat 8 NDVI Time Series at ROI',
+   trendlines: {0: {
+				color: 'CC0000'
+   }},
+   lineWidth: 1,
+   pointSize: 3,
+  });
+print(l8Chart);
+```
+
+Below is the resulting chart, exactly as expected. NDVI has a max of 0.9 in the summer and a min of 0.4 in the winter, but between March 2018 to April 2018 the NDVI drops from 0.313 to 0.18, and largely stays below this value. In addition, the cyclicality is gone after 2018, and while there are some elevated values in late 2020, that is likely due to atmospheric conditions or sensor calibration. The linear trend is an indication of construction, and perhaps a window function to average out the variability can help identify large drops in the overall average NDVI for this test point. 
+
+![im_06_08](./im/im_06_08.png)
+
+There are some interesting ways you can expand this general idea - for instance, you might be able to build a system that automatically identifies urban development that occurs when it occurs in your test zone. Global Forest watch is using a similar tactic to automatically detect when there is a large drop in NDVI, and by using MODIS data, they can obtain very high temporal resolution to identify exactly when and where this activity is occuring. Note that different image collections have different time-lines (for instance, Landsat 8 would not be able to detect urban change before 2013), and you may have to set up this system differently. 
+
+
+
 ## Additional Exercises
+
+<i class="fa fa-file"></i> **Test three different points using Landsat 7, Landsat 8 and MODIS to identify urban development in an area of interest. Do the charts and data provide enough data to determine that urban change occurred?**
+
 
 <i class="fa fa-file"></i> **Look in google scholar to identify 2-3 publications that have used a harmonic regression in a time series analysis of remotely sensed data in particular. Provide citations for the articles, and then describe for what purposes was the technique used and what was the justification provided for its use.**
 
