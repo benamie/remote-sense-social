@@ -30,7 +30,8 @@
   
   
 <link rel="prev" href="prelab-getting-started.html"/>
-
+<link rel="next" href="lab2.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,7 +49,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -56,18 +56,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -121,6 +121,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -133,42 +134,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html"><i class="fa fa-check"></i>PreLab: Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html"><i class="fa fa-check"></i>PreLab: Getting Started</a>
+<ul>
 <li class="chapter" data-level="" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#overview"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="0.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#data-and-methods"><i class="fa fa-check"></i><b>0.1</b> Data and Methods</a></li>
-<li class="chapter" data-level="0.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images-and-image-collections"><i class="fa fa-check"></i><b>0.2</b> Images and Image Collections</a><ul>
+<li class="chapter" data-level="0.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images-and-image-collections"><i class="fa fa-check"></i><b>0.2</b> Images and Image Collections</a>
+<ul>
 <li class="chapter" data-level="0.2.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#images"><i class="fa fa-check"></i><b>0.2.1</b> Images</a></li>
 <li class="chapter" data-level="0.2.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#image-collections"><i class="fa fa-check"></i><b>0.2.2</b> Image Collections</a></li>
 <li class="chapter" data-level="0.2.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#sensed-versus-derived-imagery"><i class="fa fa-check"></i><b>0.2.3</b> Sensed versus Derived Imagery</a></li>
 </ul></li>
 <li class="chapter" data-level="0.3" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#geometries"><i class="fa fa-check"></i><b>0.3</b> Geometries</a></li>
-<li class="chapter" data-level="0.4" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features-and-feature-collections"><i class="fa fa-check"></i><b>0.4</b> Features and Feature Collections</a><ul>
+<li class="chapter" data-level="0.4" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features-and-feature-collections"><i class="fa fa-check"></i><b>0.4</b> Features and Feature Collections</a>
+<ul>
 <li class="chapter" data-level="0.4.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#features"><i class="fa fa-check"></i><b>0.4.1</b> Features</a></li>
 <li class="chapter" data-level="0.4.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#feature-collections"><i class="fa fa-check"></i><b>0.4.2</b> Feature Collections</a></li>
 </ul></li>
 <li class="chapter" data-level="0.5" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#methods-reducers"><i class="fa fa-check"></i><b>0.5</b> Methods: Reducers</a></li>
-<li class="chapter" data-level="0.6" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#joins-and-arrays"><i class="fa fa-check"></i><b>0.6</b> Joins and Arrays</a><ul>
+<li class="chapter" data-level="0.6" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#joins-and-arrays"><i class="fa fa-check"></i><b>0.6</b> Joins and Arrays</a>
+<ul>
 <li class="chapter" data-level="0.6.1" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#join"><i class="fa fa-check"></i><b>0.6.1</b> Join</a></li>
 <li class="chapter" data-level="0.6.2" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#arrays"><i class="fa fa-check"></i><b>0.6.2</b> Arrays</a></li>
 </ul></li>
 <li class="chapter" data-level="0.7" data-path="prelab-getting-started.html"><a href="prelab-getting-started.html#additional-resources"><i class="fa fa-check"></i><b>0.7</b> Additional Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>1</b> Remote Sensing Background</a><ul>
+<li class="chapter" data-level="1" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>1</b> Remote Sensing Background</a>
+<ul>
 <li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#overview-1"><i class="fa fa-check"></i>Overview</a></li>
-<li class="chapter" data-level="1.1" data-path="lab1.html"><a href="lab1.html#what-is-a-digital-image"><i class="fa fa-check"></i><b>1.1</b> What is a digital image?</a><ul>
+<li class="chapter" data-level="1.1" data-path="lab1.html"><a href="lab1.html#what-is-a-digital-image"><i class="fa fa-check"></i><b>1.1</b> What is a digital image?</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="lab1.html"><a href="lab1.html#from-digital-image-to-geospatial-image"><i class="fa fa-check"></i><b>1.1.1</b> From digital image to geospatial image</a></li>
 <li class="chapter" data-level="1.1.2" data-path="lab1.html"><a href="lab1.html#visualize-a-digital-image"><i class="fa fa-check"></i><b>1.1.2</b> Visualize a Digital Image</a></li>
 <li class="chapter" data-level="1.1.3" data-path="lab1.html"><a href="lab1.html#digital-image-visualization-and-stretching"><i class="fa fa-check"></i><b>1.1.3</b> Digital Image Visualization and Stretching</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="lab1.html"><a href="lab1.html#spatial-resolution"><i class="fa fa-check"></i><b>1.2</b> Spatial Resolution</a><ul>
+<li class="chapter" data-level="1.2" data-path="lab1.html"><a href="lab1.html#spatial-resolution"><i class="fa fa-check"></i><b>1.2</b> Spatial Resolution</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="lab1.html"><a href="lab1.html#modis"><i class="fa fa-check"></i><b>1.2.1</b> MODIS</a></li>
 <li class="chapter" data-level="1.2.2" data-path="lab1.html"><a href="lab1.html#multispectral-scanners"><i class="fa fa-check"></i><b>1.2.2</b> Multispectral Scanners</a></li>
 <li class="chapter" data-level="1.2.3" data-path="lab1.html"><a href="lab1.html#thematic-mapper-tm"><i class="fa fa-check"></i><b>1.2.3</b> Thematic Mapper (TM)</a></li>
 <li class="chapter" data-level="1.2.4" data-path="lab1.html"><a href="lab1.html#national-agriculture-imagery-program-naip"><i class="fa fa-check"></i><b>1.2.4</b> National Agriculture Imagery Program (NAIP)</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="lab1.html"><a href="lab1.html#spectral-resolution"><i class="fa fa-check"></i><b>1.3</b> Spectral Resolution</a></li>
-<li class="chapter" data-level="1.4" data-path="lab1.html"><a href="lab1.html#temporal-resolution"><i class="fa fa-check"></i><b>1.4</b> Temporal Resolution</a><ul>
+<li class="chapter" data-level="1.4" data-path="lab1.html"><a href="lab1.html#temporal-resolution"><i class="fa fa-check"></i><b>1.4</b> Temporal Resolution</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="lab1.html"><a href="lab1.html#modis-1"><i class="fa fa-check"></i><b>1.4.1</b> MODIS</a></li>
 <li class="chapter" data-level="1.4.2" data-path="lab1.html"><a href="lab1.html#landsat"><i class="fa fa-check"></i><b>1.4.2</b> Landsat</a></li>
 </ul></li>
@@ -177,6 +189,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7" data-path="lab1.html"><a href="lab1.html#additional-exercises"><i class="fa fa-check"></i><b>1.7</b> Additional Exercises</a></li>
 <li class="chapter" data-level="" data-path="lab1.html"><a href="lab1.html#where-to-submit"><i class="fa fa-check"></i>Where to submit</a></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>2</b> Digital Imagery &amp; Image Processing</a>
+<ul>
+<li class="chapter" data-level="" data-path="lab2.html"><a href="lab2.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="lab2.html"><a href="lab2.html#searching-for-imagery-exercise-1"><i class="fa fa-check"></i><b>2.1</b> Searching for Imagery (Exercise 1)</a></li>
+<li class="chapter" data-level="2.2" data-path="lab2.html"><a href="lab2.html#visualizing-landsat-imagery"><i class="fa fa-check"></i><b>2.2</b> Visualizing Landsat Imagery</a></li>
+<li class="chapter" data-level="2.3" data-path="lab2.html"><a href="lab2.html#plot-at-sensor-radiance"><i class="fa fa-check"></i><b>2.3</b> Plot at-Sensor Radiance</a></li>
+<li class="chapter" data-level="2.4" data-path="lab2.html"><a href="lab2.html#plot-top-of-atmosphere-toa-reflectance"><i class="fa fa-check"></i><b>2.4</b> Plot Top-of-Atmosphere (TOA) Reflectance</a></li>
+<li class="chapter" data-level="2.5" data-path="lab2.html"><a href="lab2.html#plot-surface-reflectance"><i class="fa fa-check"></i><b>2.5</b> Plot Surface Reflectance</a></li>
+<li class="chapter" data-level="2.6" data-path="lab2.html"><a href="lab2.html#additional-exercises-1"><i class="fa fa-check"></i><b>2.6</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab2.html"><a href="lab2.html#where-to-submit-1"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html"><i class="fa fa-check"></i><b>3</b> Spectral Indices &amp; Transformations</a>
+<ul>
+<li class="chapter" data-level="" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#spectral-indices"><i class="fa fa-check"></i><b>3.1</b> Spectral Indices</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#important-indices"><i class="fa fa-check"></i><b>3.1.1</b> Important Indices</a></li>
+<li class="chapter" data-level="3.1.2" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#linear-transformations"><i class="fa fa-check"></i><b>3.1.2</b> Linear Transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#spectral-transformation"><i class="fa fa-check"></i><b>3.2</b> Spectral Transformation</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#linear-filtering"><i class="fa fa-check"></i><b>3.2.1</b> Linear Filtering</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#additional-exercises-2"><i class="fa fa-check"></i><b>3.3</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="spectral-indices-transformations.html"><a href="spectral-indices-transformations.html#where-to-submit-2"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>4</b> Classification</a>
+<ul>
+<li class="chapter" data-level="" data-path="classification.html"><a href="classification.html#overview-4"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="4.1" data-path="classification.html"><a href="classification.html#introduction-to-classification"><i class="fa fa-check"></i><b>4.1</b> Introduction to Classification</a></li>
+<li class="chapter" data-level="4.2" data-path="classification.html"><a href="classification.html#unsupervised-classification"><i class="fa fa-check"></i><b>4.2</b> Unsupervised Classification</a></li>
+<li class="chapter" data-level="4.3" data-path="classification.html"><a href="classification.html#supervised-classification"><i class="fa fa-check"></i><b>4.3</b> Supervised Classification</a></li>
+<li class="chapter" data-level="4.4" data-path="classification.html"><a href="classification.html#accuracy-assessment"><i class="fa fa-check"></i><b>4.4</b> Accuracy Assessment</a></li>
+<li class="chapter" data-level="4.5" data-path="classification.html"><a href="classification.html#hyperparameter-tuning"><i class="fa fa-check"></i><b>4.5</b> Hyperparameter Tuning</a></li>
+<li class="chapter" data-level="4.6" data-path="classification.html"><a href="classification.html#assignment"><i class="fa fa-check"></i><b>4.6</b> Assignment</a></li>
+<li class="chapter" data-level="" data-path="classification.html"><a href="classification.html#where-to-submit-3"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab5.html"><a href="lab5.html"><i class="fa fa-check"></i><b>5</b> Time Series Modeling</a>
+<ul>
+<li class="chapter" data-level="" data-path="lab5.html"><a href="lab5.html#overview-5"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="lab5.html"><a href="lab5.html#background"><i class="fa fa-check"></i><b>5.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="lab5.html"><a href="lab5.html#im_06_07"><i class="fa fa-check"></i><b>5.1.1</b> <img src="im/im_06_01.png" alt="im_06_07" /></a></li>
+<li class="chapter" data-level="5.1.2" data-path="lab5.html"><a href="lab5.html#limitations-in-remote-sensing-time-series"><i class="fa fa-check"></i><b>5.1.2</b> Limitations in Remote Sensing Time Series</a></li>
+<li class="chapter" data-level="5.1.3" data-path="lab5.html"><a href="lab5.html#multi-temporal-data-in-earth-engine"><i class="fa fa-check"></i><b>5.1.3</b> Multi-Temporal Data in Earth Engine</a></li>
+<li class="chapter" data-level="5.1.4" data-path="lab5.html"><a href="lab5.html#data-preparation-and-preprocessing"><i class="fa fa-check"></i><b>5.1.4</b> Data Preparation and Preprocessing</a></li>
+<li class="chapter" data-level="5.1.5" data-path="lab5.html"><a href="lab5.html#linear-modeling-of-time"><i class="fa fa-check"></i><b>5.1.5</b> Linear Modeling of Time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="lab5.html"><a href="lab5.html#estimate-seasonality-with-a-harmonic-model"><i class="fa fa-check"></i><b>5.2</b> Estimate Seasonality with a Harmonic Model</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="lab5.html"><a href="lab5.html#complex-time-series-modeling"><i class="fa fa-check"></i><b>5.2.1</b> Complex Time Series Modeling</a></li>
+<li class="chapter" data-level="5.2.2" data-path="lab5.html"><a href="lab5.html#exporting-data"><i class="fa fa-check"></i><b>5.2.2</b> Exporting Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="lab5.html"><a href="lab5.html#time-series-thresholding"><i class="fa fa-check"></i><b>5.3</b> Time Series Thresholding</a></li>
+<li class="chapter" data-level="5.4" data-path="lab5.html"><a href="lab5.html#additional-exercises-3"><i class="fa fa-check"></i><b>5.4</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab5.html"><a href="lab5.html#where-to-submit-4"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab6.html"><a href="lab6.html"><i class="fa fa-check"></i><b>6</b> Night Time Lights Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="lab6.html"><a href="lab6.html#overview-6"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="lab6.html"><a href="lab6.html#basic-operations"><i class="fa fa-check"></i><b>6.1</b> Basic Operations</a></li>
+<li class="chapter" data-level="6.2" data-path="lab6.html"><a href="lab6.html#conclusion"><i class="fa fa-check"></i><b>6.2</b> Conclusion</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/benamie/remote-sense-social/" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -194,7 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lab1" class="section level1">
+<div id="lab1" class="section level1" number="1">
 <h1><span class="header-section-number">Lab 1</span> Remote Sensing Background</h1>
 <style type="text/css">
 .blackbox {
@@ -227,12 +305,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 </div>
-<div id="what-is-a-digital-image" class="section level2">
+<div id="what-is-a-digital-image" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> What is a digital image?</h2>
 <p>A digital image is a matrix of same-sized pixels that are each defined by two main attributes: (1) the position, as defined by rows and columns and (2) the a value associated with that position.</p>
 <p>A digital image 8 pixels wide by 8 pixels tall could thus look like the image below. Note though you can reference the position from a given axis, typically, image processing uses the top-left of an image as the reference point, as in the below image.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:digimage"></span>
-<img src="clip_image003.png" alt="Digital Image Example" width="50%" />
+<img src="im/im_02_01.png" alt="Digital Image Example" width="50%" />
 <p class="caption">
 Figure 1.1: Digital Image Example
 </p>
@@ -241,7 +319,7 @@ Figure 1.1: Digital Image Example
 <p>Digital images are also often called <a href="https://en.wikipedia.org/wiki/Raster_graphics">rasters</a>, and ESRI has a great overview of rasters used in geospatial analysis featured <a href="https://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/what-is-raster-data.htm">here</a>.
 <!-- , is a block of [pixels](https://en.wikipedia.org/wiki/Pixel)  -->
 <!-- [(Besag 1986)](https://www.jstor.org/stable/2345426).  --></p>
-<div id="from-digital-image-to-geospatial-image" class="section level3">
+<div id="from-digital-image-to-geospatial-image" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> From digital image to geospatial image</h3>
 <p>A digital image is a flat, square surface. However, the earth is round (spherical).</p>
 <p>Thus to make use of the synoptic properties of remote sensing data, we need to align the pixels in our image to a real-world location. There’s quite a bit of mathematics involved in this process, but we will focus on two main components - establishing a Geographic Coordinate System (GCS) and a Projected Coordinate System (PCS).</p>
@@ -261,14 +339,14 @@ Each pixel has a position, measured with respect to the axes of some coordinate 
 <!--   <img width="460" height="300" src="https://github.com/benamie/remote-sensing/blob/fe48f32faef6810435f4882446e357d29b871ee5/docs/Lab%2001/clip_image002.png" alt = "A picture containing colored squares showing how raster is put together at two spatial scales: the smaller scale points out individual pixel and larger can point out CRS."> -->
 <!--   </p> -->
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pixel"></span>
-<img src="clip_image002.png" alt="A pixel, raster, and a CRS" width="80%" />
+<img src="im/im_02_02.png" alt="A pixel, raster, and a CRS" width="80%" />
 <p class="caption">
 Figure 1.2: A pixel, raster, and a CRS
 </p>
 </div>
 </div>
 </div>
-<div id="visualize-a-digital-image" class="section level3">
+<div id="visualize-a-digital-image" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Visualize a Digital Image</h3>
 <p>Let’s view a digital image in GEE to better understand this concept:
 <!-- `[-80.42214051858835,37.227722521394924]` --></p>
@@ -277,16 +355,16 @@ Figure 1.2: A pixel, raster, and a CRS
 <code>[-80.42,37.23]</code>). As a reminder, you can find more information on geometry drawing tools in GEE’s Guides. Name the import <code>point</code>.</p></li>
 <li><p>Import NAIP imagery by searching for ‘naip’ and choosing the <em>‘NAIP: National Agriculture Imagery Program’</em> raster dataset. Name the import <code>naip</code>.</p></li>
 <li><p>Get a single, recent NAIP image over your study area and inspect it:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="lab1.html#cb7-1"></a><span class="co">//  Get a single NAIP image over the area of interest.  </span></span>
-<span id="cb7-2"><a href="lab1.html#cb7-2"></a><span class="kw">var</span>  image <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(naip  </span>
-<span id="cb7-3"><a href="lab1.html#cb7-3"></a>                      .<span class="at">filterBounds</span>(point)</span>
-<span id="cb7-4"><a href="lab1.html#cb7-4"></a>                      .<span class="at">sort</span>(<span class="st">&#39;system:time_start&#39;</span><span class="op">,</span> <span class="kw">false</span>)</span>
-<span id="cb7-5"><a href="lab1.html#cb7-5"></a>                      .<span class="at">first</span>())<span class="op">;</span>      </span>
-<span id="cb7-6"><a href="lab1.html#cb7-6"></a><span class="co">//  Print the image to the console.  </span></span>
-<span id="cb7-7"><a href="lab1.html#cb7-7"></a><span class="at">print</span>(<span class="st">&#39;Inspect the image object:&#39;</span><span class="op">,</span> image)<span class="op">;</span>     </span>
-<span id="cb7-8"><a href="lab1.html#cb7-8"></a><span class="co">//  Display the image with the default visualization.  </span></span>
-<span id="cb7-9"><a href="lab1.html#cb7-9"></a><span class="va">Map</span>.<span class="at">centerObject</span>(point<span class="op">,</span> <span class="dv">18</span>)<span class="op">;</span>  </span>
-<span id="cb7-10"><a href="lab1.html#cb7-10"></a><span class="va">Map</span>.<span class="at">addLayer</span>(image<span class="op">,</span> <span class="op">{},</span> <span class="st">&#39;Original image&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="lab1.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">//  Get a single NAIP image over the area of interest.  </span></span>
+<span id="cb7-2"><a href="lab1.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(naip  </span>
+<span id="cb7-3"><a href="lab1.html#cb7-3" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb7-4"><a href="lab1.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;system:time_start&#39;</span><span class="op">,</span> <span class="kw">false</span>)</span>
+<span id="cb7-5"><a href="lab1.html#cb7-5" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span>      </span>
+<span id="cb7-6"><a href="lab1.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">//  Print the image to the console.  </span></span>
+<span id="cb7-7"><a href="lab1.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Inspect the image object:&#39;</span><span class="op">,</span> image)<span class="op">;</span>     </span>
+<span id="cb7-8"><a href="lab1.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">//  Display the image with the default visualization.  </span></span>
+<span id="cb7-9"><a href="lab1.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">18</span>)<span class="op">;</span>  </span>
+<span id="cb7-10"><a href="lab1.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;Original image&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
 <li><p>Expand the image object that is printed to the console by clicking on the dropdown triangles. Expand the property called <code>bands</code> and expand one of the bands (0, for example). Note that the CRS transform is stored in the <code>crs_transform</code> property underneath the band dropdown and the CRS is stored in the <code>crs</code> property, which references an EPSG code. <br></p>
 <blockquote>
 <p><strong>EPSG Codes</strong> are 4-5 digit numbers that represent CRS definitions. The acronym EPGS, comes from the (now defunct) European Petroleum Survey Group. The CRS of this image is <a href="https://spatialreference.org/ref/epsg/nad83-utm-zone-17n/">EPSG:26917</a>. You can often learn more about those <a href="http://www.epsg-registry.org/">EPSG codes</a> from <a href="http://spatialreference.org/">thespatialreference.org</a> or from the <a href="https://epsg.org/home.html">ESPG homepage</a>. <br></p>
@@ -295,126 +373,126 @@ Figure 1.2: A pixel, raster, and a CRS
 <p>The CRS transform is a list <code>[m00, m01, m02, m10, m11, m12]</code> in the notation of <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/geom/AffineTransform.html">this reference</a>. The CRS transform defines how to map pixel coordinates to their associated spherical coordinate through an affine transformation. While affine transformations are beyond the scope of this class, more information can be found at <a href="https://rasterio.readthedocs.io/en/latest/topics/georeferencing.html">Rasterio</a>, which provides detailed documentation for the popular Python library designed for working with geospatial data. <br></p>
 </blockquote></li>
 <li><p>In addition to using the dropdowns, you can also access these data programmatically with the <code>.projection()</code> method:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="lab1.html#cb8-1"></a><span class="co">// Display the projection of band 0</span></span>
-<span id="cb8-2"><a href="lab1.html#cb8-2"></a><span class="at">print</span>(<span class="st">&#39;Inspect the projection of band 0:&#39;</span><span class="op">,</span> <span class="va">image</span>.<span class="at">select</span>(<span class="dv">0</span>).<span class="at">projection</span>())<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="lab1.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the projection of band 0</span></span>
+<span id="cb8-2"><a href="lab1.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Inspect the projection of band 0:&#39;</span><span class="op">,</span> image<span class="op">.</span><span class="fu">select</span>(<span class="dv">0</span>)<span class="op">.</span><span class="fu">projection</span>())<span class="op">;</span></span></code></pre></div></li>
 <li><p>Note that the projection can differ by band, which is why it’s good practice to inspect the projection of individual image bands.</p></li>
 <li><p>(If you call <code>.projection()</code> on an image for which the projection differs by band, you’ll get an error.) Exchange the NAIP imagery with the Planet SkySat MultiSpectral image collection, and note that the error occurs because the ‘P’ band has a different pixel size than the others.</p></li>
 <li><p>Explore the <code>ee.Projection</code> docs to learn about useful methods offered by the <code>Projection</code> object. To play with projections offline, try <a href="http://www.giss.nasa.gov/tools/gprojector/">this tool</a>.</p></li>
 </ol>
 </div>
-<div id="digital-image-visualization-and-stretching" class="section level3">
+<div id="digital-image-visualization-and-stretching" class="section level3" number="1.1.3">
 <h3><span class="header-section-number">1.1.3</span> Digital Image Visualization and Stretching</h3>
 <p>You’ve learned about how an image stores pixel data in each band as digital numbers (DNs) and how the pixels are organized spatially. When you add an image to the map, Earth Engine handles the spatial display for you by recognizing the projection and putting all the pixels in the right place. However, you must specify how to stretch the DNs to make an 8-bit display image (e.g., the <code>min</code> and <code>max</code> visualization parameters). Specifying <code>min</code> and <code>max</code> applies (where DN’ is the displayed value):</p>
 <p><!-- ` DN' = (DN - min) * 255 / (max - min)` --></p>
 <p><span class="math display">\[ DN&#39; =   \frac{ 255 (DN - min)}{(max - min)} \]</span></p>
 <ol style="list-style-type: decimal">
 <li><p>To apply a <a href="https://en.wikipedia.org/wiki/Gamma_correction">gamma correction</a> (DN’ = DN<span class="math inline">\(_\gamma\)</span>), use:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="lab1.html#cb9-1"></a><span class="co">// Display gamma stretches of the input image.</span></span>
-<span id="cb9-2"><a href="lab1.html#cb9-2"></a><span class="va">Map</span>.<span class="at">addLayer</span>(<span class="va">image</span>.<span class="at">visualize</span>(<span class="op">{</span><span class="dt">gamma</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">}</span>)<span class="op">,</span> <span class="op">{},</span> <span class="st">&#39;gamma = 0.5&#39;</span>)<span class="op">;</span></span>
-<span id="cb9-3"><a href="lab1.html#cb9-3"></a><span class="va">Map</span>.<span class="at">addLayer</span>(<span class="va">image</span>.<span class="at">visualize</span>(<span class="op">{</span><span class="dt">gamma</span><span class="op">:</span> <span class="fl">1.5</span><span class="op">}</span>)<span class="op">,</span> <span class="op">{},</span> <span class="st">&#39;gamma = 1.5&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="lab1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Display gamma stretches of the input image.</span></span>
+<span id="cb9-2"><a href="lab1.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">.</span><span class="fu">visualize</span>({<span class="dt">gamma</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;gamma = 0.5&#39;</span>)<span class="op">;</span></span>
+<span id="cb9-3"><a href="lab1.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">.</span><span class="fu">visualize</span>({<span class="dt">gamma</span><span class="op">:</span> <span class="fl">1.5</span>})<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;gamma = 1.5&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Note that gamma is supplied as an argument to <a href="https://developers.google.com/earth-engine/apidocs/ee-image-visualize">image.visualize()</a> so that you can click on the map to see the difference in pixel values (try it!). It’s possible to specify <code>gamma</code>, <code>min</code>, and <code>max</code> to achieve other unique visualizations.</p></li>
 <li><p>To apply a <a href="https://en.wikipedia.org/wiki/Histogram_equalization">histogram equalization</a> stretch, use the <a href="https://devsite.googleplex.com/earth-engine/image_visualization#styled-layer-descriptors"><code>sldStyle()</code></a> method</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="lab1.html#cb10-1"></a><span class="co">// Define a RasterSymbolizer element with &#39;_enhance_&#39; for a placeholder.</span></span>
-<span id="cb10-2"><a href="lab1.html#cb10-2"></a>  <span class="kw">var</span> histogram_sld <span class="op">=</span></span>
-<span id="cb10-3"><a href="lab1.html#cb10-3"></a>    <span class="st">&#39;&lt;RasterSymbolizer&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-4"><a href="lab1.html#cb10-4"></a>      <span class="st">&#39;&lt;ContrastEnhancement&gt;&lt;Histogram/&gt;&lt;/ContrastEnhancement&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-5"><a href="lab1.html#cb10-5"></a>      <span class="st">&#39;&lt;ChannelSelection&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-6"><a href="lab1.html#cb10-6"></a>        <span class="st">&#39;&lt;RedChannel&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-7"><a href="lab1.html#cb10-7"></a>          <span class="st">&#39;&lt;SourceChannelName&gt;R&lt;/SourceChannelName&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-8"><a href="lab1.html#cb10-8"></a>        <span class="st">&#39;&lt;/RedChannel&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-9"><a href="lab1.html#cb10-9"></a>        <span class="st">&#39;&lt;GreenChannel&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-10"><a href="lab1.html#cb10-10"></a>          <span class="st">&#39;&lt;SourceChannelName&gt;G&lt;/SourceChannelName&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-11"><a href="lab1.html#cb10-11"></a>        <span class="st">&#39;&lt;/GreenChannel&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-12"><a href="lab1.html#cb10-12"></a>        <span class="st">&#39;&lt;BlueChannel&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-13"><a href="lab1.html#cb10-13"></a>          <span class="st">&#39;&lt;SourceChannelName&gt;B&lt;/SourceChannelName&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-14"><a href="lab1.html#cb10-14"></a>        <span class="st">&#39;&lt;/BlueChannel&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-15"><a href="lab1.html#cb10-15"></a>      <span class="st">&#39;&lt;/ChannelSelection&gt;&#39;</span> <span class="op">+</span></span>
-<span id="cb10-16"><a href="lab1.html#cb10-16"></a>    <span class="st">&#39;&lt;/RasterSymbolizer&gt;&#39;</span><span class="op">;</span></span>
-<span id="cb10-17"><a href="lab1.html#cb10-17"></a></span>
-<span id="cb10-18"><a href="lab1.html#cb10-18"></a>  <span class="co">// Display the image with a histogram equalization stretch.</span></span>
-<span id="cb10-19"><a href="lab1.html#cb10-19"></a>  <span class="va">Map</span>.<span class="at">addLayer</span>(<span class="va">image</span>.<span class="at">sldStyle</span>(histogram_sld)<span class="op">,</span> <span class="op">{},</span> <span class="st">&#39;Equalized&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="lab1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Define a RasterSymbolizer element with &#39;_enhance_&#39; for a placeholder.</span></span>
+<span id="cb10-2"><a href="lab1.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> histogram_sld <span class="op">=</span></span>
+<span id="cb10-3"><a href="lab1.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;RasterSymbolizer&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-4"><a href="lab1.html#cb10-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;&lt;ContrastEnhancement&gt;&lt;Histogram/&gt;&lt;/ContrastEnhancement&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-5"><a href="lab1.html#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;&lt;ChannelSelection&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-6"><a href="lab1.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;&lt;RedChannel&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-7"><a href="lab1.html#cb10-7" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;&lt;SourceChannelName&gt;R&lt;/SourceChannelName&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-8"><a href="lab1.html#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;&lt;/RedChannel&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-9"><a href="lab1.html#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;&lt;GreenChannel&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-10"><a href="lab1.html#cb10-10" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;&lt;SourceChannelName&gt;G&lt;/SourceChannelName&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-11"><a href="lab1.html#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;&lt;/GreenChannel&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-12"><a href="lab1.html#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;&lt;BlueChannel&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-13"><a href="lab1.html#cb10-13" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;&lt;SourceChannelName&gt;B&lt;/SourceChannelName&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-14"><a href="lab1.html#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;&lt;/BlueChannel&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-15"><a href="lab1.html#cb10-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;&lt;/ChannelSelection&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb10-16"><a href="lab1.html#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/RasterSymbolizer&gt;&#39;</span><span class="op">;</span></span>
+<span id="cb10-17"><a href="lab1.html#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="lab1.html#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Display the image with a histogram equalization stretch.</span></span>
+<span id="cb10-19"><a href="lab1.html#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">.</span><span class="fu">sldStyle</span>(histogram_sld)<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;Equalized&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <p>The <a href="https://devsite.googleplex.com/earth-engine/image_visualization#styled-layer-descriptors"><code>sldStyle()</code></a> method requires image statistics to be computed in a region (to determine the histogram).</p></li>
 </ol>
 </div>
 </div>
-<div id="spatial-resolution" class="section level2">
+<div id="spatial-resolution" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Spatial Resolution</h2>
 <p>In the present context, spatial resolution often means pixel size. In practice, spatial resolution depends on the projection of the sensor’s instantaneous field of view (IFOV) on the ground and how a set of radiometric measurements are resampled into a regular grid. To see the difference in spatial resolution resulting from different sensors, let’s visualize data at different scales from different sensors.</p>
-<div id="modis" class="section level3">
+<div id="modis" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> MODIS</h3>
 <p>There are two Moderate Resolution Imaging Spectro-Radiometers (<a href="http://modis.gsfc.nasa.gov/">MODIS</a>) aboard the <a href="http://terra.nasa.gov/">Terra</a> and <a href="http://aqua.nasa.gov/">Aqua</a> satellites. Different MODIS <a href="http://modis.gsfc.nasa.gov/about/specifications.php">bands</a> produce data at different spatial resolutions. For the visible bands, the lowest common resolution is 500 meters (red and NIR are 250 meters). Data from the MODIS platforms are used to produce a large number of data sets having daily, weekly, 16-day, monthly, and annual data sets. Outside this lab, you can find a list of MODIS land products <a href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table">here</a>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Search for ‘<a href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/myd09ga_v006">MYD09GA</a>’ and import ‘<em>MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m</em>’. Name the import <code>myd09</code>.</p></li>
 <li><p>Zoom the map to San Francisco (SFO) airport:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="lab1.html#cb11-1"></a><span class="co">// Define a region of interest as a point at SFO airport.</span></span>
-<span id="cb11-2"><a href="lab1.html#cb11-2"></a><span class="kw">var</span> sfoPoint <span class="op">=</span> <span class="va">ee</span>.<span class="va">Geometry</span>.<span class="at">Point</span>(<span class="op">-</span><span class="fl">122.3774</span><span class="op">,</span> <span class="fl">37.6194</span>)<span class="op">;</span></span>
-<span id="cb11-3"><a href="lab1.html#cb11-3"></a></span>
-<span id="cb11-4"><a href="lab1.html#cb11-4"></a><span class="co">// Center the map at that point.</span></span>
-<span id="cb11-5"><a href="lab1.html#cb11-5"></a><span class="va">Map</span>.<span class="at">centerObject</span>(sfoPoint<span class="op">,</span> <span class="dv">16</span>)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="lab1.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Define a region of interest as a point at SFO airport.</span></span>
+<span id="cb11-2"><a href="lab1.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> sfoPoint <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="op">-</span><span class="fl">122.3774</span><span class="op">,</span> <span class="fl">37.6194</span>)<span class="op">;</span></span>
+<span id="cb11-3"><a href="lab1.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="lab1.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Center the map at that point.</span></span>
+<span id="cb11-5"><a href="lab1.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(sfoPoint<span class="op">,</span> <span class="dv">16</span>)<span class="op">;</span></span></code></pre></div></li>
 <li><p>To display a false-color MODIS image, select an image acquired by the Aqua MODIS sensor and display it for SFO:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="lab1.html#cb12-1"></a><span class="co">// Get a surface reflectance image from the MODIS MYD09GA collection.</span></span>
-<span id="cb12-2"><a href="lab1.html#cb12-2"></a><span class="kw">var</span> modisImage <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(<span class="va">myd09</span>.<span class="at">filterDate</span>(<span class="st">&#39;2017-07-01&#39;</span>).<span class="at">first</span>())<span class="op">;</span></span>
-<span id="cb12-3"><a href="lab1.html#cb12-3"></a></span>
-<span id="cb12-4"><a href="lab1.html#cb12-4"></a><span class="co">// Use these MODIS bands for red, green, blue, respectively.</span></span>
-<span id="cb12-5"><a href="lab1.html#cb12-5"></a><span class="kw">var</span> modisBands <span class="op">=</span> [<span class="st">&#39;sur_refl_b01&#39;</span><span class="op">,</span> <span class="st">&#39;sur_refl_b04&#39;</span><span class="op">,</span> <span class="st">&#39;sur_refl_b03&#39;</span>]<span class="op">;</span></span>
-<span id="cb12-6"><a href="lab1.html#cb12-6"></a></span>
-<span id="cb12-7"><a href="lab1.html#cb12-7"></a><span class="co">// Define visualization parameters for MODIS.</span></span>
-<span id="cb12-8"><a href="lab1.html#cb12-8"></a><span class="kw">var</span> modisVis <span class="op">=</span> <span class="op">{</span><span class="dt">bands</span><span class="op">:</span> modisBands<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">3000</span><span class="op">};</span></span>
-<span id="cb12-9"><a href="lab1.html#cb12-9"></a></span>
-<span id="cb12-10"><a href="lab1.html#cb12-10"></a><span class="co">// Add the MODIS image to the map</span></span>
-<span id="cb12-11"><a href="lab1.html#cb12-11"></a><span class="va">Map</span>.<span class="at">addLayer</span>(modisImage<span class="op">,</span> modisVis<span class="op">,</span> <span class="st">&#39;MODIS&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="lab1.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get a surface reflectance image from the MODIS MYD09GA collection.</span></span>
+<span id="cb12-2"><a href="lab1.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> modisImage <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(myd09<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2017-07-01&#39;</span>)<span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb12-3"><a href="lab1.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="lab1.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Use these MODIS bands for red, green, blue, respectively.</span></span>
+<span id="cb12-5"><a href="lab1.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> modisBands <span class="op">=</span> [<span class="st">&#39;sur_refl_b01&#39;</span><span class="op">,</span> <span class="st">&#39;sur_refl_b04&#39;</span><span class="op">,</span> <span class="st">&#39;sur_refl_b03&#39;</span>]<span class="op">;</span></span>
+<span id="cb12-6"><a href="lab1.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="lab1.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Define visualization parameters for MODIS.</span></span>
+<span id="cb12-8"><a href="lab1.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> modisVis <span class="op">=</span> {<span class="dt">bands</span><span class="op">:</span> modisBands<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">3000</span>}<span class="op">;</span></span>
+<span id="cb12-9"><a href="lab1.html#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="lab1.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Add the MODIS image to the map</span></span>
+<span id="cb12-11"><a href="lab1.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(modisImage<span class="op">,</span> modisVis<span class="op">,</span> <span class="st">&#39;MODIS&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
 <li><p>Note the size of pixels with respect to objects on the ground. (It may help to turn on the satellite basemap to see high-resolution data for comparison.) Print the size of the pixels (in meters) with:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="lab1.html#cb13-1"></a><span class="co">// Get the scale of the data from the first band&#39;s projection:</span></span>
-<span id="cb13-2"><a href="lab1.html#cb13-2"></a><span class="kw">var</span> modisScale <span class="op">=</span> <span class="va">modisImage</span>.<span class="at">select</span>(<span class="st">&#39;sur_refl_b01&#39;</span>)</span>
-<span id="cb13-3"><a href="lab1.html#cb13-3"></a>.<span class="at">projection</span>().<span class="at">nominalScale</span>()<span class="op">;</span></span>
-<span id="cb13-4"><a href="lab1.html#cb13-4"></a></span>
-<span id="cb13-5"><a href="lab1.html#cb13-5"></a><span class="at">print</span>(<span class="st">&#39;MODIS scale:&#39;</span><span class="op">,</span> modisScale)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="lab1.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get the scale of the data from the first band&#39;s projection:</span></span>
+<span id="cb13-2"><a href="lab1.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> modisScale <span class="op">=</span> modisImage<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;sur_refl_b01&#39;</span>)</span>
+<span id="cb13-3"><a href="lab1.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">projection</span>()<span class="op">.</span><span class="fu">nominalScale</span>()<span class="op">;</span></span>
+<span id="cb13-4"><a href="lab1.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="lab1.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;MODIS scale:&#39;</span><span class="op">,</span> modisScale)<span class="op">;</span></span></code></pre></div></li>
 <li><p>Note these <code>MYD09</code> data are surface reflectance scaled by 10000 (not TOA reflectance), meaning that clever NASA scientists have done a fancy atmospheric correction for you!</p></li>
 </ol>
 </div>
-<div id="multispectral-scanners" class="section level3">
+<div id="multispectral-scanners" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Multispectral Scanners</h3>
 <p>Multi-spectral scanners were flown aboard Landsats 1-5. (<a href="https://landsat.gsfc.nasa.gov/multispectral-scanner-system">MSS</a>) data have a spatial resolution of 60 meters.</p>
 <ol style="list-style-type: decimal">
 <li><p>Search for ‘landsat 5 mss’ and import the result called <em>‘USGS Landsat 5 MSS Collection 1 Tier 2 Raw Scenes’</em>. Name the import <code>mss</code>.</p></li>
 <li><p>To visualize MSS data over SFO (for a relatively cloud-free) image, use:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="lab1.html#cb14-1"></a><span class="co">// Filter MSS imagery by location, date and cloudiness.   </span></span>
-<span id="cb14-2"><a href="lab1.html#cb14-2"></a><span class="kw">var</span> mssImage <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(mss     </span>
-<span id="cb14-3"><a href="lab1.html#cb14-3"></a>                        .<span class="at">filterBounds</span>(<span class="va">Map</span>.<span class="at">getCenter</span>())     </span>
-<span id="cb14-4"><a href="lab1.html#cb14-4"></a>                        .<span class="at">filterDate</span>(<span class="st">&#39;2011-05-01&#39;</span><span class="op">,</span>  <span class="st">&#39;2011-10-01&#39;</span>)     </span>
-<span id="cb14-5"><a href="lab1.html#cb14-5"></a>                        .<span class="at">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)     </span>
-<span id="cb14-6"><a href="lab1.html#cb14-6"></a>                        <span class="co">//  Get the least cloudy image.     </span></span>
-<span id="cb14-7"><a href="lab1.html#cb14-7"></a>                        .<span class="at">first</span>())<span class="op">;</span>  </span>
-<span id="cb14-8"><a href="lab1.html#cb14-8"></a></span>
-<span id="cb14-9"><a href="lab1.html#cb14-9"></a><span class="co">// Display the MSS image as a color-IR composite.</span></span>
-<span id="cb14-10"><a href="lab1.html#cb14-10"></a><span class="va">Map</span>.<span class="at">addLayer</span>(mssImage<span class="op">,</span> <span class="op">{</span><span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B1&#39;</span>]<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">200</span><span class="op">},</span> <span class="st">&#39;MSS&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="lab1.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Filter MSS imagery by location, date and cloudiness.   </span></span>
+<span id="cb14-2"><a href="lab1.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mssImage <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(mss     </span>
+<span id="cb14-3"><a href="lab1.html#cb14-3" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">filterBounds</span>(<span class="bu">Map</span><span class="op">.</span><span class="fu">getCenter</span>())     </span>
+<span id="cb14-4"><a href="lab1.html#cb14-4" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2011-05-01&#39;</span><span class="op">,</span>  <span class="st">&#39;2011-10-01&#39;</span>)     </span>
+<span id="cb14-5"><a href="lab1.html#cb14-5" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)     </span>
+<span id="cb14-6"><a href="lab1.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                        <span class="co">//  Get the least cloudy image.     </span></span>
+<span id="cb14-7"><a href="lab1.html#cb14-7" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span>  </span>
+<span id="cb14-8"><a href="lab1.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="lab1.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the MSS image as a color-IR composite.</span></span>
+<span id="cb14-10"><a href="lab1.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mssImage<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B1&#39;</span>]<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">200</span>}<span class="op">,</span> <span class="st">&#39;MSS&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
 <li><p>Check the scale (in meters) as before:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="lab1.html#cb15-1"></a><span class="co">// Get the scale of the MSS data from its projection:</span></span>
-<span id="cb15-2"><a href="lab1.html#cb15-2"></a><span class="kw">var</span> mssScale <span class="op">=</span> <span class="va">mssImage</span>.<span class="at">select</span>(<span class="st">&#39;B1&#39;</span>).<span class="at">projection</span>().<span class="at">nominalScale</span>()<span class="op">;</span></span>
-<span id="cb15-3"><a href="lab1.html#cb15-3"></a><span class="at">print</span>(<span class="st">&#39;MSS scale:&#39;</span><span class="op">,</span> mssScale)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="lab1.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get the scale of the MSS data from its projection:</span></span>
+<span id="cb15-2"><a href="lab1.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mssScale <span class="op">=</span> mssImage<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B1&#39;</span>)<span class="op">.</span><span class="fu">projection</span>()<span class="op">.</span><span class="fu">nominalScale</span>()<span class="op">;</span></span>
+<span id="cb15-3"><a href="lab1.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;MSS scale:&#39;</span><span class="op">,</span> mssScale)<span class="op">;</span></span></code></pre></div></li>
 </ol>
 </div>
-<div id="thematic-mapper-tm" class="section level3">
+<div id="thematic-mapper-tm" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> Thematic Mapper (TM)</h3>
 <p>The Thematic Mapper (<a href="https://landsat.gsfc.nasa.gov/landsat-4-5/tm">TM</a>) was flown aboard Landsats 4-5. (It was succeeded by the Enhanced Thematic Mapper (<a href="https://landsat.gsfc.nasa.gov/about/enhanced-thematic-mapper">ETM+</a>) aboard Landsat 7 and the Operational Land Imager (<a href="https://landsat.gsfc.nasa.gov/landsat-8/operational-land-imager">OLI</a>) / Thermal Infrared Sensor (<a href="https://landsat.gsfc.nasa.gov/landsat-8/thermal-infrared-sensor-tirs">TIRS</a>) sensors aboard Landsat 8.) TM data have a spatial resolution of 30 meters.</p>
 <ol style="list-style-type: decimal">
 <li><p>Search for ‘landsat 5 toa’ and import the first result (which should be ‘<em>USGS Landsat 5 TM Collection 1 Tier 1 TOA Reflectance</em>’. Name the import <code>tm</code>.</p></li>
 <li><p>To visualize TM data over SFO, for approximately the same time as the MODIS image, use:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="lab1.html#cb16-1"></a></span>
-<span id="cb16-2"><a href="lab1.html#cb16-2"></a><span class="co">// Filter TM imagery by location, date and cloudiness.</span></span>
-<span id="cb16-3"><a href="lab1.html#cb16-3"></a><span class="kw">var</span> tmImage <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(tm</span>
-<span id="cb16-4"><a href="lab1.html#cb16-4"></a>            .<span class="at">filterBounds</span>(<span class="va">Map</span>.<span class="at">getCenter</span>())</span>
-<span id="cb16-5"><a href="lab1.html#cb16-5"></a>            .<span class="at">filterDate</span>(<span class="st">&#39;2011-05-01&#39;</span><span class="op">,</span> <span class="st">&#39;2011-10-01&#39;</span>)</span>
-<span id="cb16-6"><a href="lab1.html#cb16-6"></a>            .<span class="at">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
-<span id="cb16-7"><a href="lab1.html#cb16-7"></a>            .<span class="at">first</span>())<span class="op">;</span></span>
-<span id="cb16-8"><a href="lab1.html#cb16-8"></a></span>
-<span id="cb16-9"><a href="lab1.html#cb16-9"></a><span class="co">// Display the TM image as a color-IR composite.</span></span>
-<span id="cb16-10"><a href="lab1.html#cb16-10"></a><span class="va">Map</span>.<span class="at">addLayer</span>(tmImage<span class="op">,</span> <span class="op">{</span><span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">},</span> <span class="st">&#39;TM&#39;</span>)<span class="op">;</span> </span></code></pre></div></li>
+<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="lab1.html#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="lab1.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Filter TM imagery by location, date and cloudiness.</span></span>
+<span id="cb16-3"><a href="lab1.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> tmImage <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(tm</span>
+<span id="cb16-4"><a href="lab1.html#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">filterBounds</span>(<span class="bu">Map</span><span class="op">.</span><span class="fu">getCenter</span>())</span>
+<span id="cb16-5"><a href="lab1.html#cb16-5" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2011-05-01&#39;</span><span class="op">,</span> <span class="st">&#39;2011-10-01&#39;</span>)</span>
+<span id="cb16-6"><a href="lab1.html#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb16-7"><a href="lab1.html#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb16-8"><a href="lab1.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="lab1.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the TM image as a color-IR composite.</span></span>
+<span id="cb16-10"><a href="lab1.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(tmImage<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.4</span>}<span class="op">,</span> <span class="st">&#39;TM&#39;</span>)<span class="op">;</span> </span></code></pre></div></li>
 <li><p>For some hints about why the TM data is not the same date as the MSS data, see <a href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-5?qt-science_support_page_related_con=0#qt-science_support_page_related_con">this page</a>.</p></li>
 <li><p>Check the scale (in meters) as previously:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="lab1.html#cb17-1"></a><span class="co">// Get the scale of the TM data from its projection:</span></span>
-<span id="cb17-2"><a href="lab1.html#cb17-2"></a><span class="kw">var</span> tmScale <span class="op">=</span> <span class="va">tmImage</span>.<span class="at">select</span>(<span class="st">&#39;B1&#39;</span>).<span class="at">projection</span>().<span class="at">nominalScale</span>()<span class="op">;</span></span>
-<span id="cb17-3"><a href="lab1.html#cb17-3"></a><span class="at">print</span>(<span class="st">&#39;TM scale:&#39;</span><span class="op">,</span> tmScale)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="lab1.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get the scale of the TM data from its projection:</span></span>
+<span id="cb17-2"><a href="lab1.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> tmScale <span class="op">=</span> tmImage<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B1&#39;</span>)<span class="op">.</span><span class="fu">projection</span>()<span class="op">.</span><span class="fu">nominalScale</span>()<span class="op">;</span></span>
+<span id="cb17-3"><a href="lab1.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;TM scale:&#39;</span><span class="op">,</span> tmScale)<span class="op">;</span></span></code></pre></div></li>
 </ol>
 <p><br></p>
 <hr />
@@ -423,27 +501,27 @@ Figure 1.2: A pixel, raster, and a CRS
 <strong>Question 1: By assigning the NIR, red, and green bands in RGB (4-3-2), what features appear bright red in a Landsat 5 image and why?</strong></p>
 <hr />
 </div>
-<div id="national-agriculture-imagery-program-naip" class="section level3">
+<div id="national-agriculture-imagery-program-naip" class="section level3" number="1.2.4">
 <h3><span class="header-section-number">1.2.4</span> National Agriculture Imagery Program (NAIP)</h3>
 <p>The National Agriculture Imagery Program (<a href="http://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/">NAIP</a>) is an effort to acquire imagery over the continental US on a 3-year rotation using airborne sensors. The imagery has a spatial resolution of 1-2 meters.</p>
 <ol style="list-style-type: decimal">
 <li><p>Search for ‘naip’ and import the data set for <em>‘NAIP: National Agriculture Imagery Program’</em>. Name the import naip. Since NAIP imagery is distributed as quarters of Digital Ortho Quads at irregular cadence, load everything from the closest year to the examples in its acquisition cycle (2012) over the study area and <a href="https://developers.google.com/earth-engine/guides/ic_composite_mosaic">mosaic()</a> it:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="lab1.html#cb18-1"></a><span class="co">// Get NAIP images for the study period and region of interest.</span></span>
-<span id="cb18-2"><a href="lab1.html#cb18-2"></a></span>
-<span id="cb18-3"><a href="lab1.html#cb18-3"></a><span class="kw">var</span> naipImages <span class="op">=</span> <span class="va">naip</span>.<span class="at">filterDate</span>(<span class="st">&#39;2012-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2012-12-31&#39;</span>)</span>
-<span id="cb18-4"><a href="lab1.html#cb18-4"></a>.<span class="at">filterBounds</span>(<span class="va">Map</span>.<span class="at">getCenter</span>())<span class="op">;</span></span>
-<span id="cb18-5"><a href="lab1.html#cb18-5"></a></span>
-<span id="cb18-6"><a href="lab1.html#cb18-6"></a><span class="co">// Mosaic adjacent images into a single image.</span></span>
-<span id="cb18-7"><a href="lab1.html#cb18-7"></a><span class="kw">var</span> naipImage <span class="op">=</span> <span class="va">naipImages</span>.<span class="at">mosaic</span>()<span class="op">;</span></span>
-<span id="cb18-8"><a href="lab1.html#cb18-8"></a></span>
-<span id="cb18-9"><a href="lab1.html#cb18-9"></a><span class="co">// Display the NAIP mosaic as a color-IR composite.</span></span>
-<span id="cb18-10"><a href="lab1.html#cb18-10"></a><span class="va">Map</span>.<span class="at">addLayer</span>(naipImage<span class="op">,</span> <span class="op">{</span><span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;N&#39;</span><span class="op">,</span> <span class="st">&#39;R&#39;</span><span class="op">,</span> <span class="st">&#39;G&#39;</span>]<span class="op">},</span> <span class="st">&#39;NAIP&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="lab1.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get NAIP images for the study period and region of interest.</span></span>
+<span id="cb18-2"><a href="lab1.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="lab1.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> naipImages <span class="op">=</span> naip<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2012-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2012-12-31&#39;</span>)</span>
+<span id="cb18-4"><a href="lab1.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">filterBounds</span>(<span class="bu">Map</span><span class="op">.</span><span class="fu">getCenter</span>())<span class="op">;</span></span>
+<span id="cb18-5"><a href="lab1.html#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="lab1.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Mosaic adjacent images into a single image.</span></span>
+<span id="cb18-7"><a href="lab1.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> naipImage <span class="op">=</span> naipImages<span class="op">.</span><span class="fu">mosaic</span>()<span class="op">;</span></span>
+<span id="cb18-8"><a href="lab1.html#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="lab1.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the NAIP mosaic as a color-IR composite.</span></span>
+<span id="cb18-10"><a href="lab1.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(naipImage<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;N&#39;</span><span class="op">,</span> <span class="st">&#39;R&#39;</span><span class="op">,</span> <span class="st">&#39;G&#39;</span>]}<span class="op">,</span> <span class="st">&#39;NAIP&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
 <li><p>Check the scale by getting the first image from the mosaic (a mosaic doesn’t know what its projection is, since the mosaicked images might all have different projections), getting its projection, and getting its scale (meters):</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="lab1.html#cb19-1"></a><span class="co">// Get the NAIP resolution from the first image in the mosaic.</span></span>
-<span id="cb19-2"><a href="lab1.html#cb19-2"></a><span class="kw">var</span> naipScale <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(<span class="va">naipImages</span>.<span class="at">first</span>()).</span>
-<span id="cb19-3"><a href="lab1.html#cb19-3"></a>              <span class="at">projection</span>().<span class="at">nominalScale</span>()<span class="op">;</span></span>
-<span id="cb19-4"><a href="lab1.html#cb19-4"></a></span>
-<span id="cb19-5"><a href="lab1.html#cb19-5"></a><span class="at">print</span>(<span class="st">&#39;NAIP scale:&#39;</span><span class="op">,</span> naipScale)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="lab1.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get the NAIP resolution from the first image in the mosaic.</span></span>
+<span id="cb19-2"><a href="lab1.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> naipScale <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(naipImages<span class="op">.</span><span class="fu">first</span>())<span class="op">.</span></span>
+<span id="cb19-3"><a href="lab1.html#cb19-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">projection</span>()<span class="op">.</span><span class="fu">nominalScale</span>()<span class="op">;</span></span>
+<span id="cb19-4"><a href="lab1.html#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="lab1.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;NAIP scale:&#39;</span><span class="op">,</span> naipScale)<span class="op">;</span></span></code></pre></div></li>
 </ol>
 <hr />
 <p><i class="fa fa-file"></i>
@@ -451,12 +529,12 @@ Figure 1.2: A pixel, raster, and a CRS
 <hr />
 </div>
 </div>
-<div id="spectral-resolution" class="section level2">
+<div id="spectral-resolution" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Spectral Resolution</h2>
 <p>Spectral resolution refers to the number and width of spectral bands in which the sensor takes measurements. You can think of the width of spectral bands as the wavelength intervals for each band. A sensor that measures radiance in multiple bands is called a <em>multispectral</em> sensor (generally 3-10 bands), while a sensor with many bands (possibly hundreds) is called a <em>hyperspectral</em> sensor (these are not hard and fast definitions). For example, compare the <a href="http://landsat.gsfc.nasa.gov/?p=5779">multi-spectral OLI</a> aboard Landsat 8 to <a href="https://eo1.usgs.gov/sensors/hyperioncoverage">Hyperion</a>, a hyperspectral sensor aboard the <a href="https://eo1.usgs.gov/">EO-1 satellite</a>.</p>
 <p>A figure representing common optical sensors and their spectral resolution can be viewed below <a href="https://www.researchgate.net/figure/Spectral-resolution-of-currently-available-optical-satellite-sensors-grouped-by-different_fig1_348695518">(image source)</a>:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:spectralres"></span>
-<img src="common_optical_sensors_spectral_resolution.png" alt="Common Optical Sensors and their Spectral Resolution" width="100%" />
+<img src="im/im_02_03.png" alt="Common Optical Sensors and their Spectral Resolution" width="100%" />
 <p class="caption">
 Figure 1.3: Common Optical Sensors and their Spectral Resolution
 </p>
@@ -464,14 +542,14 @@ Figure 1.3: Common Optical Sensors and their Spectral Resolution
 <p>There is an easy way to check the number of bands in Earth Engine, but no way to get an understanding of the relative <em>spectral response</em> of the bands, where spectral response is a function measured in the laboratory to characterize the detector.</p>
 <ol style="list-style-type: decimal">
 <li><p>To see the number of bands in an image, use:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a href="lab1.html#cb20-1"></a><span class="co">// Get the MODIS band names as a List</span></span>
-<span id="cb20-2"><a href="lab1.html#cb20-2"></a><span class="kw">var</span> modisBands <span class="op">=</span> <span class="va">modisImage</span>.<span class="at">bandNames</span>()<span class="op">;</span></span>
-<span id="cb20-3"><a href="lab1.html#cb20-3"></a></span>
-<span id="cb20-4"><a href="lab1.html#cb20-4"></a><span class="co">// Print the list.</span></span>
-<span id="cb20-5"><a href="lab1.html#cb20-5"></a><span class="at">print</span>(<span class="st">&#39;MODIS bands:&#39;</span><span class="op">,</span> modisBands)<span class="op">;</span></span>
-<span id="cb20-6"><a href="lab1.html#cb20-6"></a></span>
-<span id="cb20-7"><a href="lab1.html#cb20-7"></a><span class="co">// Print the length of the list.</span></span>
-<span id="cb20-8"><a href="lab1.html#cb20-8"></a><span class="at">print</span>(<span class="st">&#39;Length of the bands list:&#39;</span><span class="op">,</span> <span class="va">modisBands</span>.<span class="at">length</span>())<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a href="lab1.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get the MODIS band names as a List</span></span>
+<span id="cb20-2"><a href="lab1.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> modisBands <span class="op">=</span> modisImage<span class="op">.</span><span class="fu">bandNames</span>()<span class="op">;</span></span>
+<span id="cb20-3"><a href="lab1.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="lab1.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Print the list.</span></span>
+<span id="cb20-5"><a href="lab1.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;MODIS bands:&#39;</span><span class="op">,</span> modisBands)<span class="op">;</span></span>
+<span id="cb20-6"><a href="lab1.html#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="lab1.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Print the length of the list.</span></span>
+<span id="cb20-8"><a href="lab1.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Length of the bands list:&#39;</span><span class="op">,</span> modisBands<span class="op">.</span><span class="fu">length</span>())<span class="op">;</span></span></code></pre></div></li>
 <li><p>Note that only some of those bands contain radiometric data. Lots of them have other information, like quality control data. So the band listing isn’t necessarily an indicator of spectral resolution, but can inform your investigation of the spectral resolution of the dataset. Try printing the bands from some of the other sensors to get a sense of spectral resolution.</p></li>
 </ol>
 <hr />
@@ -482,44 +560,44 @@ Figure 1.3: Common Optical Sensors and their Spectral Resolution
 <strong>Question 3.2: Investigate the bands available for the USDA NASS Cropland Data Layers (CDL). What does the band information for the CDL represent? Which band(s) would you select if you were interested in evaluating the extent of pasture areas in the US? </strong></p>
 <hr />
 </div>
-<div id="temporal-resolution" class="section level2">
+<div id="temporal-resolution" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Temporal Resolution</h2>
 <p>Temporal resolution refers to the <em>revisit time</em>, or temporal <em>cadence</em> of a particular sensor’s image stream. Think of this as the frequency of pixels in a time series at a given location.</p>
-<div id="modis-1" class="section level3">
+<div id="modis-1" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> MODIS</h3>
 <p>MODIS (either Terra or Aqua) produces imagery at approximately a daily cadence. To see the time series of images at a location, you can <code>print()</code> the <code>ImageCollection</code>, filtered to your area and date range of interest. For example, to see the MODIS images in 2011:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="lab1.html#cb21-1"></a><span class="co">// Filter the MODIS mosaics to one year.   </span></span>
-<span id="cb21-2"><a href="lab1.html#cb21-2"></a><span class="kw">var</span> modisSeries <span class="op">=</span> <span class="va">myd09</span>.<span class="at">filterDate</span>(<span class="st">&#39;2011-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2011-12-31&#39;</span>)<span class="op">;</span>      </span>
-<span id="cb21-3"><a href="lab1.html#cb21-3"></a></span>
-<span id="cb21-4"><a href="lab1.html#cb21-4"></a><span class="co">// Print the filtered  MODIS ImageCollection.   </span></span>
-<span id="cb21-5"><a href="lab1.html#cb21-5"></a><span class="at">print</span>(<span class="st">&#39;MODIS series:&#39;</span><span class="op">,</span> modisSeries)<span class="op">;</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="lab1.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Filter the MODIS mosaics to one year.   </span></span>
+<span id="cb21-2"><a href="lab1.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> modisSeries <span class="op">=</span> myd09<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2011-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2011-12-31&#39;</span>)<span class="op">;</span>      </span>
+<span id="cb21-3"><a href="lab1.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="lab1.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Print the filtered  MODIS ImageCollection.   </span></span>
+<span id="cb21-5"><a href="lab1.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;MODIS series:&#39;</span><span class="op">,</span> modisSeries)<span class="op">;</span>  </span></code></pre></div>
 <p>Expand the <code>features</code> property of the printed <code>ImageCollection</code> to see a <code>List</code> of all the images in the collection. Observe that the date of each image is part of the filename. Note the daily cadence. Observe that each MODIS image is a global mosaic, so there’s no need to filter by location.</p>
 </div>
-<div id="landsat" class="section level3">
+<div id="landsat" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> Landsat</h3>
 <p>Landsats (5 and later) produce imagery at 16-day cadence. TM and MSS are on the same satellite (Landsat 5), so it suffices to print the TM series to see the temporal resolution. Unlike MODIS, data from these sensors is produced on a scene basis, so to see a time series, it’s necessary to filter by location in addition to time:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a href="lab1.html#cb22-1"></a></span>
-<span id="cb22-2"><a href="lab1.html#cb22-2"></a>   <span class="co">// Filter to get a year&#39;s worth of TM scenes.</span></span>
-<span id="cb22-3"><a href="lab1.html#cb22-3"></a>  <span class="kw">var</span> tmSeries <span class="op">=</span> tm</span>
-<span id="cb22-4"><a href="lab1.html#cb22-4"></a>  .<span class="at">filterBounds</span>(<span class="va">Map</span>.<span class="at">getCenter</span>())</span>
-<span id="cb22-5"><a href="lab1.html#cb22-5"></a>  .<span class="at">filterDate</span>(<span class="st">&#39;2011-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2011-12-31&#39;</span>)<span class="op">;</span></span>
-<span id="cb22-6"><a href="lab1.html#cb22-6"></a>  </span>
-<span id="cb22-7"><a href="lab1.html#cb22-7"></a>  <span class="co">// Print the filtered TM ImageCollection. </span></span>
-<span id="cb22-8"><a href="lab1.html#cb22-8"></a>  <span class="at">print</span>(<span class="st">&#39;TM series:&#39;</span><span class="op">,</span> tmSeries)<span class="op">;</span></span>
-<span id="cb22-9"><a href="lab1.html#cb22-9"></a>  </span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a href="lab1.html#cb22-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-2"><a href="lab1.html#cb22-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">// Filter to get a year&#39;s worth of TM scenes.</span></span>
+<span id="cb22-3"><a href="lab1.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> tmSeries <span class="op">=</span> tm</span>
+<span id="cb22-4"><a href="lab1.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(<span class="bu">Map</span><span class="op">.</span><span class="fu">getCenter</span>())</span>
+<span id="cb22-5"><a href="lab1.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2011-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2011-12-31&#39;</span>)<span class="op">;</span></span>
+<span id="cb22-6"><a href="lab1.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-7"><a href="lab1.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Print the filtered TM ImageCollection. </span></span>
+<span id="cb22-8"><a href="lab1.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&#39;TM series:&#39;</span><span class="op">,</span> tmSeries)<span class="op">;</span></span>
+<span id="cb22-9"><a href="lab1.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><p>Again expand the <code>features</code> property of the printed <code>ImageCollection</code>. Note that a <a href="http://landsat.usgs.gov/naming_conventions_scene_identifiers.php">careful parsing of the TM image IDs</a> indicates the day of year (DOY) on which the image was collected. A slightly more cumbersome method involves expanding each Image in the list, expanding its properties and looking for the ‘DATE_ACQUIRED’ property.</p></li>
 <li><p>To make this into a nicer list of dates, <a href="https://en.wikipedia.org/wiki/Map_(higher-order_function)">map()</a> a function over the ImageCollection. First define a function to get a Date from the metadata of each image, using the system properties:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a href="lab1.html#cb23-1"></a><span class="kw">var</span> getDate <span class="op">=</span> <span class="kw">function</span>(image) <span class="op">{</span></span>
-<span id="cb23-2"><a href="lab1.html#cb23-2"></a><span class="co">// Note that you need to cast the argument</span></span>
-<span id="cb23-3"><a href="lab1.html#cb23-3"></a><span class="kw">var</span> time <span class="op">=</span> <span class="va">ee</span>.<span class="at">Image</span>(image).<span class="at">get</span>(<span class="st">&#39;system:time_start&#39;</span>)<span class="op">;</span></span>
-<span id="cb23-4"><a href="lab1.html#cb23-4"></a><span class="co">// Return the time (in milliseconds since Jan 1, 1970) as a Date</span></span>
-<span id="cb23-5"><a href="lab1.html#cb23-5"></a><span class="cf">return</span> <span class="va">ee</span>.<span class="at">Date</span>(time)<span class="op">;</span></span>
-<span id="cb23-6"><a href="lab1.html#cb23-6"></a><span class="op">};</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a href="lab1.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> getDate <span class="op">=</span> <span class="kw">function</span>(image) {</span>
+<span id="cb23-2"><a href="lab1.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Note that you need to cast the argument</span></span>
+<span id="cb23-3"><a href="lab1.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> time <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(image)<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;system:time_start&#39;</span>)<span class="op">;</span></span>
+<span id="cb23-4"><a href="lab1.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Return the time (in milliseconds since Jan 1, 1970) as a Date</span></span>
+<span id="cb23-5"><a href="lab1.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> ee<span class="op">.</span><span class="fu">Date</span>(time)<span class="op">;</span></span>
+<span id="cb23-6"><a href="lab1.html#cb23-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div></li>
 <li><p>Turn the <code>ImageCollection</code> into a <code>List</code> and<a href="https://developers.google.com/earth-engine/getstarted#mapping-what-to-do-instead-of-a-for-loop">map() the function</a> over it:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a href="lab1.html#cb24-1"></a><span class="kw">var</span> dates <span class="op">=</span> <span class="va">tmSeries</span>.<span class="at">toList</span>(<span class="dv">100</span>).<span class="at">map</span>(getDate)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a href="lab1.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> dates <span class="op">=</span> tmSeries<span class="op">.</span><span class="fu">toList</span>(<span class="dv">100</span>)<span class="op">.</span><span class="fu">map</span>(getDate)<span class="op">;</span></span></code></pre></div></li>
 <li><p>Print the result:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a href="lab1.html#cb25-1"></a><span class="at">print</span>(dates)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a href="lab1.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dates)<span class="op">;</span></span></code></pre></div></li>
 </ol>
 <hr />
 <p><i class="fa fa-file"></i>
@@ -527,7 +605,7 @@ Figure 1.3: Common Optical Sensors and their Spectral Resolution
 <hr />
 </div>
 </div>
-<div id="radiometric-resolution" class="section level2">
+<div id="radiometric-resolution" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Radiometric Resolution</h2>
 <p>Radiometric resolution refers to the ability of an imaging system to record many levels of brightness: <em>coarse</em> radiometric resolution would record a scene with only a few brightness levels, whereas <em>fine</em> radiometric resolution would record the same scene using many levels of brightness. Some also consider radiometric resolution to refer to the <em>precision</em> of the sensing, or the level of <em>quantization</em>.</p>
 <p align="center">
@@ -540,39 +618,39 @@ Figure 1.3: Common Optical Sensors and their Spectral Resolution
 <!-- </div> -->
 <p>It might be possible to dig around in the metadata to find values for L<sub>min</sub> and L<sub>max</sub>, but computing radiometric resolution is generally not necessary unless you’re studying phenomena that are distinguished by very subtle changes in radiance.</p>
 </div>
-<div id="resampling-and-reprojection" class="section level2">
+<div id="resampling-and-reprojection" class="section level2" number="1.6">
 <h2><span class="header-section-number">1.6</span> Resampling and ReProjection</h2>
 <p>Earth Engine makes every effort to handle projection and scale so that you don’t have to. However, there are occasions where an understanding of projections is important to get the output you need. As an example, it’s time to demystify the <a href="https://developers.google.com/earth-engine/apidocs/ee-image-reproject">reproject()</a> calls in the previous examples. Earth Engine requests inputs to your computations in the projection and scale of the output. The map attached to the playground has a <a href="http://epsg.io/3857">Maps Mercator projection</a>.</p>
 <p>The scale is determined from the map’s zoom level. When you add something to this map, Earth Engine secretly reprojects the input data to Mercator, resampling (with nearest neighbor) to screen resolution pixels based on the map’s zoom level, then does all the computations with the reprojected, resampled imagery. In the previous examples, the reproject() calls force the computations to be done at the resolution of the input pixels: 1 meter.</p>
 <ol style="list-style-type: decimal">
 <li><p>Re-run the edge detection code with and without the reprojection (Comment out all previous <code>Map.addLayer()</code> calls except for the original one)</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a href="lab1.html#cb26-1"></a><span class="co">// Zoom all the way in.</span></span>
-<span id="cb26-2"><a href="lab1.html#cb26-2"></a><span class="va">Map</span>.<span class="at">centerObject</span>(point<span class="op">,</span> <span class="dv">21</span>)<span class="op">;</span></span>
-<span id="cb26-3"><a href="lab1.html#cb26-3"></a><span class="co">// Display edges computed on a reprojected image.</span></span>
-<span id="cb26-4"><a href="lab1.html#cb26-4"></a><span class="va">Map</span>.<span class="at">addLayer</span>(<span class="va">image</span>.<span class="at">convolve</span>(laplacianKernel)<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span><span class="op">},</span> </span>
-<span id="cb26-5"><a href="lab1.html#cb26-5"></a>       <span class="st">&#39;Edges with little screen pixels&#39;</span>)<span class="op">;</span></span>
-<span id="cb26-6"><a href="lab1.html#cb26-6"></a><span class="co">// Display edges computed on the image at native resolution.</span></span>
-<span id="cb26-7"><a href="lab1.html#cb26-7"></a><span class="va">Map</span>.<span class="at">addLayer</span>(edges<span class="op">,</span> <span class="op">{</span><span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span><span class="op">},</span> </span>
-<span id="cb26-8"><a href="lab1.html#cb26-8"></a>       <span class="st">&#39;Edges with 1 meter pixels&#39;</span>)<span class="op">;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a href="lab1.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Zoom all the way in.</span></span>
+<span id="cb26-2"><a href="lab1.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">21</span>)<span class="op">;</span></span>
+<span id="cb26-3"><a href="lab1.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Display edges computed on a reprojected image.</span></span>
+<span id="cb26-4"><a href="lab1.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">.</span><span class="fu">convolve</span>(laplacianKernel)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span>}<span class="op">,</span> </span>
+<span id="cb26-5"><a href="lab1.html#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;Edges with little screen pixels&#39;</span>)<span class="op">;</span></span>
+<span id="cb26-6"><a href="lab1.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Display edges computed on the image at native resolution.</span></span>
+<span id="cb26-7"><a href="lab1.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(edges<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">255</span>}<span class="op">,</span> </span>
+<span id="cb26-8"><a href="lab1.html#cb26-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;Edges with 1 meter pixels&#39;</span>)<span class="op">;</span> </span></code></pre></div>
 <p>What’s happening here is that the projection specified in <code>reproject()</code> propagates backwards to the input, forcing all the computations to be performed in that projection. If you don’t specify, the computations are performed in the projection and scale of the map (Mercator) at screen resolution.</p></li>
 <li><p>You can control how Earth Engine resamples the input with <a href="https://developers.google.com/earth-engine/guides/resample"><code>resample()</code></a>. By default, all resampling is done with the nearest neighbor. To change that, call <code>resample()</code> on the <em>inputs</em>. Compare the input image, resampled to screen resolution with a bilinear and bicubic resampling:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a href="lab1.html#cb27-1"></a><span class="co">// Resample the image with bilinear instead of the nearest neighbor.</span></span>
-<span id="cb27-2"><a href="lab1.html#cb27-2"></a><span class="kw">var</span> bilinearResampled <span class="op">=</span> <span class="va">image</span>.<span class="at">resample</span>(<span class="st">&#39;bilinear&#39;</span>)<span class="op">;</span></span>
-<span id="cb27-3"><a href="lab1.html#cb27-3"></a><span class="va">Map</span>.<span class="at">addLayer</span>(bilinearResampled<span class="op">,</span> <span class="op">{},</span> <span class="st">&#39;input image, bilinear resampling&#39;</span>)<span class="op">;</span></span>
-<span id="cb27-4"><a href="lab1.html#cb27-4"></a></span>
-<span id="cb27-5"><a href="lab1.html#cb27-5"></a><span class="co">// Resample the image with bicubic instead of the nearest neighbor.</span></span>
-<span id="cb27-6"><a href="lab1.html#cb27-6"></a><span class="kw">var</span> bicubicResampled <span class="op">=</span> <span class="va">image</span>.<span class="at">resample</span>(<span class="st">&#39;bicubic&#39;</span>)<span class="op">;</span></span>
-<span id="cb27-7"><a href="lab1.html#cb27-7"></a><span class="va">Map</span>.<span class="at">addLayer</span>(bicubicResampled<span class="op">,</span> <span class="op">{},</span> <span class="st">&#39;input image, bicubic resampling&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a href="lab1.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Resample the image with bilinear instead of the nearest neighbor.</span></span>
+<span id="cb27-2"><a href="lab1.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bilinearResampled <span class="op">=</span> image<span class="op">.</span><span class="fu">resample</span>(<span class="st">&#39;bilinear&#39;</span>)<span class="op">;</span></span>
+<span id="cb27-3"><a href="lab1.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(bilinearResampled<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;input image, bilinear resampling&#39;</span>)<span class="op">;</span></span>
+<span id="cb27-4"><a href="lab1.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="lab1.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Resample the image with bicubic instead of the nearest neighbor.</span></span>
+<span id="cb27-6"><a href="lab1.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bicubicResampled <span class="op">=</span> image<span class="op">.</span><span class="fu">resample</span>(<span class="st">&#39;bicubic&#39;</span>)<span class="op">;</span></span>
+<span id="cb27-7"><a href="lab1.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(bicubicResampled<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;input image, bicubic resampling&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
 <li><p>Try zooming in and out, comparing to the input image resampled with the nearest with nearest neighbor (i.e. without <code>resample()</code> called on it).</p>
 <p><strong>You should rarely, if ever, have to use <code>reproject()</code> and <code>resample()</code>.</strong> Do not use <code>reproject()</code> or <code>resample()</code> unless necessary. They are only used here for demonstration purposes.</p></li>
 </ol>
 </div>
-<div id="additional-exercises" class="section level2">
+<div id="additional-exercises" class="section level2" number="1.7">
 <h2><span class="header-section-number">1.7</span> Additional Exercises</h2>
 <p>Now that we have some familiarity with higher quality images, lets look at a few from the (broken) Landsat 7 satellite. Using your downloading skills, now select an image that contains the Blacksburg area with minimal cloud cover from Landsat 7 (for now, using the Collection 1 Tier 1 calibrated top-of-atmosphere (TOA) reflectance data product). Look at the image.</p>
 <p><i class="fa fa-file"></i>
-<strong>Question 5: What is the obvious (hint: post-2003) problem with the Landsat 7 image? What is the nature of that problem and what have some researchers done to try to correct it?</strong> (please research online in addition to using what you have learned in class/from the book)</p>
-<hr />
+<strong>Question 5: What is the obvious (hint: post-2003) problem with the Landsat 7 image? What is the nature of that problem and what have some researchers done to try to correct it?</strong> (please research online in addition to using what you have learned in class/from the book)
+—</p>
 <p><i class="fa fa-file"></i>
 <strong>Question 6: Name three major changes you can view in the Blacksburg Area in the last decade using any of the above imagery (and state the source).</strong></p>
 <hr />
@@ -597,8 +675,8 @@ Figure 1.3: Common Optical Sensors and their Spectral Resolution
           </div>
         </div>
       </div>
-<a href="prelab-getting-started.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="prelab-getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -641,14 +719,18 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["labs-rsss.pdf"],
+"download": ["rsss.pdf", "rsss.epub"],
 "search": {
 "engine": "lunr",
 "options": null
 },
 "toc": {
 "collapse": "subsection",
+"edit": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
 "scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
 }
 });
 });
