@@ -8,7 +8,7 @@ bookdown::gitbook:
         <li><a href="https://github.com/benamie/remote-sense-social/" target="blank">Published with bookdown</a></li>
       collapse: subsection
       scroll_highlight: true
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+    edit: https://github.com/benamie/remote-sense-social/edit/main/%s
     download: ["pdf", "epub"]
     toolbar:
       position: fixed
