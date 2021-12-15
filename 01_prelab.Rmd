@@ -156,9 +156,9 @@ GEE also recognizes `MultiPoint`, `MultiLineString` and `MultiPolygon`, which ar
 
 Once you have a set of geometries, there are geospatial operations you can use for analysis, such as building buffer zones, area analysis, rasterization, etc. The [documentation](https://developers.google.com/earth-engine/guides/geometric_operations) contains some basic examples to show you how to get started, although there are many more functions listed under the 'Docs' tab in the Code Editor.
 
- <!-- ![Screen Shot 2021-08-21 at 12.33.24 PM](./im1.png) -->
- 
-```{r code-editor, fig.cap='A view of the google earth engine code editor', out.width='80%', fig.asp=.75, echo = FALSE}
+
+```{r showcodeeditor, fig.cap='A view of the google earth engine code editor', out.width='80%', fig.asp=.75, echo = FALSE}
+
 knitr::include_graphics("./im/im_01_01.png")
 ```
 

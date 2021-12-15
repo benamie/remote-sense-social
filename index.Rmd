@@ -12,7 +12,7 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup_prelab, include=FALSE}
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 file.create('.nojekyll')
 # bookdown::clean_book(TRUE)
