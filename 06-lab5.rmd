@@ -249,7 +249,7 @@ print(ui.Chart.image.series(fittedHarmonic.select(['fitted','NDVI']), roi,
   pointSize: 3,}));
 ```
 
-The harmonic model (red data points) does an adequate job of predicting the data - There is a datapoint in Feb 2021 that is significantly lower, but this appears to be an outlier. Additionally, the model misses a significant dip in July 2015, although this might be due to irregular climate conditions - other years did not have the same dip.  
+The harmonic overlay (red data points) does an adequate job of modeling the data - There is a datapoint in Feb 2021 that is significantly less, but this appears to be an outlier. Additionally, the model misses a significant dip in July 2015, although this might be due to the climate conditions that were irregular - other years did not have the same dip.  
 
 ![im_06_10](./im/im_06_05.png)
 
