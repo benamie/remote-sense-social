@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Lab 03 - Spectral Indices &amp; Transformations | Remote Sensing in the Social Sciences</title>
+  <meta name="description" content="3 Lab 03 - Spectral Indices &amp; Transformations | Remote Sensing in the Social Sciences" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Lab 03 - Spectral Indices &amp; Transformations | Remote Sensing in the Social Sciences" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Lab 03 - Spectral Indices &amp; Transformations | Remote Sensing in the Social Sciences" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab2.html"/>
+<link rel="next" href="classification.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#why-google-earth-engine"><i class="fa fa-check"></i><b>0.1</b> Why Google Earth Engine?</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#license-and-attribution"><i class="fa fa-check"></i><b>0.2</b> License and Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html"><i class="fa fa-check"></i>Lab 00 - PreLab: Getting Started</a>
+<ul>
+<li class="chapter" data-level="0.3" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#overview"><i class="fa fa-check"></i><b>0.3</b> Overview</a></li>
+<li class="chapter" data-level="0.4" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#data-and-methods"><i class="fa fa-check"></i><b>0.4</b> Data and Methods</a></li>
+<li class="chapter" data-level="0.5" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#images-and-image-collections"><i class="fa fa-check"></i><b>0.5</b> Images and Image Collections</a>
+<ul>
+<li class="chapter" data-level="0.5.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#images"><i class="fa fa-check"></i><b>0.5.1</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="0.6" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#image-collections"><i class="fa fa-check"></i><b>0.6</b> Image Collections</a>
+<ul>
+<li class="chapter" data-level="0.6.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#sensed-versus-derived-imagery"><i class="fa fa-check"></i><b>0.6.1</b> Sensed versus Derived Imagery</a></li>
+</ul></li>
+<li class="chapter" data-level="0.7" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#geometries"><i class="fa fa-check"></i><b>0.7</b> Geometries</a></li>
+<li class="chapter" data-level="0.8" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#features-and-feature-collections"><i class="fa fa-check"></i><b>0.8</b> Features and Feature Collections</a>
+<ul>
+<li class="chapter" data-level="0.8.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#features"><i class="fa fa-check"></i><b>0.8.1</b> Features</a></li>
+<li class="chapter" data-level="0.8.2" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#feature-collections"><i class="fa fa-check"></i><b>0.8.2</b> Feature Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="0.9" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#methods-reducers"><i class="fa fa-check"></i><b>0.9</b> Methods: Reducers</a></li>
+<li class="chapter" data-level="0.10" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#joins-and-arrays"><i class="fa fa-check"></i><b>0.10</b> Joins and Arrays</a>
+<ul>
+<li class="chapter" data-level="0.10.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#join"><i class="fa fa-check"></i><b>0.10.1</b> Join</a></li>
+<li class="chapter" data-level="0.10.2" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#arrays"><i class="fa fa-check"></i><b>0.10.2</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="0.11" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#additional-resources"><i class="fa fa-check"></i><b>0.11</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>1</b> Lab 01 - Remote Sensing Background</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="lab1.html"><a href="lab1.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="lab1.html"><a href="lab1.html#digital-image"><i class="fa fa-check"></i><b>1.2</b> Digital Image</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="lab1.html"><a href="lab1.html#from-digital-image-to-geospatial-image"><i class="fa fa-check"></i><b>1.2.1</b> From Digital Image to Geospatial Image</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lab1.html"><a href="lab1.html#visualize-a-digital-image"><i class="fa fa-check"></i><b>1.2.2</b> Visualize a Digital Image</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lab1.html"><a href="lab1.html#spatial-resolution"><i class="fa fa-check"></i><b>1.3</b> Spatial Resolution</a></li>
+<li class="chapter" data-level="1.4" data-path="lab1.html"><a href="lab1.html#spectral-resolution"><i class="fa fa-check"></i><b>1.4</b> Spectral Resolution</a></li>
+<li class="chapter" data-level="1.5" data-path="lab1.html"><a href="lab1.html#temporal-resolution"><i class="fa fa-check"></i><b>1.5</b> Temporal Resolution</a></li>
+<li class="chapter" data-level="1.6" data-path="lab1.html"><a href="lab1.html#radiometric-resolution"><i class="fa fa-check"></i><b>1.6</b> Radiometric Resolution</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="lab1.html"><a href="lab1.html#digital-image-visualization-and-stretching"><i class="fa fa-check"></i><b>1.6.1</b> Digital Image Visualization and Stretching</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="lab1.html"><a href="lab1.html#resampling-and-reprojection"><i class="fa fa-check"></i><b>1.7</b> Resampling and ReProjection</a></li>
+<li class="chapter" data-level="1.8" data-path="lab1.html"><a href="lab1.html#additional-exercises"><i class="fa fa-check"></i><b>1.8</b> Additional Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>2</b> Lab 02 - Digital Imagery &amp; Image Processing</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lab2.html"><a href="lab2.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="lab2.html"><a href="lab2.html#searching-for-imagery"><i class="fa fa-check"></i><b>2.2</b> Searching for Imagery</a></li>
+<li class="chapter" data-level="2.3" data-path="lab2.html"><a href="lab2.html#visualizing-landsat-imagery"><i class="fa fa-check"></i><b>2.3</b> Visualizing Landsat Imagery</a></li>
+<li class="chapter" data-level="2.4" data-path="lab2.html"><a href="lab2.html#at-sensor-radiance"><i class="fa fa-check"></i><b>2.4</b> At-Sensor Radiance</a></li>
+<li class="chapter" data-level="2.5" data-path="lab2.html"><a href="lab2.html#top-of-atmosphere-toa-reflectance"><i class="fa fa-check"></i><b>2.5</b> Top-of-Atmosphere (TOA) Reflectance</a></li>
+<li class="chapter" data-level="2.6" data-path="lab2.html"><a href="lab2.html#surface-reflectance"><i class="fa fa-check"></i><b>2.6</b> Surface Reflectance</a></li>
+<li class="chapter" data-level="2.7" data-path="lab2.html"><a href="lab2.html#additional-exercises-1"><i class="fa fa-check"></i><b>2.7</b> Additional Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab3.html"><a href="lab3.html"><i class="fa fa-check"></i><b>3</b> Lab 03 - Spectral Indices &amp; Transformations</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lab3.html"><a href="lab3.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="lab3.html"><a href="lab3.html#spectral-indices"><i class="fa fa-check"></i><b>3.2</b> Spectral Indices</a></li>
+<li class="chapter" data-level="3.3" data-path="lab3.html"><a href="lab3.html#important-indices"><i class="fa fa-check"></i><b>3.3</b> Important Indices</a></li>
+<li class="chapter" data-level="3.4" data-path="lab3.html"><a href="lab3.html#transformations"><i class="fa fa-check"></i><b>3.4</b> Transformations</a></li>
+<li class="chapter" data-level="3.5" data-path="lab3.html"><a href="lab3.html#spectral-transformation"><i class="fa fa-check"></i><b>3.5</b> Spectral Transformation</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="lab3.html"><a href="lab3.html#linear-filtering"><i class="fa fa-check"></i><b>3.5.1</b> Linear Filtering</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="lab3.html"><a href="lab3.html#additional-exercises-2"><i class="fa fa-check"></i><b>3.6</b> Additional Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>4</b> Classification</a>
+<ul>
+<li class="chapter" data-level="" data-path="classification.html"><a href="classification.html#overview-4"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="4.1" data-path="classification.html"><a href="classification.html#introduction-to-classification"><i class="fa fa-check"></i><b>4.1</b> Introduction to Classification</a></li>
+<li class="chapter" data-level="4.2" data-path="classification.html"><a href="classification.html#unsupervised-classification"><i class="fa fa-check"></i><b>4.2</b> Unsupervised Classification</a></li>
+<li class="chapter" data-level="4.3" data-path="classification.html"><a href="classification.html#supervised-classification"><i class="fa fa-check"></i><b>4.3</b> Supervised Classification</a></li>
+<li class="chapter" data-level="4.4" data-path="classification.html"><a href="classification.html#accuracy-assessment"><i class="fa fa-check"></i><b>4.4</b> Accuracy Assessment</a></li>
+<li class="chapter" data-level="4.5" data-path="classification.html"><a href="classification.html#hyperparameter-tuning"><i class="fa fa-check"></i><b>4.5</b> Hyperparameter Tuning</a></li>
+<li class="chapter" data-level="4.6" data-path="classification.html"><a href="classification.html#assignment"><i class="fa fa-check"></i><b>4.6</b> Assignment</a></li>
+<li class="chapter" data-level="" data-path="classification.html"><a href="classification.html#where-to-submit"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab5.html"><a href="lab5.html"><i class="fa fa-check"></i><b>5</b> Time Series Modeling</a>
+<ul>
+<li class="chapter" data-level="" data-path="lab5.html"><a href="lab5.html#overview-5"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="lab5.html"><a href="lab5.html#background"><i class="fa fa-check"></i><b>5.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="lab5.html"><a href="lab5.html#im_06_07"><i class="fa fa-check"></i><b>5.1.1</b> <img src="im/im_06_01.png" alt="im_06_07" /></a></li>
+<li class="chapter" data-level="5.1.2" data-path="lab5.html"><a href="lab5.html#limitations-in-remote-sensing-time-series"><i class="fa fa-check"></i><b>5.1.2</b> Limitations in Remote Sensing Time Series</a></li>
+<li class="chapter" data-level="5.1.3" data-path="lab5.html"><a href="lab5.html#multi-temporal-data-in-earth-engine"><i class="fa fa-check"></i><b>5.1.3</b> Multi-Temporal Data in Earth Engine</a></li>
+<li class="chapter" data-level="5.1.4" data-path="lab5.html"><a href="lab5.html#data-preparation-and-preprocessing"><i class="fa fa-check"></i><b>5.1.4</b> Data Preparation and Preprocessing</a></li>
+<li class="chapter" data-level="5.1.5" data-path="lab5.html"><a href="lab5.html#linear-modeling-of-time"><i class="fa fa-check"></i><b>5.1.5</b> Linear Modeling of Time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="lab5.html"><a href="lab5.html#estimate-seasonality-with-a-harmonic-model"><i class="fa fa-check"></i><b>5.2</b> Estimate Seasonality with a Harmonic Model</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="lab5.html"><a href="lab5.html#complex-time-series-modeling"><i class="fa fa-check"></i><b>5.2.1</b> Complex Time Series Modeling</a></li>
+<li class="chapter" data-level="5.2.2" data-path="lab5.html"><a href="lab5.html#exporting-data"><i class="fa fa-check"></i><b>5.2.2</b> Exporting Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="lab5.html"><a href="lab5.html#time-series-thresholding"><i class="fa fa-check"></i><b>5.3</b> Time Series Thresholding</a></li>
+<li class="chapter" data-level="5.4" data-path="lab5.html"><a href="lab5.html#additional-exercises-3"><i class="fa fa-check"></i><b>5.4</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab5.html"><a href="lab5.html#where-to-submit-1"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab6.html"><a href="lab6.html"><i class="fa fa-check"></i><b>6</b> Night Time Lights Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="lab6.html"><a href="lab6.html#overview-6"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="lab6.html"><a href="lab6.html#basic-operations"><i class="fa fa-check"></i><b>6.1</b> Basic Operations</a></li>
+<li class="chapter" data-level="6.2" data-path="lab6.html"><a href="lab6.html#conclusion"><i class="fa fa-check"></i><b>6.2</b> Conclusion</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/benamie/remote-sense-social/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Remote Sensing in the Social Sciences</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab3" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Lab 03 - Spectral Indices &amp; Transformations</h1>
+<div id="overview-3" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<p>In this lab, we will work with the spectral characteristics in our data to visualize and extract insights that go beyond basic visual interpretation. We will work with the different spectral bands offered by Landsat 8 to find unique patterns that can help us solve problems and conduct analysis. By the end of this lab, you should be able to understand how to build and visualize existing indices, as well as construct your own, identify how different indices can help your use case, and understand the mechanism behind how they work.</p>
+</div>
+<div id="spectral-indices" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Spectral Indices</h2>
+<p>Spectroscopy is the study of how radiation is absorbed, reflected and emitted by different materials. While this discipline has its origins in chemistry and physics, we can utilize the same techniques to identify different land cover types from satellite data. In the chart below, land cover types have unique spectral characteristics. Snow has a major peak at lower wavelengths and is near zero after 1.5 micrometer, where as soil has very low reflectance at lower levels of wavelength but relatively strong and steady reflectance after ~0.75 micorometers. Spectral indices are built to leverage these unique characteristics and isolate specific types of land cover.</p>
+<p>Land covers are separable at different wavelengths. Vegetation curves (green) have high reflectance in the NIR range, where radiant energy is scattered by cell walls (<a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19850022138.pdf">Bowker, 1985</a>) and low reflectance in the red range, where radiant energy is <a href="https://en.wikipedia.org/wiki/Chlorophyll#/media/File:Chlorophyll_ab_spectra-en.svg">absorbed by chlorophyll</a>. We can leverage this information to build indices that help us differentiate vegative from urban areas. In the next few sections, we will cover several of the most important indices in use.</p>
+<div class="figure">
+<img src="im/im_03_01.png" alt="" />
+<p class="caption">Land Cover Reflectance</p>
+</div>
+</div>
+<div id="important-indices" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Important Indices</h2>
+<div id="normalized-difference-vegetation-index-ndvi" class="section level4" number="3.3.0.1">
+<h4><span class="header-section-number">3.3.0.1</span> Normalized Difference Vegetation Index (NDVI)</h4>
+<p>The Normalized Difference Vegetation Index (NDVI) has a <a href="https://en.wikipedia.org/wiki/Normalized_Difference_Vegetation_Index">long history</a> in remote sensing, and is one of the most widely used measures. The typical formulation is:</p>
+<p><span class="math display">\[ \text{NDVI} = (\text{NIR} - \text{red}) / (\text{NIR} + \text{red}) \]</span></p>
+<p>Where <em>NIR</em> refers to the near infrared band and <em>red</em> refers to the red peak in the visible spectrum.</p>
+<p>Because NDVI is a popular and well-known index, we can use the built-in functionality within Earth Engine <code>normalizedDifference()</code>to calculate NDVI. You can follow the steps below to build your own indices.</p>
+<p>First, build a baseline true color image around our region of interest, Blacksburg, VA. We will work with the Landsat 8 Collection 1 Tier 1 TOA Reflectance data from 2015, sort by cloud cover and extract the first image.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="lab3.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb1-2"><a href="lab3.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb1-3"><a href="lab3.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat     </span>
+<span id="cb1-4"><a href="lab3.html#cb1-4" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterBounds</span>(point)     </span>
+<span id="cb1-5"><a href="lab3.html#cb1-5" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2015-06-01&#39;</span><span class="op">,</span> <span class="st">&#39;2015-09-01&#39;</span>)</span>
+<span id="cb1-6"><a href="lab3.html#cb1-6" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb1-7"><a href="lab3.html#cb1-7" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb1-8"><a href="lab3.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColor <span class="op">=</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
+<span id="cb1-9"><a href="lab3.html#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.3</span>}<span class="op">;</span>   </span>
+<span id="cb1-10"><a href="lab3.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span>                  </span>
+<span id="cb1-11"><a href="lab3.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> trueColor<span class="op">,</span> <span class="st">&#39;image&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<p>Now that we have the true color baseline image, we can build the NDVI index and visualize it. For visualization, we are creating a custom pallette, where low values trend towards white and high values trend towards green.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="lab3.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb2-2"><a href="lab3.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb2-3"><a href="lab3.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat     </span>
+<span id="cb2-4"><a href="lab3.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterBounds</span>(point)     </span>
+<span id="cb2-5"><a href="lab3.html#cb2-5" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2015-06-01&#39;</span><span class="op">,</span> <span class="st">&#39;2015-09-01&#39;</span>)</span>
+<span id="cb2-6"><a href="lab3.html#cb2-6" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb2-7"><a href="lab3.html#cb2-7" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb2-8"><a href="lab3.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  ndvi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span>])<span class="op">;</span>  </span>
+<span id="cb2-9"><a href="lab3.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  vegPalette <span class="op">=</span> [<span class="st">&#39;white&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span>]<span class="op">;</span> </span>
+<span id="cb2-10"><a href="lab3.html#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb2-11"><a href="lab3.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(ndvi<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span>  </span>
+<span id="cb2-12"><a href="lab3.html#cb2-12" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">palette</span><span class="op">:</span> vegPalette}<span class="op">,</span> <span class="st">&#39;NDVI&#39;</span>)<span class="op">;</span> </span></code></pre></div>
+<p>Use the <strong>Inspector</strong> to check pixel values in areas of vegetation and non-vegetation. Also inspect how the values of lakes and rivers compare.</p>
+<div class="figure">
+<img src="im/im_03_02.png" alt="" />
+<p class="caption">NDVI Image, Blacksburg, VA</p>
+</div>
+<blockquote>
+<p><strong>Question 1A</strong>: What are some of the sample pixel values of the NDVI in the below categories. Indicate which parts of the images you used and how you determined what each of their values were.</p>
+<ol style="list-style-type: decimal">
+<li>Vegetation</li>
+<li>Urban features</li>
+<li>Bare earth</li>
+<li>Water</li>
+</ol>
+</blockquote>
+</div>
+<div id="enhanced-vegetation-index-evi" class="section level4" number="3.3.0.2">
+<h4><span class="header-section-number">3.3.0.2</span> Enhanced Vegetation Index (EVI)</h4>
+<p>The Enhanced Vegetation Index (EVI) is designed to minimize saturation and background effects in NDVI (<a href="http://www.sciencedirect.com/science/article/pii/S0034425702000962">Huete, 2002</a>).</p>
+<p><span class="math display">\[ \text{EVI} = 2.5 * (\text{NIR} - \text{red}) / (\text{NIR} + 6 * \text{red} - 7.5 * \text{blue} + 1) \]</span></p>
+<p>Since it is not a normalized difference index, we have to build a unique <a href="https://developers.google.com/earth-engine/image_math#expressions">expression</a> and then identify all of the different segments. Programmatically, bands are specifically referenced with the help of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Object_literals">an object</a> that is passed as the second argument to <code>image.expression()</code> (everything within the curly brackets).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="lab3.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb3-2"><a href="lab3.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb3-3"><a href="lab3.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat     </span>
+<span id="cb3-4"><a href="lab3.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterBounds</span>(point)     </span>
+<span id="cb3-5"><a href="lab3.html#cb3-5" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2015-06-01&#39;</span><span class="op">,</span> <span class="st">&#39;2015-09-01&#39;</span>)</span>
+<span id="cb3-6"><a href="lab3.html#cb3-6" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb3-7"><a href="lab3.html#cb3-7" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb3-8"><a href="lab3.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Build the expression</span></span>
+<span id="cb3-9"><a href="lab3.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> exp <span class="op">=</span> <span class="st">&#39;2.5  * ((NIR - RED) / (NIR + 6 * RED - 7.5 * BLUE + 1))&#39;</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="lab3.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> evi <span class="op">=</span> image<span class="op">.</span><span class="fu">expression</span>( exp<span class="op">,</span> </span>
+<span id="cb3-11"><a href="lab3.html#cb3-11" aria-hidden="true" tabindex="-1"></a>                            {<span class="st">&#39;NIR&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B5&#39;</span>)<span class="op">,</span></span>
+<span id="cb3-12"><a href="lab3.html#cb3-12" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&#39;RED&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B4&#39;</span>)<span class="op">,</span></span>
+<span id="cb3-13"><a href="lab3.html#cb3-13" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&#39;BLUE&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B2&#39;</span>)</span>
+<span id="cb3-14"><a href="lab3.html#cb3-14" aria-hidden="true" tabindex="-1"></a>                            })<span class="op">;</span>  </span>
+<span id="cb3-15"><a href="lab3.html#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vegPalette <span class="op">=</span> [<span class="st">&#39;white&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span>]<span class="op">;</span> </span>
+<span id="cb3-16"><a href="lab3.html#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb3-17"><a href="lab3.html#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(evi<span class="op">,</span>  </span>
+<span id="cb3-18"><a href="lab3.html#cb3-18" aria-hidden="true" tabindex="-1"></a>             {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span>  <span class="dt">palette</span><span class="op">:</span> vegPalette}<span class="op">,</span> </span>
+<span id="cb3-19"><a href="lab3.html#cb3-19" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;EVI&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<blockquote>
+<p><strong>Question 1B</strong>: Compare EVI to NDVI across those same land use categories as in the previous question. What do you observe – how are the images and values similar or different across the two indices?</p>
+</blockquote>
+</div>
+<div id="normalized-difference-water-index-ndwi" class="section level4" number="3.3.0.3">
+<h4><span class="header-section-number">3.3.0.3</span> Normalized Difference Water Index (NDWI)</h4>
+<p>The Normalized Difference Water Index (NDWI) was developed by <a href="http://www.sciencedirect.com/science/article/pii/S0034425796000673">Gao (1996)</a> as an index to identify the water content within vegetation. SWIR stands for short-wave infrared, which is the Landsat band 6. This is not an exact implementation of NDWI, according to the <a href="http://landsat.gsfc.nasa.gov/?p=5779">OLI spectral response</a>, since OLI does not have a band in the right position (1.26 𝛍m) - but for our purposes, this is an approximation that does an acceptable job of identifying water content.</p>
+<p><span class="math display">\[\text{NDWI} = (\text{NIR} - \text{SWIR})) / (\text{NIR} + \text{SWIR})\]</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="lab3.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb4-2"><a href="lab3.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb4-3"><a href="lab3.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat     </span>
+<span id="cb4-4"><a href="lab3.html#cb4-4" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterBounds</span>(point)     </span>
+<span id="cb4-5"><a href="lab3.html#cb4-5" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2015-06-01&#39;</span><span class="op">,</span> <span class="st">&#39;2015-09-01&#39;</span>)</span>
+<span id="cb4-6"><a href="lab3.html#cb4-6" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb4-7"><a href="lab3.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb4-8"><a href="lab3.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndwi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span>])<span class="op">;</span>  </span>
+<span id="cb4-9"><a href="lab3.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> waterPalette <span class="op">=</span> [<span class="st">&#39;white&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span>]<span class="op">;</span>   </span>
+<span id="cb4-10"><a href="lab3.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb4-11"><a href="lab3.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(ndwi<span class="op">,</span>  </span>
+<span id="cb4-12"><a href="lab3.html#cb4-12" aria-hidden="true" tabindex="-1"></a>             {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span>  <span class="dt">palette</span><span class="op">:</span> waterPalette}<span class="op">,</span> </span>
+<span id="cb4-13"><a href="lab3.html#cb4-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;NDWI&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+</div>
+<div id="normalized-difference-water-body-index-ndwbi" class="section level4" number="3.3.0.4">
+<h4><span class="header-section-number">3.3.0.4</span> Normalized Difference Water <em>Body</em> Index (NDWBI)</h4>
+<p>It’s unfortunate that two <em>different</em> NDWI indices were independently invented in 1996. To distinguish, define the Normalized Difference Water <em>Body</em> Index (NDWBI) as the index described in <a href="http://www.tandfonline.com/doi/abs/10.1080/01431169608948714#.VkThFHyrTlM">McFeeters (1996)</a>:</p>
+<p><span class="math display">\[\text{NDWBI} = (\text{green} - \text{NIR}) / (\text{green} + \text{NIR})\]</span></p>
+<p>As previously, implement NDWBI with <code>normalizedDifference()</code> and display the result.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="lab3.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb5-2"><a href="lab3.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb5-3"><a href="lab3.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat     </span>
+<span id="cb5-4"><a href="lab3.html#cb5-4" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterBounds</span>(point)     </span>
+<span id="cb5-5"><a href="lab3.html#cb5-5" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2015-06-01&#39;</span><span class="op">,</span> <span class="st">&#39;2015-09-01&#39;</span>)</span>
+<span id="cb5-6"><a href="lab3.html#cb5-6" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb5-7"><a href="lab3.html#cb5-7" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb5-8"><a href="lab3.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> waterPalette <span class="op">=</span> [<span class="st">&#39;white&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span>]<span class="op">;</span>            </span>
+<span id="cb5-9"><a href="lab3.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndwbi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span>])<span class="op">;</span>   </span>
+<span id="cb5-10"><a href="lab3.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(ndwbi<span class="op">,</span> </span>
+<span id="cb5-11"><a href="lab3.html#cb5-11" aria-hidden="true" tabindex="-1"></a>             {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb5-12"><a href="lab3.html#cb5-12" aria-hidden="true" tabindex="-1"></a>              <span class="dt">max</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span>  </span>
+<span id="cb5-13"><a href="lab3.html#cb5-13" aria-hidden="true" tabindex="-1"></a>              <span class="dt">palette</span><span class="op">:</span> waterPalette}<span class="op">,</span> </span>
+<span id="cb5-14"><a href="lab3.html#cb5-14" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;NDWBI&#39;</span>)<span class="op">;</span>   </span></code></pre></div>
+<div class="figure">
+<img src="im/im_03_03.png" alt="" />
+<p class="caption">NDWBI Image</p>
+</div>
+<p>You can combine the code blocks to compare the actual values at different pixel locations. Use inspector to test out different land areas.</p>
+<blockquote>
+<p><strong>Question 2</strong>: Compare NDWI and NDWBI. What do you observe? What do each of the indices try to focus on?</p>
+</blockquote>
+</div>
+<div id="normalized-difference-bare-index-ndbi" class="section level4" number="3.3.0.5">
+<h4><span class="header-section-number">3.3.0.5</span> Normalized Difference Bare Index (NDBI)</h4>
+<p>The Normalized Difference Bare Index (NDBI) was developed by <a href="http://www.tandfonline.com/doi/abs/10.1080/01431160304987">Zha, 2003)</a> to aid in the differentiation of urban areas by using a combination of the shortwave and near infrared.</p>
+<p><span class="math display">\[ \text{NDBI} = (\text{SWIR} - \text{NIR}) / (\text{SWIR} + \text{NIR}) \]</span></p>
+<p>Note that NDBI is the negative of NDWI. Compute NDBI and display with a suitable palette. (Check <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">this reference</a> to demystify the palette reversal)</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="lab3.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb6-2"><a href="lab3.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb6-3"><a href="lab3.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span>  image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat     </span>
+<span id="cb6-4"><a href="lab3.html#cb6-4" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterBounds</span>(point)     </span>
+<span id="cb6-5"><a href="lab3.html#cb6-5" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2015-06-01&#39;</span><span class="op">,</span> <span class="st">&#39;2015-09-01&#39;</span>)</span>
+<span id="cb6-6"><a href="lab3.html#cb6-6" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb6-7"><a href="lab3.html#cb6-7" aria-hidden="true" tabindex="-1"></a>                      <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb6-8"><a href="lab3.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> waterPalette <span class="op">=</span> [<span class="st">&#39;white&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span>]<span class="op">;</span>   </span>
+<span id="cb6-9"><a href="lab3.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> barePalette <span class="op">=</span>  waterPalette<span class="op">.</span><span class="fu">slice</span>()<span class="op">.</span><span class="fu">reverse</span>()<span class="op">;</span> </span>
+<span id="cb6-10"><a href="lab3.html#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndbi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span>])<span class="op">;</span>   </span>
+<span id="cb6-11"><a href="lab3.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(ndbi<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span>  <span class="dt">palette</span><span class="op">:</span> barePalette}<span class="op">,</span> <span class="st">&#39;NDBI&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+</div>
+<div id="burned-area-index-bai" class="section level4" number="3.3.0.6">
+<h4><span class="header-section-number">3.3.0.6</span> Burned Area Index (BAI)</h4>
+<p>The Burned Area Index (BAI) was developed by <a href="http://www.tandfonline.com/doi/abs/10.1080/01431160210153129">Chuvieco et al. (2002)</a> to assist in the delineation of burn scars and assessment of burn severity. It is based on maximizing the spectral characteristics of charcoal reflectance. To examine burn indices, load an image from 2013 showing the <a href="https://en.wikipedia.org/wiki/Rim_Fire">Rim fire</a> in the Sierra Nevadas. We’ll start by creating a true image of the area to see how well this index highlights the presence of wildfire.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="lab3.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="op">-</span><span class="fl">120.083</span><span class="op">,</span> <span class="fl">37.850</span>)<span class="op">;</span></span>
+<span id="cb7-2"><a href="lab3.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb7-3"><a href="lab3.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb7-4"><a href="lab3.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb7-5"><a href="lab3.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-08-17&#39;</span><span class="op">,</span> <span class="st">&#39;2013-09-27&#39;</span>)</span>
+<span id="cb7-6"><a href="lab3.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb7-7"><a href="lab3.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb7-8"><a href="lab3.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColor <span class="op">=</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
+<span id="cb7-9"><a href="lab3.html#cb7-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.3</span>}<span class="op">;</span>   </span>
+<span id="cb7-10"><a href="lab3.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span>                  </span>
+<span id="cb7-11"><a href="lab3.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> trueColor<span class="op">,</span> <span class="st">&#39;image&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<p>Closely examine the true color display of this image. Can you spot where the fire occurred? If difficult, let’s look at the burn index.</p>
+<div class="figure">
+<img src="im/im_03_04.png" alt="" />
+<p class="caption">True Color Fire Area</p>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="lab3.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="op">-</span><span class="fl">120.083</span><span class="op">,</span> <span class="fl">37.850</span>)<span class="op">;</span></span>
+<span id="cb8-2"><a href="lab3.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb8-3"><a href="lab3.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb8-4"><a href="lab3.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb8-5"><a href="lab3.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-08-17&#39;</span><span class="op">,</span> <span class="st">&#39;2013-09-27&#39;</span>)</span>
+<span id="cb8-6"><a href="lab3.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb8-7"><a href="lab3.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb8-8"><a href="lab3.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColor <span class="op">=</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
+<span id="cb8-9"><a href="lab3.html#cb8-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.3</span>}<span class="op">;</span>   </span>
+<span id="cb8-10"><a href="lab3.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span>                  </span>
+<span id="cb8-11"><a href="lab3.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> trueColor<span class="op">,</span> <span class="st">&#39;image&#39;</span>)<span class="op">;</span>  </span>
+<span id="cb8-12"><a href="lab3.html#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="lab3.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Build Burn Index expression</span></span>
+<span id="cb8-14"><a href="lab3.html#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> exp <span class="op">=</span> <span class="st">&#39;1.0  / ((0.1 - RED)**2 + (0.06 - NIR)**2)&#39;</span><span class="op">;</span></span>
+<span id="cb8-15"><a href="lab3.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bai <span class="op">=</span> image<span class="op">.</span><span class="fu">expression</span>(exp<span class="op">,</span>   </span>
+<span id="cb8-16"><a href="lab3.html#cb8-16" aria-hidden="true" tabindex="-1"></a>                               {<span class="st">&#39;NIR&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B5&#39;</span>)<span class="op">,</span>   </span>
+<span id="cb8-17"><a href="lab3.html#cb8-17" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&#39;RED&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B4&#39;</span>) })<span class="op">;</span></span>
+<span id="cb8-18"><a href="lab3.html#cb8-18" aria-hidden="true" tabindex="-1"></a>                                </span>
+<span id="cb8-19"><a href="lab3.html#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> burnPalette <span class="op">=</span> [<span class="st">&#39;green&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span><span class="op">,</span> <span class="st">&#39;yellow&#39;</span><span class="op">,</span> <span class="st">&#39;red&#39;</span>]<span class="op">;</span>   </span>
+<span id="cb8-20"><a href="lab3.html#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(bai<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span>  <span class="dt">palette</span><span class="op">:</span> burnPalette}<span class="op">,</span> <span class="st">&#39;BAI&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>The charcoal burn area is now very evident. Being that Landsat has historical data and a wide array of sensors, this can be a powerful way to understand natural phenomena.</p>
+<div class="figure">
+<img src="im/im_03_05.png" alt="" />
+<p class="caption">Burn Index</p>
+</div>
+<blockquote>
+<p><strong>Question 3</strong>: Compare NDBI and the BAI displayed results – what do you observe?</p>
+</blockquote>
+</div>
+<div id="normalized-burn-ratio-thermal-nbrt" class="section level4" number="3.3.0.7">
+<h4><span class="header-section-number">3.3.0.7</span> Normalized Burn Ratio Thermal (NBRT)</h4>
+<p>The Normalized Burn Ratio Thermal (NBRT) was developed based on the idea that burned land has low NIR reflectance (less vegetation), high SWIR reflectance (think ash), and high brightness temperature (<a href="http://www.tandfonline.com/doi/abs/10.1080/01431160500239008">Holden et al. 2005</a>). Unlike the other indices, a lower NBRT means a higher likelihood of recent burn (for visualization, reverse the scale). This index can be used to diagnose the severity of wildfires (see <a href="http://www.sciencedirect.com/science/article/pii/S003442570400152X">van Wagtendonk et al. 2004</a>).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="lab3.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="op">-</span><span class="fl">120.083</span><span class="op">,</span> <span class="fl">37.850</span>)<span class="op">;</span></span>
+<span id="cb9-2"><a href="lab3.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb9-3"><a href="lab3.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb9-4"><a href="lab3.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb9-5"><a href="lab3.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-08-17&#39;</span><span class="op">,</span> <span class="st">&#39;2013-09-27&#39;</span>)</span>
+<span id="cb9-6"><a href="lab3.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb9-7"><a href="lab3.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb9-8"><a href="lab3.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColor <span class="op">=</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
+<span id="cb9-9"><a href="lab3.html#cb9-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.3</span>}<span class="op">;</span>   </span>
+<span id="cb9-10"><a href="lab3.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span>                  </span>
+<span id="cb9-11"><a href="lab3.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> trueColor<span class="op">,</span> <span class="st">&#39;image&#39;</span>)<span class="op">;</span>  </span>
+<span id="cb9-12"><a href="lab3.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Build Burn Index expression</span></span>
+<span id="cb9-13"><a href="lab3.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> exp <span class="op">=</span> <span class="st">&#39;(NIR - 0.0001 * SWIR *  Temp) / (NIR + 0.0001 * SWIR * Temp)&#39;</span></span>
+<span id="cb9-14"><a href="lab3.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> nbrt <span class="op">=</span> image<span class="op">.</span><span class="fu">expression</span>(exp<span class="op">,</span>   </span>
+<span id="cb9-15"><a href="lab3.html#cb9-15" aria-hidden="true" tabindex="-1"></a>                                {<span class="st">&#39;NIR&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B5&#39;</span>)<span class="op">,</span>   </span>
+<span id="cb9-16"><a href="lab3.html#cb9-16" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&#39;SWIR&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B7&#39;</span>)<span class="op">,</span>   </span>
+<span id="cb9-17"><a href="lab3.html#cb9-17" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&#39;Temp&#39;</span><span class="op">:</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;B11&#39;</span>)  </span>
+<span id="cb9-18"><a href="lab3.html#cb9-18" aria-hidden="true" tabindex="-1"></a>                                })<span class="op">;</span>  </span>
+<span id="cb9-19"><a href="lab3.html#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> burnPalette <span class="op">=</span> [<span class="st">&#39;green&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span><span class="op">,</span> <span class="st">&#39;yellow&#39;</span><span class="op">,</span> <span class="st">&#39;red&#39;</span>]<span class="op">;</span>   </span>
+<span id="cb9-20"><a href="lab3.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(nbrt<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.9</span><span class="op">,</span>  <span class="dt">palette</span><span class="op">:</span> burnPalette}<span class="op">,</span> <span class="st">&#39;NBRT&#39;</span>)<span class="op">;</span> </span></code></pre></div>
+</div>
+<div id="normalized-difference-snow-index-ndsi" class="section level4" number="3.3.0.8">
+<h4><span class="header-section-number">3.3.0.8</span> Normalized Difference Snow Index (NDSI)</h4>
+<p>The Normalized Difference Snow Index (NDSI) was designed to estimate the amount of a pixel covered in snow (<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=399618&amp;tag=1">Riggs et al. 1994</a>).</p>
+<p><span class="math display">\[\text{NDSI} = (\text{green} - \text{SWIR}) /(\text{green} + \text{SWIR})\]</span></p>
+<p>Let’s look at Aspen, Colorado and use Landsat 8 data in the winter. You can use the layer manager to turn on and off the snow layer to compare results with the true color image. How does it compare? Reference the spectral reflectance chart at the beginning of the lab and look at the profile for snow. You will see that it has a distinct profile. In the image below, it does a very good job of matching the true color image - valleys and roads that do not have snow on them are accurately shown.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="lab3.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">106.81</span><span class="op">,</span> <span class="fl">39.19</span>])<span class="op">;</span></span>
+<span id="cb10-2"><a href="lab3.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb10-3"><a href="lab3.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb10-4"><a href="lab3.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb10-5"><a href="lab3.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-11-17&#39;</span><span class="op">,</span> <span class="st">&#39;2014-03-27&#39;</span>)</span>
+<span id="cb10-6"><a href="lab3.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb10-7"><a href="lab3.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb10-8"><a href="lab3.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColor <span class="op">=</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
+<span id="cb10-9"><a href="lab3.html#cb10-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.3</span>}<span class="op">;</span>   </span>
+<span id="cb10-10"><a href="lab3.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span>                  </span>
+<span id="cb10-11"><a href="lab3.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> trueColor<span class="op">,</span> <span class="st">&#39;image&#39;</span>)<span class="op">;</span>  </span>
+<span id="cb10-12"><a href="lab3.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndsi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span>])<span class="op">;</span>      </span>
+<span id="cb10-13"><a href="lab3.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> snowPalette <span class="op">=</span> [<span class="st">&#39;red&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span><span class="op">,</span> <span class="st">&#39;white&#39;</span>]<span class="op">;</span>   </span>
+<span id="cb10-14"><a href="lab3.html#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(ndsi<span class="op">,</span>              </span>
+<span id="cb10-15"><a href="lab3.html#cb10-15" aria-hidden="true" tabindex="-1"></a>             {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span>  <span class="dt">palette</span><span class="op">:</span> snowPalette}<span class="op">,</span>              </span>
+<span id="cb10-16"><a href="lab3.html#cb10-16" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;NDSI&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<div class="figure">
+<img src="im/im_03_06.png" alt="" />
+<p class="caption">Snow Index</p>
+</div>
+</div>
+</div>
+<div id="transformations" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Transformations</h2>
+<p>We’ve went over indices to highlight unique characteristics in our imagery by utilizing the bands outside of the visible spectrum.</p>
+<p>Linear transforms are linear combinations of input pixel values. These can result from a variety of different strategies, but a common theme is that pixels are treated as arrays of band values, and we can use these arrays to create weighted values for specific purposes.</p>
+<div id="tasseled-cap-tc" class="section level4" number="3.4.0.1">
+<h4><span class="header-section-number">3.4.0.1</span> Tasseled cap (TC)</h4>
+<p>Based on observations of agricultural land covers in the NIR-red spectral space, <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.461.6381&amp;rep=rep1&amp;type=pdf">Kauth and Thomas (1976)</a> devised a <a href="https://en.wikipedia.org/wiki/Change_of_basis">rotational transform</a> of the form</p>
+<p><span class="math display">\[ p_1 = R^T p_0 \]</span></p>
+<p>where <span class="math display">\[p_0\]</span> is the original pixel vector (a stack of the <em>p</em> band values as an <a href="https://developers.google.com/earth-engine/arrays_intro">Array</a>), <strong><span class="math display">\[p_1\]</span></strong> is the rotated pixel and <strong>R</strong> is an <a href="https://en.wikipedia.org/wiki/Orthonormal_basis">orthonormal basis</a> of the new space (therefore is <span class="math display">\[R^T\]</span> its inverse). Kauth and Thomas found <strong>R</strong> by defining the first axis of their transformed space to be parallel to the soil line in the following chart, then used the <a href="https://en.wikipedia.org/wiki/Gram–Schmidt_process">Gram-Schmidt process</a> to find the other basis vectors.</p>
+<div class="figure">
+<img src="im/im_03_07.png" alt="" />
+<p class="caption">Tassled Cap</p>
+</div>
+<p>Assuming that <strong>R</strong> is available, one way to implement this rotation in Earth Engine is with arrays. Specifically, make an array of TC coefficients. Since these coefficients are for the TM sensor, get a less cloudy Landsat 5 scene. To do the matrix multiplication, first convert the input image from a multi-band image to an array image in which each pixel position stores an array. Do the matrix multiplication, then convert back to a multi-band image.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="lab3.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">106.81</span><span class="op">,</span> <span class="fl">39.19</span>])<span class="op">;</span></span>
+<span id="cb11-2"><a href="lab3.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> coefficients <span class="op">=</span> ee<span class="op">.</span><span class="fu">Array</span>([    </span>
+<span id="cb11-3"><a href="lab3.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  [<span class="fl">0.3037</span><span class="op">,</span> <span class="fl">0.2793</span><span class="op">,</span> <span class="fl">0.4743</span><span class="op">,</span> <span class="fl">0.5585</span><span class="op">,</span> <span class="fl">0.5082</span><span class="op">,</span> <span class="fl">0.1863</span>]<span class="op">,</span>    </span>
+<span id="cb11-4"><a href="lab3.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="fl">0.2848</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.2435</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.5436</span><span class="op">,</span> <span class="fl">0.7243</span><span class="op">,</span> <span class="fl">0.0840</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.1800</span>]<span class="op">,</span></span>
+<span id="cb11-5"><a href="lab3.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  [<span class="fl">0.1509</span><span class="op">,</span> <span class="fl">0.1973</span><span class="op">,</span> <span class="fl">0.3279</span><span class="op">,</span> <span class="fl">0.3406</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.7112</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.4572</span>]<span class="op">,</span></span>
+<span id="cb11-6"><a href="lab3.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="fl">0.8242</span><span class="op">,</span> <span class="fl">0.0849</span><span class="op">,</span> <span class="fl">0.4392</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.0580</span><span class="op">,</span> <span class="fl">0.2012</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.2768</span>]<span class="op">,</span></span>
+<span id="cb11-7"><a href="lab3.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="fl">0.3280</span><span class="op">,</span> <span class="fl">0.0549</span><span class="op">,</span> <span class="fl">0.1075</span><span class="op">,</span> <span class="fl">0.1855</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.4357</span><span class="op">,</span> <span class="fl">0.8085</span>]<span class="op">,</span></span>
+<span id="cb11-8"><a href="lab3.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  [<span class="fl">0.1084</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.9022</span><span class="op">,</span> <span class="fl">0.4120</span><span class="op">,</span> <span class="fl">0.0573</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.0251</span><span class="op">,</span> <span class="fl">0.0238</span>]</span>
+<span id="cb11-9"><a href="lab3.html#cb11-9" aria-hidden="true" tabindex="-1"></a>])<span class="op">;</span>  </span>
+<span id="cb11-10"><a href="lab3.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LT05/C01/T1_TOA&quot;</span>)</span>
+<span id="cb11-11"><a href="lab3.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb11-12"><a href="lab3.html#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb11-13"><a href="lab3.html#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2008-06-01&#39;</span><span class="op">,</span> <span class="st">&#39;2008-09-01&#39;</span>)</span>
+<span id="cb11-14"><a href="lab3.html#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb11-15"><a href="lab3.html#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb11-16"><a href="lab3.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">&#39;B1&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span>]<span class="op">;</span></span>
+<span id="cb11-17"><a href="lab3.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">// Make an Array Image,  with a 1-D Array per pixel.</span></span>
+<span id="cb11-18"><a href="lab3.html#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> arrayImage1D <span class="op">=</span>  image<span class="op">.</span><span class="fu">select</span>(bands)<span class="op">.</span><span class="fu">toArray</span>()<span class="op">;</span></span>
+<span id="cb11-19"><a href="lab3.html#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">// Make an Array Image  with a 2-D Array per pixel, 6x1.</span></span>
+<span id="cb11-20"><a href="lab3.html#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> arrayImage2D <span class="op">=</span> arrayImage1D<span class="op">.</span><span class="fu">toArray</span>(<span class="dv">1</span>)<span class="op">;</span>  </span>
+<span id="cb11-21"><a href="lab3.html#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> componentsImage <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(coefficients)</span>
+<span id="cb11-22"><a href="lab3.html#cb11-22" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">matrixMultiply</span>(arrayImage2D)</span>
+<span id="cb11-23"><a href="lab3.html#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">// Get rid of the extra  dimensions.</span></span>
+<span id="cb11-24"><a href="lab3.html#cb11-24" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">arrayProject</span>([<span class="dv">0</span>])  </span>
+<span id="cb11-25"><a href="lab3.html#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">// Get a multi-band image  with TC-named bands.  </span></span>
+<span id="cb11-26"><a href="lab3.html#cb11-26" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">arrayFlatten</span>(</span>
+<span id="cb11-27"><a href="lab3.html#cb11-27" aria-hidden="true" tabindex="-1"></a>          [[<span class="st">&#39;brightness&#39;</span><span class="op">,</span> <span class="st">&#39;greenness&#39;</span><span class="op">,</span> <span class="st">&#39;wetness&#39;</span><span class="op">,</span> <span class="st">&#39;fourth&#39;</span><span class="op">,</span> <span class="st">&#39;fifth&#39;</span><span class="op">,</span> <span class="st">&#39;sixth&#39;</span>]]</span>
+<span id="cb11-28"><a href="lab3.html#cb11-28" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span>       </span>
+<span id="cb11-29"><a href="lab3.html#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vizParams <span class="op">=</span> {</span>
+<span id="cb11-30"><a href="lab3.html#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;brightness&#39;</span><span class="op">,</span> <span class="st">&#39;greenness&#39;</span><span class="op">,</span> <span class="st">&#39;wetness&#39;</span>]<span class="op">,</span></span>
+<span id="cb11-31"><a href="lab3.html#cb11-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> [<span class="fl">0.5</span><span class="op">,</span>  <span class="fl">0.1</span><span class="op">,</span> <span class="fl">0.1</span>]</span>
+<span id="cb11-32"><a href="lab3.html#cb11-32" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb11-33"><a href="lab3.html#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(componentsImage<span class="op">,</span> vizParams<span class="op">,</span> <span class="st">&#39;TC components&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<div class="figure">
+<img src="im/im_03_08.png" alt="" />
+<p class="caption">Tasseled Cap Image</p>
+</div>
+<blockquote>
+<p>Question 3: Upload the a tasseled cap image from a point near Blacksburg, VA and interpret the output. what are some of the values that you can extract when using <strong>Inspector</strong>? Are the results meaningful?</p>
+</blockquote>
+</div>
+<div id="principal-component-analysis-pca" class="section level4" number="3.4.0.2">
+<h4><span class="header-section-number">3.4.0.2</span> Principal Component Analysis (PCA)</h4>
+<p>Like the Tasseled Cap transform, the <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA transform</a> is a rotational transform in which the new basis is orthonormal, but the axes are determined from statistics of the input image, rather than empirical data. Specifically, the new basis is the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvectors</a> of the image’s <a href="https://en.wikipedia.org/wiki/Covariance_matrix">variance-covariance matrix</a>. As a result, the principal components are uncorrelated. To demonstrate, use the Landsat 8 image converted to an array image. Use the <code>reduceRegion()</code> <a href="https://developers.google.com/earth-engine/reducers_reduce_region">method</a> to compute statistics (band covariances) for the image.</p>
+<p>A <a href="https://developers.google.com/earth-engine/reducers_intro"><em>reducer</em></a> is an object that tells Earth Engine what statistic to compute. Note that the result of the reduction is an object with one property, an array, that stores the covariance matrix. The next step is to compute the eigenvectors and eigenvalues of that covariance matrix. Since the eigenvalues are appended to the eigenvectors, slice the two apart and discard the eigenvectors. Perform the matrix multiplication, as with the TC components. Finally, convert back to a multi-band image and display the first PC.</p>
+<p>Use the <a href="https://developers.google.com/earth-engine/playground#layer-manager">layer manager</a> to stretch the result appropriately. What do you observe? Try displaying some of the other principal components. The image parameters in the code chunk below are built specifically for Pricipal Component 1.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="lab3.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb12-2"><a href="lab3.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb12-3"><a href="lab3.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb12-4"><a href="lab3.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb12-5"><a href="lab3.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-11-17&#39;</span><span class="op">,</span> <span class="st">&#39;2014-03-27&#39;</span>)</span>
+<span id="cb12-6"><a href="lab3.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb12-7"><a href="lab3.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb12-8"><a href="lab3.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span><span class="op">,</span> <span class="st">&#39;B10&#39;</span><span class="op">,</span> <span class="st">&#39;B11&#39;</span>]<span class="op">;</span></span>
+<span id="cb12-9"><a href="lab3.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> arrayImage <span class="op">=</span>  image<span class="op">.</span><span class="fu">select</span>(bands)<span class="op">.</span><span class="fu">toArray</span>()<span class="op">;</span>  </span>
+<span id="cb12-10"><a href="lab3.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> covar <span class="op">=</span> arrayImage<span class="op">.</span><span class="fu">reduceRegion</span>({</span>
+<span id="cb12-11"><a href="lab3.html#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">covariance</span>()<span class="op">,</span></span>
+<span id="cb12-12"><a href="lab3.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxPixels</span><span class="op">:</span> <span class="fl">1e9</span></span>
+<span id="cb12-13"><a href="lab3.html#cb12-13" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb12-14"><a href="lab3.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> covarArray <span class="op">=</span> ee<span class="op">.</span><span class="fu">Array</span>(covar<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;array&#39;</span>))<span class="op">;</span>  </span>
+<span id="cb12-15"><a href="lab3.html#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> eigens <span class="op">=</span> covarArray<span class="op">.</span><span class="fu">eigen</span>()<span class="op">;</span>  </span>
+<span id="cb12-16"><a href="lab3.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> eigenVectors <span class="op">=</span> eigens<span class="op">.</span><span class="fu">slice</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  </span>
+<span id="cb12-17"><a href="lab3.html#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> principalComponents <span class="op">=</span>           ee<span class="op">.</span><span class="fu">Image</span>(eigenVectors)<span class="op">.</span><span class="fu">matrixMultiply</span>(arrayImage<span class="op">.</span><span class="fu">toArray</span>(<span class="dv">1</span>))<span class="op">;</span>  </span>
+<span id="cb12-18"><a href="lab3.html#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> pcImage <span class="op">=</span> principalComponents      </span>
+<span id="cb12-19"><a href="lab3.html#cb12-19" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">arrayProject</span>([<span class="dv">0</span>])    </span>
+<span id="cb12-20"><a href="lab3.html#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">// Make the one band  array image a multi-band image, [] -&gt; image.    </span></span>
+<span id="cb12-21"><a href="lab3.html#cb12-21" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">arrayFlatten</span>(</span>
+<span id="cb12-22"><a href="lab3.html#cb12-22" aria-hidden="true" tabindex="-1"></a>          [[<span class="st">&#39;pc1&#39;</span><span class="op">,</span> <span class="st">&#39;pc2&#39;</span><span class="op">,</span> <span class="st">&#39;pc3&#39;</span><span class="op">,</span> <span class="st">&#39;pc4&#39;</span><span class="op">,</span> <span class="st">&#39;pc5&#39;</span><span class="op">,</span> <span class="st">&#39;pc6&#39;</span><span class="op">,</span> <span class="st">&#39;pc7&#39;</span><span class="op">,</span> <span class="st">&#39;pc8&#39;</span>]]</span>
+<span id="cb12-23"><a href="lab3.html#cb12-23" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span>      </span>
+<span id="cb12-24"><a href="lab3.html#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co">// Customize the visual parameters for PC1</span></span>
+<span id="cb12-25"><a href="lab3.html#cb12-25" aria-hidden="true" tabindex="-1"></a>imageVisParam <span class="op">=</span> {</span>
+<span id="cb12-26"><a href="lab3.html#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;opacity&quot;</span><span class="op">:</span><span class="dv">1</span><span class="op">,</span></span>
+<span id="cb12-27"><a href="lab3.html#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;bands&quot;</span><span class="op">:</span>[<span class="st">&quot;pc1&quot;</span>]<span class="op">,</span></span>
+<span id="cb12-28"><a href="lab3.html#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;min&quot;</span><span class="op">:-</span><span class="dv">420</span><span class="op">,</span><span class="st">&quot;max&quot;</span><span class="op">:-</span><span class="dv">400</span><span class="op">,</span></span>
+<span id="cb12-29"><a href="lab3.html#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;gamma&quot;</span><span class="op">:</span><span class="dv">1</span>}<span class="op">;</span></span>
+<span id="cb12-30"><a href="lab3.html#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span>    </span>
+<span id="cb12-31"><a href="lab3.html#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(pcImage<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;pc1&#39;</span>)<span class="op">,</span> imageVisParam<span class="op">,</span> <span class="st">&#39;PC&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="figure">
+<img src="im/im_03_09.png" alt="" />
+<p class="caption">PCA Image</p>
+</div>
+<blockquote>
+<p><strong>Question 4</strong>: How much did you need to stretch the results to display outputs for principal component 2?</p>
+<p>Display and upload images of each the other principal components, stretching each band as needed for visual interpretation and indicating how you selected the min and max values.</p>
+<p>How do you interpret each PC band? On what basis do you make that interpretation?</p>
+</blockquote>
+</div>
+<div id="spectral-unmixing" class="section level4" number="3.4.0.3">
+<h4><span class="header-section-number">3.4.0.3</span> Spectral Unmixing</h4>
+<p>The <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=974727&amp;tag=1">linear spectral mixing model</a> is based on the assumption that each pixel is a mixture of “pure” spectra. The pure spectra, called <em>endmembers</em>, are from land cover classes such as water, bare land, vegetation. The goal is to solve the following equation for <strong>f</strong>, the <em>P</em>x1 vector of endmember fractions in the pixel:</p>
+<p><span class="math display">\[ Sf = p \]</span></p>
+<p>where <strong>S</strong> is a <em>B</em>x<em>P</em> matrix in which the columns are <em>P</em> pure endmember spectra (known) and <strong>p</strong> is the <em>B</em>x1 pixel vector when there are <em>B</em> bands (known). In this example, <span class="math inline">\(B= 6\)</span>:</p>
+<p>The first step is to get the endmember spectra, which we can do by computing the mean spectra in polygons around regions of pure land cover. In this example, we will use a location in northern Washington State and use the geometry tools to select homogeneous areas of bare land, vegetation and water.</p>
+<p>Using the <a href="https://developers.google.com/earth-engine/playground#geometry-tools">geometry drawing tools</a>, make three layers clicking <strong>+ new layer</strong>. In the first layer, digitize a polygon around pure bare land, in the second layer make a polygon of pure vegetation, and in the third layer, make a water polygon. Name the imports <code>bare</code>, <code>water</code> and, and <code>vegetation</code>, respectively.</p>
+<p>Note: For a starting point, we included some basic polygons but feel free to replace in a region of your choice.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="lab3.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">123.25</span><span class="op">,</span> <span class="fl">48.11</span>])<span class="op">;</span></span>
+<span id="cb13-2"><a href="lab3.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb13-3"><a href="lab3.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb13-4"><a href="lab3.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb13-5"><a href="lab3.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-06-17&#39;</span><span class="op">,</span> <span class="st">&#39;2014-03-27&#39;</span>)</span>
+<span id="cb13-6"><a href="lab3.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb13-7"><a href="lab3.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb13-8"><a href="lab3.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Polygons of bare earth, water and vegetation</span></span>
+<span id="cb13-9"><a href="lab3.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bare <span class="op">=</span> </span>
+<span id="cb13-10"><a href="lab3.html#cb13-10" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb13-11"><a href="lab3.html#cb13-11" aria-hidden="true" tabindex="-1"></a>        [[[<span class="op">-</span><span class="fl">123.2370707334838</span><span class="op">,</span> <span class="fl">48.1151452657945</span>]<span class="op">,</span></span>
+<span id="cb13-12"><a href="lab3.html#cb13-12" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.2370707334838</span><span class="op">,</span> <span class="fl">48.11351208612645</span>]<span class="op">,</span></span>
+<span id="cb13-13"><a href="lab3.html#cb13-13" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.23410957473136</span><span class="op">,</span> <span class="fl">48.11351208612645</span>]<span class="op">,</span></span>
+<span id="cb13-14"><a href="lab3.html#cb13-14" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.23410957473136</span><span class="op">,</span> <span class="fl">48.1151452657945</span>]]]<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb13-15"><a href="lab3.html#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> water <span class="op">=</span> </span>
+<span id="cb13-16"><a href="lab3.html#cb13-16" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb13-17"><a href="lab3.html#cb13-17" aria-hidden="true" tabindex="-1"></a>        [[[<span class="op">-</span><span class="fl">123.2748188020549</span><span class="op">,</span> <span class="fl">48.12059599002954</span>]<span class="op">,</span></span>
+<span id="cb13-18"><a href="lab3.html#cb13-18" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.2748188020549</span><span class="op">,</span> <span class="fl">48.118074835535865</span>]<span class="op">,</span></span>
+<span id="cb13-19"><a href="lab3.html#cb13-19" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.2673086168132</span><span class="op">,</span> <span class="fl">48.118074835535865</span>]<span class="op">,</span></span>
+<span id="cb13-20"><a href="lab3.html#cb13-20" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.2673086168132</span><span class="op">,</span> <span class="fl">48.12059599002954</span>]]]<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb13-21"><a href="lab3.html#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vegetation <span class="op">=</span> </span>
+<span id="cb13-22"><a href="lab3.html#cb13-22" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb13-23"><a href="lab3.html#cb13-23" aria-hidden="true" tabindex="-1"></a>        [[[<span class="op">-</span><span class="fl">123.27462568300582</span><span class="op">,</span> <span class="fl">48.11533866992809</span>]<span class="op">,</span></span>
+<span id="cb13-24"><a href="lab3.html#cb13-24" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.27462568300582</span><span class="op">,</span> <span class="fl">48.114163936320416</span>]<span class="op">,</span></span>
+<span id="cb13-25"><a href="lab3.html#cb13-25" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.27215805071212</span><span class="op">,</span> <span class="fl">48.114163936320416</span>]<span class="op">,</span></span>
+<span id="cb13-26"><a href="lab3.html#cb13-26" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">123.27215805071212</span><span class="op">,</span> <span class="fl">48.11533866992809</span>]]]<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb13-27"><a href="lab3.html#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> unmixImage <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span>])<span class="op">;</span></span></code></pre></div>
+<p>Check the polygons you made by charting mean spectra in them using <a href="https://developers.google.com/earth-engine/charts_image_regions">Chart.image.regions()</a>:</p>
+<p>Your chart should look something like:</p>
+<div class="figure">
+<img src="im/im_04_03.png" alt="" />
+<p class="caption">Charting Spectra</p>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="lab3.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> unmixImage <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span>])<span class="op">;</span>  </span>
+<span id="cb14-2"><a href="lab3.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Chart<span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">regions</span>(unmixImage<span class="op">,</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>([</span>
+<span id="cb14-3"><a href="lab3.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="fu">Feature</span>(bare<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&#39;bare&#39;</span>})<span class="op">,</span> </span>
+<span id="cb14-4"><a href="lab3.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="fu">Feature</span>(water<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&#39;water&#39;</span>})<span class="op">,</span></span>
+<span id="cb14-5"><a href="lab3.html#cb14-5" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="fu">Feature</span>(vegetation<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&#39;vegetation&#39;</span>})])<span class="op">,</span> </span>
+<span id="cb14-6"><a href="lab3.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="st">&#39;label&#39;</span><span class="op">,</span> [<span class="fl">0.48</span><span class="op">,</span> <span class="fl">0.56</span><span class="op">,</span> <span class="fl">0.65</span><span class="op">,</span> <span class="fl">0.86</span><span class="op">,</span> <span class="fl">1.61</span><span class="op">,</span> <span class="fl">2.2</span>]))<span class="op">;</span></span></code></pre></div>
+<p>Use the <a href="https://developers.google.com/earth-engine/reducers_reduce_region">reduceRegion() method</a> to compute mean spectra in the polygons you made. Note that the return value of reduceRegion() is a Dictionary, with reducer output keyed by band name. Get the means as a list by calling <code>values()</code>. Each of these three lists represents a mean spectrum vector. Stack the vectors into a 6x3 Array of endmembers by concatenating them along the 1-axis (or columns direction).</p>
+<p>Turn the 6-band input image into an image in which each pixel is a 1D vector (<code>toArray()</code>), then into an image in which each pixel is a 6x1 matrix (<code>toArray(1)</code>). Now that the dimensions match, in each pixel, solve the equation for <strong>f</strong>. Finally, convert the result from a 2D array image into a 1D array image (<code>arrayProject()</code>), then to a multi-band image (<code>arrayFlatten()</code>). The three bands correspond to the estimates of bare, vegetation and water fractions in <strong>f</strong>. Display the result where bare is red, vegetation is green, and water is blue (the <code>addLayer()</code> call expects bands in order, RGB)</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="lab3.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bareMean <span class="op">=</span> unmixImage<span class="op">.</span><span class="fu">reduceRegion</span>(</span>
+<span id="cb15-2"><a href="lab3.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span> bare<span class="op">,</span> <span class="dv">30</span>)<span class="op">.</span><span class="fu">values</span>()<span class="op">;</span>   </span>
+<span id="cb15-3"><a href="lab3.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> waterMean <span class="op">=</span> unmixImage<span class="op">.</span><span class="fu">reduceRegion</span>(</span>
+<span id="cb15-4"><a href="lab3.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span> water<span class="op">,</span> <span class="dv">30</span>)<span class="op">.</span><span class="fu">values</span>()<span class="op">;</span>   </span>
+<span id="cb15-5"><a href="lab3.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vegMean <span class="op">=</span> unmixImage<span class="op">.</span><span class="fu">reduceRegion</span>(</span>
+<span id="cb15-6"><a href="lab3.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span> vegetation<span class="op">,</span> <span class="dv">30</span>)<span class="op">.</span><span class="fu">values</span>()<span class="op">;</span>  </span>
+<span id="cb15-7"><a href="lab3.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> endmembers <span class="op">=</span> ee<span class="op">.</span><span class="at">Array</span><span class="op">.</span><span class="fu">cat</span>([bareMean<span class="op">,</span>  vegMean<span class="op">,</span> waterMean]<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  </span>
+<span id="cb15-8"><a href="lab3.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> arrayImage <span class="op">=</span> unmixImage<span class="op">.</span><span class="fu">toArray</span>()<span class="op">.</span><span class="fu">toArray</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb15-9"><a href="lab3.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> unmixed <span class="op">=</span>  ee<span class="op">.</span><span class="fu">Image</span>(endmembers)<span class="op">.</span><span class="fu">matrixSolve</span>(arrayImage)<span class="op">;</span></span>
+<span id="cb15-10"><a href="lab3.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> unmixedImage <span class="op">=</span> unmixed<span class="op">.</span><span class="fu">arrayProject</span>([<span class="dv">0</span>])</span>
+<span id="cb15-11"><a href="lab3.html#cb15-11" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">arrayFlatten</span>(</span>
+<span id="cb15-12"><a href="lab3.html#cb15-12" aria-hidden="true" tabindex="-1"></a>          [[<span class="st">&#39;bare&#39;</span><span class="op">,</span> <span class="st">&#39;veg&#39;</span><span class="op">,</span> <span class="st">&#39;water&#39;</span>]]</span>
+<span id="cb15-13"><a href="lab3.html#cb15-13" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span>  </span>
+<span id="cb15-14"><a href="lab3.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(unmixedImage<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;Unmixed&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<div class="figure">
+<img src="im/im_03_10.png" alt="" />
+<p class="caption">Spectral Unmixing Image</p>
+</div>
+<blockquote>
+<p>Question 5: Repeat this process for Blacksburg, VA. Upload the mean spectra chart you generated for bare, water, and land and the map. Interpret the output of the image by selecting different pixels with <strong>Inspector</strong></p>
+</blockquote>
+</div>
+<div id="hue-saturation-value-transform" class="section level4" number="3.4.0.4">
+<h4><span class="header-section-number">3.4.0.4</span> Hue-Saturation-Value Transform</h4>
+<p>The Hue-Saturation-Value (HSV) model <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">is a color transform of the RGB color space</a>. Among many other things, it is useful for <a href="https://en.wikipedia.org/wiki/Pansharpened_image">pan-sharpening</a>. This involves converting an RGB to HSV, swapping the panchromatic band for the value (V), then converting back to RGB. For example, using the Landsat 8 scene:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="lab3.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb16-2"><a href="lab3.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LC08/C01/T1_TOA&quot;</span>)</span>
+<span id="cb16-3"><a href="lab3.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(landsat</span>
+<span id="cb16-4"><a href="lab3.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb16-5"><a href="lab3.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-06-17&#39;</span><span class="op">,</span> <span class="st">&#39;2014-03-27&#39;</span>)</span>
+<span id="cb16-6"><a href="lab3.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER&#39;</span>)</span>
+<span id="cb16-7"><a href="lab3.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb16-8"><a href="lab3.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Convert Landsat RGB bands to HSV   </span></span>
+<span id="cb16-9"><a href="lab3.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> hsv <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>])<span class="op">.</span><span class="fu">rgbToHsv</span>()<span class="op">;</span></span>
+<span id="cb16-10"><a href="lab3.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Convert back to RGB,  swapping the image panchromatic band for the value.</span></span>
+<span id="cb16-11"><a href="lab3.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rgb <span class="op">=</span> ee<span class="op">.</span><span class="at">Image</span><span class="op">.</span><span class="fu">cat</span>([</span>
+<span id="cb16-12"><a href="lab3.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  hsv<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;hue&#39;</span>)<span class="op">,</span></span>
+<span id="cb16-13"><a href="lab3.html#cb16-13" aria-hidden="true" tabindex="-1"></a>  hsv<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;saturation&#39;</span>)<span class="op">,</span></span>
+<span id="cb16-14"><a href="lab3.html#cb16-14" aria-hidden="true" tabindex="-1"></a>  image<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;B8&#39;</span>])])<span class="op">.</span><span class="fu">hsvToRgb</span>()<span class="op">;</span></span>
+<span id="cb16-15"><a href="lab3.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb16-16"><a href="lab3.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(rgb<span class="op">,</span> {<span class="dt">max</span><span class="op">:</span> <span class="fl">0.4</span>}<span class="op">,</span> <span class="st">&#39;Pan-sharpened&#39;</span>)<span class="op">;</span>  </span></code></pre></div>
+<blockquote>
+<p><strong>Question 6</strong>: Compare the pan-sharpened image with the original image. What do you notice that’s different? The same?</p>
+</blockquote>
+</div>
+</div>
+<div id="spectral-transformation" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Spectral Transformation</h2>
+<div id="linear-filtering" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Linear Filtering</h3>
+<p>In the present context, linear <em>filtering</em> (or <a href="http://www.dspguide.com/ch24/1.htm">convolution</a>) refers to a linear combination of pixel values in a ‘neighborhood’, or <a href="https://en.wikipedia.org/wiki/Kernel_(image_processing)">kernel</a>, where the weights of the kernel determine the coefficients in the linear combination (for this lab, the terms <em>kernel</em> and <em>filter</em> are interchangeable.) Filtering an image can be useful for extracting image information at different <a href="http://www.dspguide.com/ch24/5.htm">spatial frequencies</a> by reducing noise. For this reason, smoothing filters are called <em>low-pass</em> filters (they let <em>low</em>-frequency data <em>pass</em> through) and edge detection filters are called <em>high-pass</em> filters. To implement filtering in Earth Engine use <a href="https://developers.google.com/earth-engine/guides/image_convolutions">image.convolve()</a> with an ee.Kernel for the argument.</p>
+<div id="smoothing" class="section level4" number="3.5.1.1">
+<h4><span class="header-section-number">3.5.1.1</span> Smoothing</h4>
+<p>Smoothing means to convolve an image with a smoothing kernel.</p>
+<p>A simple smoothing filter is a square kernel with uniform weights that sum to one. Convolving with this kernel sets each pixel to the mean of its neighborhood. Print a square kernel with uniform weights (this is sometimes called a “pillbox” or “boxcar” filter):</p>
+<p>Expand the kernel object in the console to see the weights. This kernel is defined by how many pixels it covers (i.e. <code>radius</code> is in units of ‘pixels’). A kernel with radius defined in ‘meters’ adjusts its size in pixels, so you can’t visualize its weights, but it’s more flexible in terms of adapting to inputs of different scale. In the following, use kernels with radius defined in meters except to visualize the weights.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="lab3.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb17-2"><a href="lab3.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> naip <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;USDA/NAIP/DOQQ&quot;</span>)</span>
+<span id="cb17-3"><a href="lab3.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(naip</span>
+<span id="cb17-4"><a href="lab3.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb17-5"><a href="lab3.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-06-17&#39;</span><span class="op">,</span> <span class="st">&#39;2017-03-27&#39;</span>)</span>
+<span id="cb17-6"><a href="lab3.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb17-7"><a href="lab3.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Print a uniform kernel to see its weights.</span></span>
+<span id="cb17-8"><a href="lab3.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;A uniform kernel:&#39;</span><span class="op">,</span> ee<span class="op">.</span><span class="at">Kernel</span><span class="op">.</span><span class="fu">square</span>(<span class="dv">2</span>))<span class="op">;</span></span></code></pre></div>
+<div class="figure">
+<img src="im/im_03_11.png" alt="" />
+<p class="caption">Kernel Description</p>
+</div>
+<p>Define a kernel with 2-meter radius (which corresponds to how many pixels in the NAIP image? Hint: try <a href="https://developers.google.com/earth-engine/guides/projections">projection.nominalScale()</a>), convolve the image with the kernel and compare the input image with the smoothed image:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="lab3.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Define a square, uniform kernel.</span></span>
+<span id="cb18-2"><a href="lab3.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> uniformKernel <span class="op">=</span> ee<span class="op">.</span><span class="at">Kernel</span><span class="op">.</span><span class="fu">square</span>({</span>
+<span id="cb18-3"><a href="lab3.html#cb18-3" aria-hidden="true" tabindex="-1"></a> <span class="dt">radius</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb18-4"><a href="lab3.html#cb18-4" aria-hidden="true" tabindex="-1"></a> <span class="dt">units</span><span class="op">:</span> <span class="st">&#39;meters&#39;</span><span class="op">,</span></span>
+<span id="cb18-5"><a href="lab3.html#cb18-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb18-6"><a href="lab3.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Filter the image by convolving with the smoothing filter.</span></span>
+<span id="cb18-7"><a href="lab3.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> smoothed <span class="op">=</span> image<span class="op">.</span><span class="fu">convolve</span>(uniformKernel)<span class="op">;</span></span>
+<span id="cb18-8"><a href="lab3.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColorVis <span class="op">=</span> {</span>
+<span id="cb18-9"><a href="lab3.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="fl">0.0</span><span class="op">,</span></span>
+<span id="cb18-10"><a href="lab3.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="fl">255.0</span><span class="op">,</span></span>
+<span id="cb18-11"><a href="lab3.html#cb18-11" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb18-12"><a href="lab3.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb18-13"><a href="lab3.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(smoothed<span class="op">,</span> trueColorVis<span class="op">,</span> <span class="st">&#39;smoothed image&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>To make the image even smoother, try increasing the size of the neighborhood by increasing the pixel radius. to the human eye, the image is more blurry, but in many Machine Learning and Computer Vision algorithms, this process improves our output by reducing noise.</p>
+<p>A Gaussian kernel can also be used for smoothing. Think of filtering with a Gaussian kernel as computing the weighted average in each pixel’s neighborhood.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="lab3.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Print a Gaussian kernel to see its weights.</span></span>
+<span id="cb19-2"><a href="lab3.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;A Gaussian kernel:&#39;</span><span class="op">,</span> ee<span class="op">.</span><span class="at">Kernel</span><span class="op">.</span><span class="fu">gaussian</span>(<span class="dv">2</span>))<span class="op">;</span></span>
+<span id="cb19-3"><a href="lab3.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Define a square Gaussian kernel:</span></span>
+<span id="cb19-4"><a href="lab3.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> gaussianKernel <span class="op">=</span> ee<span class="op">.</span><span class="at">Kernel</span><span class="op">.</span><span class="fu">gaussian</span>({</span>
+<span id="cb19-5"><a href="lab3.html#cb19-5" aria-hidden="true" tabindex="-1"></a> <span class="dt">radius</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb19-6"><a href="lab3.html#cb19-6" aria-hidden="true" tabindex="-1"></a> <span class="dt">units</span><span class="op">:</span> <span class="st">&#39;meters&#39;</span><span class="op">,</span></span>
+<span id="cb19-7"><a href="lab3.html#cb19-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb19-8"><a href="lab3.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Filter the image by convolving with the Gaussian filter.</span></span>
+<span id="cb19-9"><a href="lab3.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> gaussian <span class="op">=</span> image<span class="op">.</span><span class="fu">convolve</span>(gaussianKernel)<span class="op">;</span></span>
+<span id="cb19-10"><a href="lab3.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColorVis <span class="op">=</span> {</span>
+<span id="cb19-11"><a href="lab3.html#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="fl">0.0</span><span class="op">,</span></span>
+<span id="cb19-12"><a href="lab3.html#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="fl">255.0</span><span class="op">,</span></span>
+<span id="cb19-13"><a href="lab3.html#cb19-13" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb19-14"><a href="lab3.html#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb19-15"><a href="lab3.html#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(gaussian<span class="op">,</span> trueColorVis<span class="op">,</span> <span class="st">&#39;smoothed image&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<blockquote>
+<p><strong>Question 7</strong>: What happens as you increase the pixel radius for each smoothing? What differences can you discern between the weights and the visualizations of the two smoothing kernels?</p>
+</blockquote>
+</div>
+<div id="edge-detection" class="section level4" number="3.5.1.2">
+<h4><span class="header-section-number">3.5.1.2</span> Edge Detection</h4>
+<p>Convolving with an edge-detection kernel is used to find rapid changes in values that usually signify the edges of objects in the image data.</p>
+<p>A classic edge detection kernel is the <a href="https://en.wikipedia.org/wiki/Discrete_Laplace_operator">Laplacian</a> kernel. Investigate the kernel weights and the image that results from convolving with the Laplacian. Other edge detection kernels include the <a href="https://en.wikipedia.org/wiki/Sobel_operator">Sobel</a>, <a href="https://en.wikipedia.org/wiki/Prewitt_operator">Prewitt</a> and <a href="https://en.wikipedia.org/wiki/Roberts_cross">Roberts</a> kernels. <a href="https://developers.google.com/earth-engine/image_edges">Learn more about additional edge detection methods in Earth Engine</a>.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a href="lab3.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">80.42</span><span class="op">,</span> <span class="fl">37.22</span>])<span class="op">;</span></span>
+<span id="cb20-2"><a href="lab3.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> naip <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;USDA/NAIP/DOQQ&quot;</span>)</span>
+<span id="cb20-3"><a href="lab3.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(naip</span>
+<span id="cb20-4"><a href="lab3.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb20-5"><a href="lab3.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2013-06-17&#39;</span><span class="op">,</span> <span class="st">&#39;2017-03-27&#39;</span>)</span>
+<span id="cb20-6"><a href="lab3.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb20-7"><a href="lab3.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Define a Laplacian, or edge-detection kernel.</span></span>
+<span id="cb20-8"><a href="lab3.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> laplace <span class="op">=</span> ee<span class="op">.</span><span class="at">Kernel</span><span class="op">.</span><span class="fu">laplacian8</span>({ <span class="dt">normalize</span><span class="op">:</span> <span class="kw">false</span> })<span class="op">;</span></span>
+<span id="cb20-9"><a href="lab3.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Apply the edge-detection kernel.</span></span>
+<span id="cb20-10"><a href="lab3.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> edges <span class="op">=</span> image<span class="op">.</span><span class="fu">convolve</span>(laplace)<span class="op">;</span></span>
+<span id="cb20-11"><a href="lab3.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trueColorVis <span class="op">=</span> {</span>
+<span id="cb20-12"><a href="lab3.html#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="fl">0.0</span><span class="op">,</span></span>
+<span id="cb20-13"><a href="lab3.html#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="fl">255.0</span><span class="op">,</span></span>
+<span id="cb20-14"><a href="lab3.html#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">format</span><span class="op">:</span> <span class="st">&#39;png&#39;</span></span>
+<span id="cb20-15"><a href="lab3.html#cb20-15" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb20-16"><a href="lab3.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(point<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb20-17"><a href="lab3.html#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(edges<span class="op">,</span> trueColorVis<span class="op">,</span><span class="st">&#39;edges&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="figure">
+<img src="im/im_03_12.png" alt="" />
+<p class="caption">Edge Detection</p>
+</div>
+<blockquote>
+<p><strong>Question 8:</strong> Choose another edge detection method and upload the image - what characteristics do you see, and how does it compare to Laplacian Edge detection?</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="additional-exercises-2" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Additional Exercises</h2>
+<blockquote>
+<p><strong>Question 9</strong>: Look in google scholar to identify 2-3 publications that have used NDVI and two-three that used EVI. For what purposes were these indices used and what was the justification provided for that index?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 10</strong>: Discuss a spectral index that we did not cover in this lab relates to your area of research/interest. What is the the name of the spectral index, the formula used to calculate it, and what is it used to detect? Provide a citation of an academic article that has fruitfully used that index.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 11</strong>: Find 1-2 articles that use any of the linear transformation methods we practiced in this lab in the service of addressing an important social issue (e.g., one related to agriculture, environment, or development). Provide the citations and discussed how the transformation is used and how it’s justified in the article.</p>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="classification.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/benamie/remote-sense-social/edit/main/04-lab3.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

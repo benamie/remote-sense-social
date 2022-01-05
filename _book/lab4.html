@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Lab 04 - Classification | Remote Sensing in the Social Sciences</title>
+  <meta name="description" content="4 Lab 04 - Classification | Remote Sensing in the Social Sciences" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Lab 04 - Classification | Remote Sensing in the Social Sciences" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Lab 04 - Classification | Remote Sensing in the Social Sciences" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab3.html"/>
+<link rel="next" href="lab5.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#why-google-earth-engine"><i class="fa fa-check"></i><b>0.1</b> Why Google Earth Engine?</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#license-and-attribution"><i class="fa fa-check"></i><b>0.2</b> License and Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html"><i class="fa fa-check"></i>Lab 00 - PreLab: Getting Started</a>
+<ul>
+<li class="chapter" data-level="0.3" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#overview"><i class="fa fa-check"></i><b>0.3</b> Overview</a></li>
+<li class="chapter" data-level="0.4" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#data-and-methods"><i class="fa fa-check"></i><b>0.4</b> Data and Methods</a></li>
+<li class="chapter" data-level="0.5" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#images-and-image-collections"><i class="fa fa-check"></i><b>0.5</b> Images and Image Collections</a>
+<ul>
+<li class="chapter" data-level="0.5.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#images"><i class="fa fa-check"></i><b>0.5.1</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="0.6" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#image-collections"><i class="fa fa-check"></i><b>0.6</b> Image Collections</a>
+<ul>
+<li class="chapter" data-level="0.6.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#sensed-versus-derived-imagery"><i class="fa fa-check"></i><b>0.6.1</b> Sensed versus Derived Imagery</a></li>
+</ul></li>
+<li class="chapter" data-level="0.7" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#geometries"><i class="fa fa-check"></i><b>0.7</b> Geometries</a></li>
+<li class="chapter" data-level="0.8" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#features-and-feature-collections"><i class="fa fa-check"></i><b>0.8</b> Features and Feature Collections</a>
+<ul>
+<li class="chapter" data-level="0.8.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#features"><i class="fa fa-check"></i><b>0.8.1</b> Features</a></li>
+<li class="chapter" data-level="0.8.2" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#feature-collections"><i class="fa fa-check"></i><b>0.8.2</b> Feature Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="0.9" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#methods-reducers"><i class="fa fa-check"></i><b>0.9</b> Methods: Reducers</a></li>
+<li class="chapter" data-level="0.10" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#joins-and-arrays"><i class="fa fa-check"></i><b>0.10</b> Joins and Arrays</a>
+<ul>
+<li class="chapter" data-level="0.10.1" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#join"><i class="fa fa-check"></i><b>0.10.1</b> Join</a></li>
+<li class="chapter" data-level="0.10.2" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#arrays"><i class="fa fa-check"></i><b>0.10.2</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="0.11" data-path="lab-00-prelab-getting-started.html"><a href="lab-00-prelab-getting-started.html#additional-resources"><i class="fa fa-check"></i><b>0.11</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>1</b> Lab 01 - Remote Sensing Background</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="lab1.html"><a href="lab1.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="lab1.html"><a href="lab1.html#digital-image"><i class="fa fa-check"></i><b>1.2</b> Digital Image</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="lab1.html"><a href="lab1.html#from-digital-image-to-geospatial-image"><i class="fa fa-check"></i><b>1.2.1</b> From Digital Image to Geospatial Image</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lab1.html"><a href="lab1.html#visualize-a-digital-image"><i class="fa fa-check"></i><b>1.2.2</b> Visualize a Digital Image</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lab1.html"><a href="lab1.html#spatial-resolution"><i class="fa fa-check"></i><b>1.3</b> Spatial Resolution</a></li>
+<li class="chapter" data-level="1.4" data-path="lab1.html"><a href="lab1.html#spectral-resolution"><i class="fa fa-check"></i><b>1.4</b> Spectral Resolution</a></li>
+<li class="chapter" data-level="1.5" data-path="lab1.html"><a href="lab1.html#temporal-resolution"><i class="fa fa-check"></i><b>1.5</b> Temporal Resolution</a></li>
+<li class="chapter" data-level="1.6" data-path="lab1.html"><a href="lab1.html#radiometric-resolution"><i class="fa fa-check"></i><b>1.6</b> Radiometric Resolution</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="lab1.html"><a href="lab1.html#digital-image-visualization-and-stretching"><i class="fa fa-check"></i><b>1.6.1</b> Digital Image Visualization and Stretching</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="lab1.html"><a href="lab1.html#resampling-and-reprojection"><i class="fa fa-check"></i><b>1.7</b> Resampling and ReProjection</a></li>
+<li class="chapter" data-level="1.8" data-path="lab1.html"><a href="lab1.html#additional-exercises"><i class="fa fa-check"></i><b>1.8</b> Additional Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>2</b> Lab 02 - Digital Imagery &amp; Image Processing</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lab2.html"><a href="lab2.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="lab2.html"><a href="lab2.html#searching-for-imagery"><i class="fa fa-check"></i><b>2.2</b> Searching for Imagery</a></li>
+<li class="chapter" data-level="2.3" data-path="lab2.html"><a href="lab2.html#visualizing-landsat-imagery"><i class="fa fa-check"></i><b>2.3</b> Visualizing Landsat Imagery</a></li>
+<li class="chapter" data-level="2.4" data-path="lab2.html"><a href="lab2.html#at-sensor-radiance"><i class="fa fa-check"></i><b>2.4</b> At-Sensor Radiance</a></li>
+<li class="chapter" data-level="2.5" data-path="lab2.html"><a href="lab2.html#top-of-atmosphere-toa-reflectance"><i class="fa fa-check"></i><b>2.5</b> Top-of-Atmosphere (TOA) Reflectance</a></li>
+<li class="chapter" data-level="2.6" data-path="lab2.html"><a href="lab2.html#surface-reflectance"><i class="fa fa-check"></i><b>2.6</b> Surface Reflectance</a></li>
+<li class="chapter" data-level="2.7" data-path="lab2.html"><a href="lab2.html#additional-exercises-1"><i class="fa fa-check"></i><b>2.7</b> Additional Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab3.html"><a href="lab3.html"><i class="fa fa-check"></i><b>3</b> Lab 03 - Spectral Indices &amp; Transformations</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lab3.html"><a href="lab3.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="lab3.html"><a href="lab3.html#spectral-indices"><i class="fa fa-check"></i><b>3.2</b> Spectral Indices</a></li>
+<li class="chapter" data-level="3.3" data-path="lab3.html"><a href="lab3.html#important-indices"><i class="fa fa-check"></i><b>3.3</b> Important Indices</a></li>
+<li class="chapter" data-level="3.4" data-path="lab3.html"><a href="lab3.html#transformations"><i class="fa fa-check"></i><b>3.4</b> Transformations</a></li>
+<li class="chapter" data-level="3.5" data-path="lab3.html"><a href="lab3.html#spectral-transformation"><i class="fa fa-check"></i><b>3.5</b> Spectral Transformation</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="lab3.html"><a href="lab3.html#linear-filtering"><i class="fa fa-check"></i><b>3.5.1</b> Linear Filtering</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="lab3.html"><a href="lab3.html#additional-exercises-2"><i class="fa fa-check"></i><b>3.6</b> Additional Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab4.html"><a href="lab4.html"><i class="fa fa-check"></i><b>4</b> Lab 04 - Classification</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lab4.html"><a href="lab4.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="lab4.html"><a href="lab4.html#introduction-to-classification"><i class="fa fa-check"></i><b>4.2</b> Introduction to Classification</a></li>
+<li class="chapter" data-level="4.3" data-path="lab4.html"><a href="lab4.html#unsupervised-classification"><i class="fa fa-check"></i><b>4.3</b> Unsupervised Classification</a></li>
+<li class="chapter" data-level="4.4" data-path="lab4.html"><a href="lab4.html#supervised-classification"><i class="fa fa-check"></i><b>4.4</b> Supervised Classification</a></li>
+<li class="chapter" data-level="4.5" data-path="lab4.html"><a href="lab4.html#accuracy-assessment"><i class="fa fa-check"></i><b>4.5</b> Accuracy Assessment</a></li>
+<li class="chapter" data-level="4.6" data-path="lab4.html"><a href="lab4.html#hyperparameter-tuning"><i class="fa fa-check"></i><b>4.6</b> Hyperparameter Tuning</a></li>
+<li class="chapter" data-level="4.7" data-path="lab4.html"><a href="lab4.html#classification-assignment"><i class="fa fa-check"></i><b>4.7</b> Classification Assignment</a></li>
+<li class="chapter" data-level="4.8" data-path="lab4.html"><a href="lab4.html#regression"><i class="fa fa-check"></i><b>4.8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="lab4.html"><a href="lab4.html#ordinary-least-squares-ols"><i class="fa fa-check"></i><b>4.8.1</b> Ordinary Least Squares (OLS)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="lab4.html"><a href="lab4.html#nonlinear-regression"><i class="fa fa-check"></i><b>4.9</b> Nonlinear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab5.html"><a href="lab5.html"><i class="fa fa-check"></i><b>5</b> Time Series Modeling</a>
+<ul>
+<li class="chapter" data-level="" data-path="lab5.html"><a href="lab5.html#overview-5"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="lab5.html"><a href="lab5.html#background"><i class="fa fa-check"></i><b>5.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="lab5.html"><a href="lab5.html#im_06_07"><i class="fa fa-check"></i><b>5.1.1</b> <img src="im/im_06_01.png" alt="im_06_07" /></a></li>
+<li class="chapter" data-level="5.1.2" data-path="lab5.html"><a href="lab5.html#limitations-in-remote-sensing-time-series"><i class="fa fa-check"></i><b>5.1.2</b> Limitations in Remote Sensing Time Series</a></li>
+<li class="chapter" data-level="5.1.3" data-path="lab5.html"><a href="lab5.html#multi-temporal-data-in-earth-engine"><i class="fa fa-check"></i><b>5.1.3</b> Multi-Temporal Data in Earth Engine</a></li>
+<li class="chapter" data-level="5.1.4" data-path="lab5.html"><a href="lab5.html#data-preparation-and-preprocessing"><i class="fa fa-check"></i><b>5.1.4</b> Data Preparation and Preprocessing</a></li>
+<li class="chapter" data-level="5.1.5" data-path="lab5.html"><a href="lab5.html#linear-modeling-of-time"><i class="fa fa-check"></i><b>5.1.5</b> Linear Modeling of Time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="lab5.html"><a href="lab5.html#estimate-seasonality-with-a-harmonic-model"><i class="fa fa-check"></i><b>5.2</b> Estimate Seasonality with a Harmonic Model</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="lab5.html"><a href="lab5.html#complex-time-series-modeling"><i class="fa fa-check"></i><b>5.2.1</b> Complex Time Series Modeling</a></li>
+<li class="chapter" data-level="5.2.2" data-path="lab5.html"><a href="lab5.html#exporting-data"><i class="fa fa-check"></i><b>5.2.2</b> Exporting Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="lab5.html"><a href="lab5.html#time-series-thresholding"><i class="fa fa-check"></i><b>5.3</b> Time Series Thresholding</a></li>
+<li class="chapter" data-level="5.4" data-path="lab5.html"><a href="lab5.html#additional-exercises-3"><i class="fa fa-check"></i><b>5.4</b> Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="lab5.html"><a href="lab5.html#where-to-submit"><i class="fa fa-check"></i>Where to submit</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab6.html"><a href="lab6.html"><i class="fa fa-check"></i><b>6</b> Night Time Lights Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="lab6.html"><a href="lab6.html#overview-6"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="lab6.html"><a href="lab6.html#basic-operations"><i class="fa fa-check"></i><b>6.1</b> Basic Operations</a></li>
+<li class="chapter" data-level="6.2" data-path="lab6.html"><a href="lab6.html#conclusion"><i class="fa fa-check"></i><b>6.2</b> Conclusion</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/benamie/remote-sense-social/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Remote Sensing in the Social Sciences</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab4" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Lab 04 - Classification</h1>
+<div id="overview-4" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Overview</h2>
+<p>This lab will cover the process of using machine learning (ML) to create both unsupervised and supervised classification models for land use categorization. We will discuss the methodology involved and potential use cases, explore parameter tuning and go through the process of building a relatively simple classification model using Random Forest and CART, which you can use as a starting point for future research.</p>
+</div>
+<div id="introduction-to-classification" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Introduction to Classification</h2>
+<p>While it is possible for a human to look at a satellite image and identify objects or land cover types based on their visual characteristics, the sheer magnitude and volume of imagery makes it virtually impossible to do this manually at scale. To compensate, machine learning allows computers to process this information much quicker than a human and find meaningful insights in the imagery. Image classification is an essential component in today’s remote sensing, and there are many opportunities in this growing field. By training ML models to efficiently process the data and return labeled information, we can focus on the higher-level insights.</p>
+<p>Google Earth Engine offers many options to work with classification. Most broadly, we can separate classification into two parts - supervised and unsupervised classification. We will introduce both components and work our way through several examples.</p>
+<p>For practical purposes, we can define pixel-wise prediction as guessing the value of some geographic variable of interest <code>g</code>, using a function <code>G</code> that takes as input a pixel vector <strong><code>p</code></strong>:
+<span class="math display">\[
+G_{t}(p_{i}) = g_{i}
+\]</span>
+The <em>i</em> in this equation refers to a particular instance from a set of pixels. Think of <em>G</em> as a guessing function and <span class="math inline">\(g_{i}\)</span> as the guess for pixel <em>i</em>. The <strong>T</strong> in the subscript of <em>G</em> refers to a <em>training set</em> (a set of known values for <strong>p</strong> and the correct <em>g</em>), used to infer the structure of <em>G</em>. You have to choose a suitable <em>G</em> to train with <strong>T</strong>.</p>
+<p>When <code>g</code> is nominal, or a fixed category (ex., {‘water’, ‘vegetation’, ‘bare’}), we call this classification.</p>
+<p>When <code>g</code> is numeric (ex., {0, 1, 2, 3}), we call this regression.</p>
+<p>This is a simplistic description of a problem addressed in a broad range of fields including mathematics, statistics, data mining, machine learning. For our purposes, we will go through some examples using these concepts in Google Earth Engine and then provide more resources for further reading at the end.</p>
+</div>
+<div id="unsupervised-classification" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Unsupervised Classification</h2>
+<p>Unsupervised classification finds unique groupings in the dataset without manually developed training data (no guidance). The computer will cycle through the pixels, look at the characteristics of the different bands, and pixel-by-pixel begin to group information together. Perhaps pixels with a blue hue and a low NIR value are grouped together, while green-dominant pixels are also grouped together. The outcome of unsupervised classification is that each pixel is categorized within the context of the image and the number of categories specified. One important point is that the number of clusters is set by the user, and this plays a major role in how the algorithm operates. Too many clusters creates unnecessary noise, while too few clusters does not have enough granularity.</p>
+<p>Google Earth Engine provides <a href="https://developers.google.com/earth-engine/guides/clustering">documentation</a> on working with unsupervised classification within their ecosystem, and we will be focusing on the <code>ee.Clusterer</code> package, which provides a flexible unsupervised classification (or clustering) in an easy-to-use way.</p>
+<p>Clusterers are used in the same manner as classifiers in Earth Engine. The general workflow for clustering is:</p>
+<ol style="list-style-type: decimal">
+<li>Assemble features with numeric properties to find clusters</li>
+<li>Instantiate a clusterer - set its parameters if necessary</li>
+<li>Train the clusterer using the training data</li>
+<li>Apply the clusterer to an image or feature collection</li>
+<li>Label the clusters</li>
+</ol>
+<p>Begin by creating a study region - in this case we will be working in an area near Blacksburg, VA.</p>
+<p>We will be working with Landsat 8 imagery, which we will filter to the region and to the year of 2019. <code>maskl8sr()</code> is a function used to mask out cloud pixels. Visualize the true color image first to get an understanding of the region.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="lab4.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Create region</span></span>
+<span id="cb1-2"><a href="lab4.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> region <span class="op">=</span> </span>
+<span id="cb1-3"><a href="lab4.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb1-4"><a href="lab4.html#cb1-4" aria-hidden="true" tabindex="-1"></a>        [[[<span class="op">-</span><span class="fl">80.62707329831015</span><span class="op">,</span> <span class="fl">37.333629367422276</span>]<span class="op">,</span></span>
+<span id="cb1-5"><a href="lab4.html#cb1-5" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">80.62707329831015</span><span class="op">,</span> <span class="fl">37.144488460273884</span>]<span class="op">,</span></span>
+<span id="cb1-6"><a href="lab4.html#cb1-6" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">80.19517327389609</span><span class="op">,</span> <span class="fl">37.144488460273884</span>]<span class="op">,</span></span>
+<span id="cb1-7"><a href="lab4.html#cb1-7" aria-hidden="true" tabindex="-1"></a>          [<span class="op">-</span><span class="fl">80.19517327389609</span><span class="op">,</span> <span class="fl">37.333629367422276</span>]]])<span class="op">;</span></span>
+<span id="cb1-8"><a href="lab4.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Function to mask clouds based on the pixel_qa band of Landsat 8 SR data.</span></span>
+<span id="cb1-9"><a href="lab4.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">maskL8sr</span>(image) {</span>
+<span id="cb1-10"><a href="lab4.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Bits 3 and 5 are cloud shadow and cloud, respectively.</span></span>
+<span id="cb1-11"><a href="lab4.html#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> cloudShadowBitMask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">3</span>)<span class="op">;</span></span>
+<span id="cb1-12"><a href="lab4.html#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> cloudsBitMask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">5</span>)<span class="op">;</span></span>
+<span id="cb1-13"><a href="lab4.html#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Get the pixel QA band.</span></span>
+<span id="cb1-14"><a href="lab4.html#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> qa <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;pixel_qa&#39;</span>)<span class="op">;</span></span>
+<span id="cb1-15"><a href="lab4.html#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Both flags should be set to zero, indicating clear conditions.</span></span>
+<span id="cb1-16"><a href="lab4.html#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> mask <span class="op">=</span> qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(cloudShadowBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)</span>
+<span id="cb1-17"><a href="lab4.html#cb1-17" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">and</span>(qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(cloudsBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))<span class="op">;</span></span>
+<span id="cb1-18"><a href="lab4.html#cb1-18" aria-hidden="true" tabindex="-1"></a>           <span class="cf">return</span> image<span class="op">.</span><span class="fu">updateMask</span>(mask)<span class="op">;</span></span>
+<span id="cb1-19"><a href="lab4.html#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-20"><a href="lab4.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">// Load Landsat 8 annual composites.</span></span>
+<span id="cb1-21"><a href="lab4.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span>)</span>
+<span id="cb1-22"><a href="lab4.html#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2019-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2019-12-31&#39;</span>)</span>
+<span id="cb1-23"><a href="lab4.html#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">map</span>(maskL8sr)</span>
+<span id="cb1-24"><a href="lab4.html#cb1-24" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">filterBounds</span>(region)</span>
+<span id="cb1-25"><a href="lab4.html#cb1-25" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">median</span>()<span class="op">;</span></span>
+<span id="cb1-26"><a href="lab4.html#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">//Display Landsat data</span></span>
+<span id="cb1-27"><a href="lab4.html#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> visParams <span class="op">=</span> {</span>
+<span id="cb1-28"><a href="lab4.html#cb1-28" aria-hidden="true" tabindex="-1"></a>       <span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span></span>
+<span id="cb1-29"><a href="lab4.html#cb1-29" aria-hidden="true" tabindex="-1"></a>       <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb1-30"><a href="lab4.html#cb1-30" aria-hidden="true" tabindex="-1"></a>       <span class="dt">max</span><span class="op">:</span> <span class="dv">3000</span><span class="op">,</span></span>
+<span id="cb1-31"><a href="lab4.html#cb1-31" aria-hidden="true" tabindex="-1"></a>       <span class="dt">gamma</span><span class="op">:</span> <span class="fl">1.4</span><span class="op">,</span></span>
+<span id="cb1-32"><a href="lab4.html#cb1-32" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb1-33"><a href="lab4.html#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(region<span class="op">,</span> <span class="dv">9</span>)<span class="op">;</span></span>
+<span id="cb1-34"><a href="lab4.html#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(landsat<span class="op">,</span> visParams<span class="op">,</span> <span class="st">&quot;Landsat 8 (2016)&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>In this case, we will randomly select a sample of 5000 pixels in the region to build a clustering model - we will use this sample data to find clustering groups and then apply it to the rest of the data.</p>
+<p>We will also set the variable <code>clusterNum</code> to idenfity how many categories to use. Start with 15, and modify based on the output and needs of your experiment. Note that we are using <code>ee.Clusterer.wekaKMeans</code>,</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="lab4.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Create a training dataset.</span></span>
+<span id="cb2-2"><a href="lab4.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> sample <span class="op">=</span> landsat<span class="op">.</span><span class="fu">sample</span>({</span>
+<span id="cb2-3"><a href="lab4.html#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="dt">region</span><span class="op">:</span> region<span class="op">,</span></span>
+<span id="cb2-4"><a href="lab4.html#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="lab4.html#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="dt">numPixels</span><span class="op">:</span> <span class="dv">5000</span></span>
+<span id="cb2-6"><a href="lab4.html#cb2-6" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb2-7"><a href="lab4.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> clusterNum <span class="op">=</span> <span class="dv">15</span>  </span>
+<span id="cb2-8"><a href="lab4.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Instantiate the clusterer and train it.</span></span>
+<span id="cb2-9"><a href="lab4.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> clusterer <span class="op">=</span> ee<span class="op">.</span><span class="at">Clusterer</span><span class="op">.</span><span class="fu">wekaKMeans</span>(clusterNum)<span class="op">.</span><span class="fu">train</span>(sample)<span class="op">;</span></span>
+<span id="cb2-10"><a href="lab4.html#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Cluster the input using the trained clusterer.</span></span>
+<span id="cb2-11"><a href="lab4.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> result <span class="op">=</span> landsat<span class="op">.</span><span class="fu">cluster</span>(clusterer)<span class="op">;</span></span>
+<span id="cb2-12"><a href="lab4.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;result&quot;</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getInfo</span>())<span class="op">;</span></span>
+<span id="cb2-13"><a href="lab4.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the clusters with random colors.</span></span>
+<span id="cb2-14"><a href="lab4.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(result<span class="op">.</span><span class="fu">randomVisualizer</span>()<span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;Unsupervised Classification&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>As you can see from the output, the result is quite vivid. On the ‘layers’ toggle on the top-right of the map section, increase the transparency of the layer to compare it to the satellite imagery.</p>
+<div class="figure">
+<img src="im/im_04_01.png" alt="" />
+<p class="caption">Unsupervised Clustering</p>
+</div>
+<p>Change the variable in <code>clusterNum</code> and run through some different options to find better results. Note that the output of an unsupervised clustering model is not specifying that each pixel should be a certain type of label (ex, the pixel is ‘water’), but rather that these pixels have similar characteristics.</p>
+<p>Unsupervised is a great starting point of understanding your data. While it is not typically used as standalone results, it can be used as a layer in supervised classification to improve performance in the supervised classification.</p>
+<blockquote>
+<p><strong>Question 1</strong>: If you were going to use a clustering model to identify water in the image, is 15 an appropriate cluster number? What would you deem to be an optimal number of clusters?</p>
+</blockquote>
+</div>
+<div id="supervised-classification" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Supervised Classification</h2>
+<p>Just like in unsupervised classification, GEE has <a href="https://developers.google.com/earth-engine/classification">documentation</a> that works through several examples. Supervised classification is an iterative process of obtaining training data, creating an initial model, reviewing the results and tuning the parameters. Many projects using supervised classification may take several months or years of fine-tuning, requiring constant refinement and maintenance. Below is a list of the steps in building a supervised classification model according to GEE.</p>
+<ol style="list-style-type: decimal">
+<li>Collect the training data</li>
+<li>Instantiate the classifier</li>
+<li>Train the classifier</li>
+<li>Classify the image</li>
+<li>Tune the model</li>
+<li>Repeat the process</li>
+</ol>
+<p>We will begin by creating training data manually within GEE. Using the geometry tools and the Landsat composite as a background, we can digitize training polygons. We’ll need to do two things: identify where polygons occur on the ground, and label them with the proper class number.</p>
+<ol style="list-style-type: decimal">
+<li>Draw a polygon around an area of bare earth (dirt, no vegetation), then <a href="https://developers.google.com/earth-engine/playground#geometry-tools">configure the import</a>. Import as FeatureCollection, then click <strong><code>+ New property</code></strong>. Name the new property ‘class’ and give it a value of 0. The dialog should show <strong>class</strong>: 0. Name the import ‘bare’.</li>
+<li><strong><code>+ New property</code></strong> &gt; Draw a polygon around vegetation &gt; import as FeatureCollection &gt; add a property &gt; name it ‘class’ and give it a value of 1. Name the import ‘vegetation’.</li>
+<li><strong><code>+ New property</code></strong> &gt; Draw a polygon around water &gt; import as FeatureCollection &gt; add a property &gt; name it ‘class’ and give it a value of 2. Name the import ‘water’.</li>
+<li>You should have three FeatureCollection imports named ‘bare’, ‘vegetation’ and ‘water’. Merge them into one FeatureCollection:</li>
+</ol>
+<blockquote>
+<p><em>Note</em>: We are providing a few starting point polygons to begin experimenting with - in the exercises, you will use the above instructions to build your own polygons.</p>
+</blockquote>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="lab4.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> water <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(</span>
+<span id="cb3-2"><a href="lab4.html#cb3-2" aria-hidden="true" tabindex="-1"></a>        [ee<span class="op">.</span><span class="fu">Feature</span>(</span>
+<span id="cb3-3"><a href="lab4.html#cb3-3" aria-hidden="true" tabindex="-1"></a>            ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb3-4"><a href="lab4.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                [[[<span class="op">-</span><span class="fl">80.6172789596943</span><span class="op">,</span> <span class="fl">37.04886769922969</span>]<span class="op">,</span></span>
+<span id="cb3-5"><a href="lab4.html#cb3-5" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.60715093845407</span><span class="op">,</span> <span class="fl">37.058183583673205</span>]<span class="op">,</span></span>
+<span id="cb3-6"><a href="lab4.html#cb3-6" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.60612097019235</span><span class="op">,</span> <span class="fl">37.06201920367848</span>]<span class="op">,</span></span>
+<span id="cb3-7"><a href="lab4.html#cb3-7" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.60165777439157</span><span class="op">,</span> <span class="fl">37.06530672362588</span>]<span class="op">,</span></span>
+<span id="cb3-8"><a href="lab4.html#cb3-8" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.59273138279</span><span class="op">,</span> <span class="fl">37.07133347348626</span>]<span class="op">,</span></span>
+<span id="cb3-9"><a href="lab4.html#cb3-9" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.59873953098337</span><span class="op">,</span> <span class="fl">37.075168428598126</span>]<span class="op">,</span></span>
+<span id="cb3-10"><a href="lab4.html#cb3-10" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.61418905490915</span><span class="op">,</span> <span class="fl">37.060512376088454</span>]]])<span class="op">,</span></span>
+<span id="cb3-11"><a href="lab4.html#cb3-11" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb3-12"><a href="lab4.html#cb3-12" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;class&quot;</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb3-13"><a href="lab4.html#cb3-13" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;system:index&quot;</span><span class="op">:</span> <span class="st">&quot;0&quot;</span></span>
+<span id="cb3-14"><a href="lab4.html#cb3-14" aria-hidden="true" tabindex="-1"></a>            })])<span class="op">;</span></span>
+<span id="cb3-15"><a href="lab4.html#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bare <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(</span>
+<span id="cb3-16"><a href="lab4.html#cb3-16" aria-hidden="true" tabindex="-1"></a>        [ee<span class="op">.</span><span class="fu">Feature</span>(</span>
+<span id="cb3-17"><a href="lab4.html#cb3-17" aria-hidden="true" tabindex="-1"></a>            ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb3-18"><a href="lab4.html#cb3-18" aria-hidden="true" tabindex="-1"></a>                [[[<span class="op">-</span><span class="fl">80.53788557285348</span><span class="op">,</span> <span class="fl">37.08119439478304</span>]<span class="op">,</span></span>
+<span id="cb3-19"><a href="lab4.html#cb3-19" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.53960218662301</span><span class="op">,</span> <span class="fl">37.07551082587341</span>]<span class="op">,</span></span>
+<span id="cb3-20"><a href="lab4.html#cb3-20" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.53076162570993</span><span class="op">,</span> <span class="fl">37.07688039951336</span>]<span class="op">,</span></span>
+<span id="cb3-21"><a href="lab4.html#cb3-21" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.52380933994333</span><span class="op">,</span> <span class="fl">37.078523855226926</span>]<span class="op">,</span></span>
+<span id="cb3-22"><a href="lab4.html#cb3-22" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.52483930820505</span><span class="op">,</span> <span class="fl">37.085371203913176</span>]<span class="op">,</span></span>
+<span id="cb3-23"><a href="lab4.html#cb3-23" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.53101911777536</span><span class="op">,</span> <span class="fl">37.08311164722038</span>]<span class="op">,</span></span>
+<span id="cb3-24"><a href="lab4.html#cb3-24" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.53608312839548</span><span class="op">,</span> <span class="fl">37.08044117520197</span>]]])<span class="op">,</span></span>
+<span id="cb3-25"><a href="lab4.html#cb3-25" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb3-26"><a href="lab4.html#cb3-26" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;class&quot;</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb3-27"><a href="lab4.html#cb3-27" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;system:index&quot;</span><span class="op">:</span> <span class="st">&quot;0&quot;</span></span>
+<span id="cb3-28"><a href="lab4.html#cb3-28" aria-hidden="true" tabindex="-1"></a>            })])<span class="op">;</span></span>
+<span id="cb3-29"><a href="lab4.html#cb3-29" aria-hidden="true" tabindex="-1"></a> <span class="kw">var</span> vegetation <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(</span>
+<span id="cb3-30"><a href="lab4.html#cb3-30" aria-hidden="true" tabindex="-1"></a>        [ee<span class="op">.</span><span class="fu">Feature</span>(</span>
+<span id="cb3-31"><a href="lab4.html#cb3-31" aria-hidden="true" tabindex="-1"></a>            ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb3-32"><a href="lab4.html#cb3-32" aria-hidden="true" tabindex="-1"></a>                [[[<span class="op">-</span><span class="fl">80.57367696994821</span><span class="op">,</span> <span class="fl">37.07931133179868</span>]<span class="op">,</span></span>
+<span id="cb3-33"><a href="lab4.html#cb3-33" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.56517973178903</span><span class="op">,</span> <span class="fl">37.07801027914314</span>]<span class="op">,</span></span>
+<span id="cb3-34"><a href="lab4.html#cb3-34" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.56080236667673</span><span class="op">,</span> <span class="fl">37.083008938497635</span>]<span class="op">,</span></span>
+<span id="cb3-35"><a href="lab4.html#cb3-35" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.55749788517038</span><span class="op">,</span> <span class="fl">37.08516579245161</span>]<span class="op">,</span></span>
+<span id="cb3-36"><a href="lab4.html#cb3-36" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.5611027740864</span><span class="op">,</span> <span class="fl">37.08978741569377</span>]<span class="op">,</span></span>
+<span id="cb3-37"><a href="lab4.html#cb3-37" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.56612386936227</span><span class="op">,</span> <span class="fl">37.08879464631953</span>]<span class="op">,</span></span>
+<span id="cb3-38"><a href="lab4.html#cb3-38" aria-hidden="true" tabindex="-1"></a>                  [<span class="op">-</span><span class="fl">80.57337656253854</span><span class="op">,</span> <span class="fl">37.08420719827087</span>]]])<span class="op">,</span></span>
+<span id="cb3-39"><a href="lab4.html#cb3-39" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb3-40"><a href="lab4.html#cb3-40" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;class&quot;</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb3-41"><a href="lab4.html#cb3-41" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;system:index&quot;</span><span class="op">:</span> <span class="st">&quot;0&quot;</span></span>
+<span id="cb3-42"><a href="lab4.html#cb3-42" aria-hidden="true" tabindex="-1"></a>            })])<span class="op">;</span></span>
+<span id="cb3-43"><a href="lab4.html#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingFeatures <span class="op">=</span> bare<span class="op">.</span><span class="fu">merge</span>(vegetation)<span class="op">.</span><span class="fu">merge</span>(water)<span class="op">;</span></span></code></pre></div>
+<p>In the merged FeatureCollection, each Feature should have a property called ‘class’ where the classes are consecutive integers, starting at 0.</p>
+<p>For Landsat, we will use the following bands for their predictive values - we could just keep the visual bands, but using a larger number of predictive values in many cases improves the model’s ability to find relationships and patterns in the data. Create a training set <strong>T</strong> for the classifier by sampling the Landsat composite with the merged features. The choice of classifier is not always obvious, but a CART (a <a href="https://en.wikipedia.org/wiki/Decision_tree_learning">decision tree</a> when running in classification mode) is an excellent starting point. Instantiate a CART and train it.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="lab4.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> predictionBands <span class="op">=</span> [<span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span><span class="op">,</span> <span class="st">&#39;B10&#39;</span><span class="op">,</span> <span class="st">&#39;B11&#39;</span>]<span class="op">;</span></span>
+<span id="cb4-2"><a href="lab4.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classifierTraining <span class="op">=</span> landsat<span class="op">.</span><span class="fu">select</span>(predictionBands)</span>
+<span id="cb4-3"><a href="lab4.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sampleRegions</span>({</span>
+<span id="cb4-4"><a href="lab4.html#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">collection</span><span class="op">:</span> trainingFeatures<span class="op">,</span> </span>
+<span id="cb4-5"><a href="lab4.html#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">properties</span><span class="op">:</span> [<span class="st">&#39;class&#39;</span>]<span class="op">,</span> </span>
+<span id="cb4-6"><a href="lab4.html#cb4-6" aria-hidden="true" tabindex="-1"></a>   <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span></span>
+<span id="cb4-7"><a href="lab4.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-8"><a href="lab4.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classifier <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileCart</span>()<span class="op">.</span><span class="fu">train</span>({</span>
+<span id="cb4-9"><a href="lab4.html#cb4-9" aria-hidden="true" tabindex="-1"></a> <span class="dt">features</span><span class="op">:</span> classifierTraining<span class="op">,</span> </span>
+<span id="cb4-10"><a href="lab4.html#cb4-10" aria-hidden="true" tabindex="-1"></a> <span class="dt">classProperty</span><span class="op">:</span> <span class="st">&#39;class&#39;</span><span class="op">,</span> </span>
+<span id="cb4-11"><a href="lab4.html#cb4-11" aria-hidden="true" tabindex="-1"></a> <span class="dt">inputProperties</span><span class="op">:</span> predictionBands</span>
+<span id="cb4-12"><a href="lab4.html#cb4-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb4-13"><a href="lab4.html#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classified <span class="op">=</span> landsat<span class="op">.</span><span class="fu">select</span>(predictionBands)</span>
+<span id="cb4-14"><a href="lab4.html#cb4-14" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">classify</span>(classifier)<span class="op">;</span></span>
+<span id="cb4-15"><a href="lab4.html#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(classified<span class="op">,</span> </span>
+<span id="cb4-16"><a href="lab4.html#cb4-16" aria-hidden="true" tabindex="-1"></a>             {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> </span>
+<span id="cb4-17"><a href="lab4.html#cb4-17" aria-hidden="true" tabindex="-1"></a>              <span class="dt">palette</span><span class="op">:</span> [<span class="st">&#39;red&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span>]}<span class="op">,</span> </span>
+<span id="cb4-18"><a href="lab4.html#cb4-18" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;classified&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="figure">
+<img src="im/im_04_02.png" alt="" />
+<p class="caption">Supervised Image</p>
+</div>
+<p>Inspect the result. Some things to test if the result is unsatisfactory:</p>
+<ol style="list-style-type: decimal">
+<li>Other classifiers
+<ol style="list-style-type: decimal">
+<li>Try some of the other classifiers in Earth Engine to see if the result is better or different. You can find different classifiers under <code>Docs</code> on the left panel of the console.</li>
+</ol></li>
+<li>Different (or more) training data.
+<ol style="list-style-type: decimal">
+<li>Try adjusting the shape and/or size of your training polygons to have a more representative sample of your classes. It is very common to either underfit or overfit your model when beginning the process.</li>
+</ol></li>
+<li>Add more predictors.
+<ol style="list-style-type: decimal">
+<li>Try adding spectral indices to the input variables.</li>
+</ol></li>
+</ol>
+</div>
+<div id="accuracy-assessment" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Accuracy Assessment</h2>
+<p>The previous section asked the question whether the result is satisfactory or not. In remote sensing, the quantification of the answer is called accuracy assessment. In the regression context, a standard measure of accuracy is the <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">Root Mean Square Error</a> (RMSE) or the <a href="https://en.wikipedia.org/wiki/Correlation_and_dependence">correlation</a> between known and predicted values. (Although the RMSE is returned by the linear regression reducer, beware: this is computed from the training data and is NOT a fair estimate of expected prediction error when guessing a pixel not in the training set). It is testing how accurate the model is based on the existing training data, but proper methodology uses separate ground-truth values for testing. In the classification context, accuracy measurements are often derived from a <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a>.</p>
+<p>The first step is to partition the set of known values into training and testing sets. Reusing the classification training set, add a column of random numbers used to partition the known data where about 60% of the data will be used for training and 40% for testing. Train the classifier with the trainingSet, classify the testing set and get a confusion matrix. Note that the classifier automatically adds a property called ‘classification’, which is compared to the ‘class’ property added when you imported your polygons:</p>
+<p>Print the confusion matrix and expand the object to inspect the matrix. The entries represent the number of pixels. Items on the diagonal represent correct classification and items off the diagonal are misclassifications, where the class in row <em>i</em> is classified as column <em>j</em></p>
+<p>So there are a total of 640 pixels of water in the test sample - of these 640 pixels, 1 pixel was miscalculated as bare land, and 0 pixels were miscalculated as vegetation. You can get basic descriptive statistics from the confusion matrix, along with consumers / producers accuracy, which are built-in functions that are calculated from a confusion matrix. The <a href="https://developers.google.com/earth-engine/apidocs/ee-confusionmatrix">documentation</a> of working with confusion matrices contains some interesting information and extensions.</p>
+<div class="figure">
+<img src="im/im_04_03.png" alt="" />
+<p class="caption">Confusion Matrix</p>
+</div>
+<p>You can test different classifiers by replacing CART with some other classifier of interest. Also note that as a result of the randomness in the partition, you may get different results from different runs.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="lab4.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingTesting <span class="op">=</span> classifierTraining<span class="op">.</span><span class="fu">randomColumn</span>()<span class="op">;</span></span>
+<span id="cb5-2"><a href="lab4.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingSet <span class="op">=</span> trainingTesting<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">lessThan</span>(<span class="st">&#39;random&#39;</span><span class="op">,</span> <span class="fl">0.6</span>))<span class="op">;</span></span>
+<span id="cb5-3"><a href="lab4.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> testingSet <span class="op">=</span> trainingTesting<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">greaterThanOrEquals</span>(<span class="st">&#39;random&#39;</span><span class="op">,</span> <span class="fl">0.6</span>))<span class="op">;</span>  </span>
+<span id="cb5-4"><a href="lab4.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trained <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileCart</span>()<span class="op">.</span><span class="fu">train</span>({</span>
+<span id="cb5-5"><a href="lab4.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">features</span><span class="op">:</span> trainingSet<span class="op">,</span></span>
+<span id="cb5-6"><a href="lab4.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">classProperty</span><span class="op">:</span> <span class="st">&#39;class&#39;</span><span class="op">,</span></span>
+<span id="cb5-7"><a href="lab4.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">inputProperties</span><span class="op">:</span> predictionBands</span>
+<span id="cb5-8"><a href="lab4.html#cb5-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span> </span>
+<span id="cb5-9"><a href="lab4.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> confusionMatrix <span class="op">=</span>  </span>
+<span id="cb5-10"><a href="lab4.html#cb5-10" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="fu">ConfusionMatrix</span>(testingSet<span class="op">.</span><span class="fu">classify</span>(trained)</span>
+<span id="cb5-11"><a href="lab4.html#cb5-11" aria-hidden="true" tabindex="-1"></a>                       <span class="op">.</span><span class="fu">errorMatrix</span>({<span class="dt">actual</span><span class="op">:</span> <span class="st">&#39;class&#39;</span><span class="op">,</span><span class="dt">predicted</span><span class="op">:</span> <span class="st">&#39;classification&#39;</span>}))<span class="op">;</span>  </span>
+<span id="cb5-12"><a href="lab4.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Confusion matrix:&#39;</span><span class="op">,</span> confusionMatrix)<span class="op">;</span></span>
+<span id="cb5-13"><a href="lab4.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Overall Accuracy:&#39;</span><span class="op">,</span> confusionMatrix<span class="op">.</span><span class="fu">accuracy</span>())<span class="op">;</span></span>
+<span id="cb5-14"><a href="lab4.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Producers Accuracy:&#39;</span><span class="op">,</span> confusionMatrix<span class="op">.</span><span class="fu">producersAccuracy</span>())<span class="op">;</span></span>
+<span id="cb5-15"><a href="lab4.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Consumers Accuracy:&#39;</span><span class="op">,</span> confusionMatrix<span class="op">.</span><span class="fu">consumersAccuracy</span>())<span class="op">;</span>  </span></code></pre></div>
+<blockquote>
+<p><strong>Important</strong>: this is a simplified example to simply showcase how to get started with supervised classification. These accuracy levels are artificially high, and as you increase the number of categories and add complexity to the model, you will have to fine-tune your process along the way.</p>
+</blockquote>
+</div>
+<div id="hyperparameter-tuning" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Hyperparameter Tuning</h2>
+<p>Another well-known classifier used extensively in Remote Sensing is a random forest. A random forest is a collection of decision trees that find optimal splits in the data to compute an average (regression) or vote on a label (classification). Their adaptability makes them one of the most effective classification models, and is an excellent starting point. Because random forests are so effective, we need to make things a little harder for it to be interesting. Do that by adding noise to the training data.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="lab4.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Load Landsat 8 annual composites.</span></span>
+<span id="cb6-2"><a href="lab4.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span>)</span>
+<span id="cb6-3"><a href="lab4.html#cb6-3" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2019-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2019-12-31&#39;</span>)</span>
+<span id="cb6-4"><a href="lab4.html#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">map</span>(maskL8sr)</span>
+<span id="cb6-5"><a href="lab4.html#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">filterBounds</span>(region)</span>
+<span id="cb6-6"><a href="lab4.html#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">median</span>()<span class="op">;</span>   </span>
+<span id="cb6-7"><a href="lab4.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> predictionBands <span class="op">=</span> [<span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span><span class="op">,</span> <span class="st">&#39;B10&#39;</span><span class="op">,</span> <span class="st">&#39;B11&#39;</span>]<span class="op">;</span></span>
+<span id="cb6-8"><a href="lab4.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> sample <span class="op">=</span> landsat<span class="op">.</span><span class="fu">select</span>(predictionBands)<span class="op">.</span><span class="fu">sampleRegions</span>(</span>
+<span id="cb6-9"><a href="lab4.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">collection</span><span class="op">:</span> trainingFeatures</span>
+<span id="cb6-10"><a href="lab4.html#cb6-10" aria-hidden="true" tabindex="-1"></a>   <span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(f) {</span>
+<span id="cb6-11"><a href="lab4.html#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f<span class="op">.</span><span class="fu">buffer</span>(<span class="dv">300</span>)</span>
+<span id="cb6-12"><a href="lab4.html#cb6-12" aria-hidden="true" tabindex="-1"></a>   })<span class="op">,</span> <span class="dt">properties</span><span class="op">:</span> [<span class="st">&#39;class&#39;</span>]<span class="op">,</span> <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span>})<span class="op">;</span>  </span>
+<span id="cb6-13"><a href="lab4.html#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classifier <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileRandomForest</span>(<span class="dv">10</span>)</span>
+<span id="cb6-14"><a href="lab4.html#cb6-14" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">train</span>({<span class="dt">features</span><span class="op">:</span> sample<span class="op">,</span></span>
+<span id="cb6-15"><a href="lab4.html#cb6-15" aria-hidden="true" tabindex="-1"></a>                <span class="dt">classProperty</span><span class="op">:</span> <span class="st">&#39;class&#39;</span><span class="op">,</span></span>
+<span id="cb6-16"><a href="lab4.html#cb6-16" aria-hidden="true" tabindex="-1"></a>                <span class="dt">inputProperties</span><span class="op">:</span> predictionBands</span>
+<span id="cb6-17"><a href="lab4.html#cb6-17" aria-hidden="true" tabindex="-1"></a>               })<span class="op">;</span></span>
+<span id="cb6-18"><a href="lab4.html#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classified <span class="op">=</span>  landsat<span class="op">.</span><span class="fu">select</span>(predictionBands)<span class="op">.</span><span class="fu">classify</span>(classifier)<span class="op">;</span>   <span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(classified<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span>  <span class="dt">palette</span><span class="op">:</span> </span>
+<span id="cb6-19"><a href="lab4.html#cb6-19" aria-hidden="true" tabindex="-1"></a>             [<span class="st">&#39;red&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span>]}<span class="op">,</span> <span class="st">&#39;classified&#39;</span>)                                                                     </span></code></pre></div>
+<p>Note that the only parameter to the classifier is the number of trees (10). How many trees should you use? Making that choice is best done by hyperparameter tuning. For example,</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="lab4.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> sample  <span class="op">=</span> sample<span class="op">.</span><span class="fu">randomColumn</span>()<span class="op">;</span></span>
+<span id="cb7-2"><a href="lab4.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> train <span class="op">=</span> sample<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">lt</span>(<span class="st">&#39;random&#39;</span><span class="op">,</span> <span class="fl">0.6</span>))<span class="op">;</span></span>
+<span id="cb7-3"><a href="lab4.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> test <span class="op">=</span> sample<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">gte</span>(<span class="st">&#39;random&#39;</span><span class="op">,</span> <span class="fl">0.6</span>))<span class="op">;</span></span>
+<span id="cb7-4"><a href="lab4.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numTrees <span class="op">=</span> ee<span class="op">.</span><span class="at">List</span><span class="op">.</span><span class="fu">sequence</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span></span>
+<span id="cb7-5"><a href="lab4.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> accuracies <span class="op">=</span> numTrees<span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(t) {</span>
+<span id="cb7-6"><a href="lab4.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classifier <span class="op">=</span>  ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileRandomForest</span>(t)</span>
+<span id="cb7-7"><a href="lab4.html#cb7-7" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">train</span>({</span>
+<span id="cb7-8"><a href="lab4.html#cb7-8" aria-hidden="true" tabindex="-1"></a>          <span class="dt">features</span><span class="op">:</span> train<span class="op">,</span></span>
+<span id="cb7-9"><a href="lab4.html#cb7-9" aria-hidden="true" tabindex="-1"></a>          <span class="dt">classProperty</span><span class="op">:</span> <span class="st">&#39;class&#39;</span><span class="op">,</span></span>
+<span id="cb7-10"><a href="lab4.html#cb7-10" aria-hidden="true" tabindex="-1"></a>          <span class="dt">inputProperties</span><span class="op">:</span> predictionBands</span>
+<span id="cb7-11"><a href="lab4.html#cb7-11" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb7-12"><a href="lab4.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> test<span class="op">.</span><span class="fu">classify</span>(classifier)</span>
+<span id="cb7-13"><a href="lab4.html#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">errorMatrix</span>(<span class="st">&#39;class&#39;</span><span class="op">,</span>  <span class="st">&#39;classification&#39;</span>)</span>
+<span id="cb7-14"><a href="lab4.html#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">accuracy</span>()<span class="op">;</span></span>
+<span id="cb7-15"><a href="lab4.html#cb7-15" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb7-16"><a href="lab4.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">array</span><span class="op">.</span><span class="fu">values</span>({</span>
+<span id="cb7-17"><a href="lab4.html#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">array</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">Array</span>(accuracies)<span class="op">,</span></span>
+<span id="cb7-18"><a href="lab4.html#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">axis</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb7-19"><a href="lab4.html#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">xLabels</span><span class="op">:</span> numTrees</span>
+<span id="cb7-20"><a href="lab4.html#cb7-20" aria-hidden="true" tabindex="-1"></a>}))<span class="op">;</span>  </span></code></pre></div>
+<p>You should see something like the following chart, in which the number of trees is on the x-axis and estimated accuracy is on the y-axis.</p>
+<div class="figure">
+<img src="im/im_04_04.png" alt="" />
+<p class="caption">Accuracy versus Tree</p>
+</div>
+<p>We always get very good accuracy in this simple example, as mentioned before. We can see that 10 is not the optimal number of trees, but after adding more (up to about 20 or 30), we don’t get much more accuracy for the increased computational burden. In this chart specifically, perhaps 20 trees is optimal - as datasets grow larger, the computational burden begins to play a larger role and has to be taken into account.</p>
+</div>
+<div id="classification-assignment" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Classification Assignment</h2>
+<blockquote>
+<p><strong>Assignment</strong>: Design a four-class classification for your area of interest. Decide on suitable input data and manually collect training points (or polygons) and instantiate a random forest classifier. In your code, have a variable called trees that sets the optimal number of trees according to your hyper-parameter tuning. Have a variable called <code>maxAccuracy</code> that stores the estimated accuracy for the optimal number of trees.</p>
+</blockquote>
+</div>
+<div id="regression" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Regression</h2>
+<p>Classifying imagery is an essential part of remote sensing research. In the previous lab, we began working with classification and regression, and we will continue on this same path for the first half of this lab. We will begin to explore Random Forest models more in depth, which were briefly introduced in the previous lab. Ultimately, the purpose of classification in this context is to use known characteristics of a subset of the image to make a best-estimate classification of the rest of the image.</p>
+<p>In the present context, regression means predicting a numeric variable instead of a class label. No lab on regression would be complete without the requisite introduction to least squares regression.</p>
+<div id="ordinary-least-squares-ols" class="section level3" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> Ordinary Least Squares (OLS)</h3>
+<p><a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary regression</a> is when <em>G</em> is a linear function of the form <em>G</em>(<strong>p</strong>) = <strong>βp</strong> where <strong>β</strong> is a vector of coefficients. Once <em>G</em> is trained by some training set <strong>T</strong>, we can estimate the the value for some unknown <strong>p</strong> by multiplying it with <strong>β</strong>.</p>
+<p>Suppose the goal is to estimate percent tree cover in each Landsat pixel.</p>
+<p>For this exercise, we will use data that has a known values for <em>g</em>., ‘MODIS Terra Vegetation Continuous Fields Yearly Global 250m’. Since water is coded as 200 in this image, replace the 200’s with 0’s and display the result. Documentation for the <code>.where</code> clause is at this <a href="https://developers.google.com/earth-engine/apidocs/ee-image-where?hl=en">link</a>. Scroll in and note that when you click on a water area it will say ‘masked’, where as land areas will provide a numerical value listed as ‘Percent_Tree_Cover’. Each pixel represents percent tree cover (as an integer value) at 250 meter resolution in 2010.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="lab4.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mod44b <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;MODIS/006/MOD44B&quot;</span>)</span>
+<span id="cb8-2"><a href="lab4.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> tree <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(mod44b<span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;system:time_start&#39;</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb8-3"><a href="lab4.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> percentTree <span class="op">=</span> tree<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;Percent_Tree_Cover&#39;</span>)</span>
+<span id="cb8-4"><a href="lab4.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">where</span>(tree<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;Percent_Tree_Cover&#39;</span>)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">200</span>)<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb8-5"><a href="lab4.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> visualization <span class="op">=</span> {</span>
+<span id="cb8-6"><a href="lab4.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;Percent_Tree_Cover&#39;</span>]<span class="op">,</span></span>
+<span id="cb8-7"><a href="lab4.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="fl">0.0</span><span class="op">,</span></span>
+<span id="cb8-8"><a href="lab4.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="fl">100.0</span><span class="op">,</span></span>
+<span id="cb8-9"><a href="lab4.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">palette</span><span class="op">:</span> [<span class="st">&#39;bbe029&#39;</span><span class="op">,</span> <span class="st">&#39;0a9501&#39;</span><span class="op">,</span> <span class="st">&#39;074b03&#39;</span>]</span>
+<span id="cb8-10"><a href="lab4.html#cb8-10" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb8-11"><a href="lab4.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(percentTree<span class="op">,</span> visualization<span class="op">,</span> <span class="st">&#39;percent tree cover&#39;</span>)<span class="op">;</span> </span></code></pre></div>
+<p>For predictor variables (<strong>p</strong>)we will use ‘USGS Landsat 5 TM Collection 1 Tier 1 Raw Scenes’. Filter to the year 2010 and the <a href="https://www.usgs.gov/faqs/what-worldwide-reference-system-wrs?qt-news_science_products=0#qt-news_science_products">WRS-2</a> path and row (or given point) to get only scenes over the San Francisco Bay area in 2010. Use an Earth Engine algorithm to get a cloud-free composite of Landsat imagery.</p>
+<p>Specify the bands of the Landsat composite to be used as predictors (i.e. the elements of <strong>p</strong>):</p>
+<p>Now that all the input data is ready, we can build the shell of our linear regression equation. It’s customary to include a constant term in linear regression to make it the <a href="https://en.wikipedia.org/wiki/Gauss–Markov_theorem">best linear unbiased estimator</a>. Stack a constant, the predictor variables and the ‘Percent Tree Cover’ Image as the variable <code>trainingImage</code>, representing known <em>g</em>: If you print <code>trainingImage</code> to the console, you will see that the format of the data that we have follows the typical equation for linear regression.</p>
+<p><span class="math display">\[ y = \beta_0 + \beta_1X_1 + ... + \beta_nX_n + \epsilon \]</span></p>
+<p>Sample 1000 pixels out of <code>trainingImage</code>, to get a table of Feature Collections, each containing a value for each band (1-7), a value for the ‘Percent Tree Cover’, and a constant (value of 1).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="lab4.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">122.10</span><span class="op">,</span> <span class="fl">37.70</span>])<span class="op">;</span></span>
+<span id="cb9-2"><a href="lab4.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat5_raw <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&quot;LANDSAT/LT05/C01/T1&quot;</span>)<span class="op">;</span></span>
+<span id="cb9-3"><a href="lab4.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat5_filtered <span class="op">=</span> landsat5_raw<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2010-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2010-12-31&#39;</span>)</span>
+<span id="cb9-4"><a href="lab4.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(point)</span>
+<span id="cb9-5"><a href="lab4.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat <span class="op">=</span> ee<span class="op">.</span><span class="at">Algorithms</span><span class="op">.</span><span class="at">Landsat</span><span class="op">.</span><span class="fu">simpleComposite</span>({</span>
+<span id="cb9-6"><a href="lab4.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> l5filtered<span class="op">,</span></span>
+<span id="cb9-7"><a href="lab4.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">asFloat</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb9-8"><a href="lab4.html#cb9-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb9-9"><a href="lab4.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">setCenter</span>(<span class="op">-</span><span class="fl">121.9</span><span class="op">,</span> <span class="fl">37.7</span><span class="op">,</span> <span class="dv">10</span>)</span>
+<span id="cb9-10"><a href="lab4.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(landsat<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.3</span>}<span class="op">,</span> <span class="st">&#39;composite&#39;</span>)<span class="op">;</span></span>
+<span id="cb9-11"><a href="lab4.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> predictionBands <span class="op">=</span> [<span class="st">&#39;B1&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B5&#39;</span><span class="op">,</span> <span class="st">&#39;B6&#39;</span><span class="op">,</span> <span class="st">&#39;B7&#39;</span>]<span class="op">;</span></span>
+<span id="cb9-12"><a href="lab4.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingImage <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="dv">1</span>)</span>
+<span id="cb9-13"><a href="lab4.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">addBands</span>(landsat<span class="op">.</span><span class="fu">select</span>(predictionBands))</span>
+<span id="cb9-14"><a href="lab4.html#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">addBands</span>(percentTree)<span class="op">;</span></span>
+<span id="cb9-15"><a href="lab4.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> training <span class="op">=</span> trainingImage<span class="op">.</span><span class="fu">sample</span>({</span>
+<span id="cb9-16"><a href="lab4.html#cb9-16" aria-hidden="true" tabindex="-1"></a> <span class="dt">region</span><span class="op">:</span> landsat5_filtered<span class="op">.</span><span class="fu">first</span>()<span class="op">.</span><span class="fu">geometry</span>()<span class="op">,</span> </span>
+<span id="cb9-17"><a href="lab4.html#cb9-17" aria-hidden="true" tabindex="-1"></a> <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> </span>
+<span id="cb9-18"><a href="lab4.html#cb9-18" aria-hidden="true" tabindex="-1"></a> <span class="dt">numPixels</span><span class="op">:</span> <span class="dv">1000</span></span>
+<span id="cb9-19"><a href="lab4.html#cb9-19" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb9-20"><a href="lab4.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingList <span class="op">=</span> ee<span class="op">.</span><span class="fu">List</span>(predictionBands)</span>
+<span id="cb9-21"><a href="lab4.html#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">insert</span>(<span class="dv">0</span><span class="op">,</span> <span class="st">&#39;constant&#39;</span>)</span>
+<span id="cb9-22"><a href="lab4.html#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">add</span>(<span class="st">&#39;Percent_Tree_Cover&#39;</span>)<span class="op">;</span></span>
+<span id="cb9-23"><a href="lab4.html#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> regression <span class="op">=</span> training<span class="op">.</span><span class="fu">reduceColumns</span>({ </span>
+<span id="cb9-24"><a href="lab4.html#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">linearRegression</span>(<span class="dv">8</span>)<span class="op">,</span>  </span>
+<span id="cb9-25"><a href="lab4.html#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">selectors</span><span class="op">:</span> trainingList</span>
+<span id="cb9-26"><a href="lab4.html#cb9-26" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span></code></pre></div>
+<p>Inspect the first element of <code>training</code> to make sure it has all of the expected data.</p>
+<blockquote>
+<p><strong>Question 1</strong>: What do you expect to see when you inspect the first element of training, and how does that compare with what you ultimately end up seeing?</p>
+</blockquote>
+<p>The next step is to train <em>G</em>. Make a list of the variable names, predictors followed by <em>g</em>:</p>
+<p>In Earth Engine, <a href="https://developers.google.com/earth-engine/reducers_regression">linear regression is implemented as a Reducer</a>. This means that training <em>G</em> is a reduction of the <strong>T</strong> table, performed using the list of variables as an input. The argument tells the reducer how many of the input variables are predictors - note that we have 1 as a constant.</p>
+<p>Print <code>regression</code> - we now have a coefficient for each of the predictor variables (in the order specified by the inputs list), along with a value for residuals (the difference between the observed and predicted values).</p>
+<p><img src="im/im_04_05.png" alt="Regression Coefficients" />
+To use the coefficients to make a prediction in every pixel, first turn the output coefficients into an image, then perform the multiplication and addition that implements <span class="math inline">\(\beta_p\)</span>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="lab4.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> coefficients <span class="op">=</span> ee<span class="op">.</span><span class="fu">Array</span>(regression<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;coefficients&#39;</span>))</span>
+<span id="cb10-2"><a href="lab4.html#cb10-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">project</span>([<span class="dv">0</span>])  </span>
+<span id="cb10-3"><a href="lab4.html#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">toList</span>()<span class="op">;</span></span>
+<span id="cb10-4"><a href="lab4.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> predictedTreeCover <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="dv">1</span>)</span>
+<span id="cb10-5"><a href="lab4.html#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">addBands</span>(landsat<span class="op">.</span><span class="fu">select</span>(predictionBands))              </span>
+<span id="cb10-6"><a href="lab4.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">multiply</span>(ee<span class="op">.</span><span class="at">Image</span><span class="op">.</span><span class="fu">constant</span>(coefficients))              </span>
+<span id="cb10-7"><a href="lab4.html#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">reduce</span>(ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">sum</span>())   </span>
+<span id="cb10-8"><a href="lab4.html#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">rename</span>(<span class="st">&#39;predictedTreeCover&#39;</span>)<span class="op">;</span></span>
+<span id="cb10-9"><a href="lab4.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(predictedTreeCover<span class="op">,</span>  </span>
+<span id="cb10-10"><a href="lab4.html#cb10-10" aria-hidden="true" tabindex="-1"></a>             {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span> </span>
+<span id="cb10-11"><a href="lab4.html#cb10-11" aria-hidden="true" tabindex="-1"></a>              <span class="dt">palette</span><span class="op">:</span>[<span class="st">&#39;bbe029&#39;</span><span class="op">,</span> <span class="st">&#39;0a9501&#39;</span><span class="op">,</span> <span class="st">&#39;074b03&#39;</span>]}<span class="op">,</span> </span>
+<span id="cb10-12"><a href="lab4.html#cb10-12" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;prediction&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Carefully inspect this result by using the inspector on the prediction layer and comparing it to the satellite imagery basemap. Is it satisfactory?</p>
+<div class="figure">
+<img src="im/im_04_06.png" alt="" />
+<p class="caption">Linear Regression</p>
+</div>
+<p>If not, it might be worth testing some other regression functions, adding more predictor variables, collecting more training data, or all of the above. In remote sensing research, this is not a one-step process - to find value in these models, you will need to continuously improve, iterate and retest your assumptions.</p>
+<blockquote>
+<p>Question 2: Upload your predicted layer and your satellite imagery basemap. Discuss the salient features of the predicted output and which steps you may want to take in order to improve the results.</p>
+</blockquote>
+</div>
+</div>
+<div id="nonlinear-regression" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Nonlinear Regression</h2>
+<p>If ordinary linear regression is not satisfactory, Earth Engine contains other functions that can make predictions of a continuous variable. Unlike linear regression, other regression functions are implemented by the classifier library.</p>
+<p>For example, a Classification and Regression Tree (CART) is a machine learning algorithm that can learn non-linear patterns in your data. Reusing the <strong>T</strong> table (without the constant term), train a CART as follows:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="lab4.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cartRegression <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileCart</span>()</span>
+<span id="cb11-2"><a href="lab4.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">setOutputMode</span>(<span class="st">&#39;REGRESSION&#39;</span>)</span>
+<span id="cb11-3"><a href="lab4.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">train</span>({</span>
+<span id="cb11-4"><a href="lab4.html#cb11-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">features</span><span class="op">:</span> training<span class="op">,</span> </span>
+<span id="cb11-5"><a href="lab4.html#cb11-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">classProperty</span><span class="op">:</span> <span class="st">&#39;Percent_Tree_Cover&#39;</span><span class="op">,</span> </span>
+<span id="cb11-6"><a href="lab4.html#cb11-6" aria-hidden="true" tabindex="-1"></a>   <span class="dt">inputProperties</span><span class="op">:</span> predictionBands</span>
+<span id="cb11-7"><a href="lab4.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb11-8"><a href="lab4.html#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="lab4.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cartRegressionImage <span class="op">=</span> landsat<span class="op">.</span><span class="fu">select</span>(predictionBands)</span>
+<span id="cb11-10"><a href="lab4.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">classify</span>(cartRegression<span class="op">,</span> <span class="st">&#39;cartRegression&#39;</span>)<span class="op">;</span></span>
+<span id="cb11-11"><a href="lab4.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(cartRegressionImage<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">100</span>}<span class="op">,</span> <span class="st">&#39;CART regression&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Use the ‘inspector’ to compare the linear regression to the CART regression. Although CART can work in both classification and regression mode, not all classifiers are as easily adaptable.</p>
+<div class="figure">
+<img src="im/im_04_07.png" alt="" />
+<p class="caption">NonLinear Regression</p>
+</div>
+<blockquote>
+<p><strong>Question 3</strong>: What do you observe when comparing the linear regression to the CART regression? Are the prediction values similar? If the output for both are similar, does the value seem to match the background imagery?</p>
+</blockquote>
+<hr />
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/benamie/remote-sense-social/edit/main/05-lab4.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

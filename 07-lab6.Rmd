@@ -1,6 +1,6 @@
-# Night Time Lights Appendix {#lab6}
+# Lab 06 - Night Time Lights Appendix {#lab6}
 
-## Overview{-}
+## Overview
 
 Capturing and visualizing low-light emittance from around the earth has been utilized in various applications since the mid-1960's. By consistently quantifying light emittance over long time periods, it is possible to use this as a proxy for economic development, especially in areas where there is not high-quality data and metrics to work with. Google Earth Engine has consolidated this data into an operational archive dating back to 1992, which is an excellent way to find meaningful insights using this data set.
 
@@ -77,9 +77,7 @@ Map.setCenter(center_lon, center_lat, zoomlevel);
 Map.addLayer(viirs2019_12_clipped, nighttimeLightsVis, 'Clipped to Buffer');
 ```
 
-
-
-![im_07_01](./im/im_07_01.png)
+![Clip to Point Buffer](./im/im_06_01.png)
 
 You can do the same thing with either your own polygon vector files (import shapefile, kml), or use one of the vector files that GEE maintains - we can test use the TIGER state boundary file and clip the image to California. 
 
@@ -105,7 +103,7 @@ Map.setCenter(center_lon, center_lat, zoomlevel);
 Map.addLayer(viirs2019_12_clipped, nighttimeLightsVis, 'California NightTime Lights'); 
 ```
 
-![im_07_02](./im/im_07_02.png)
+![Clip to Feature](./im/im_06_02.png)
 
 The previous two examples showed the process of clipping individual images - to clip an entire image 		collection and extract a composite image, we can follow the same general approach, but use the `map` function to clip each image of the collection to our boundary. However, note that depending on the use case and the size of the image collection, this might take time to run and still leave you with a large amount of data. Before exporting all the data, perhaps reduce the image collection by extracting mean / median values, or use the reduce function. 
 
@@ -197,7 +195,7 @@ Map.setCenter(lon, lat, 8);
 Map.addLayer(viirs2019_12.mask(viirs2019_12_mask), nighttimeVis,  'Nighttime');
 ```
 
-![im_07_03](./im/im_07_03.png)
+![Mask Values](./im/im_06_03.png)
 
 Note that just like in the lab, you can chain together conditionals to make a layered mask, and build a customized pallette. 
 
@@ -209,7 +207,7 @@ Map.setCenter(lon, lat, 8);
 Map.addLayer(zones.mask(zones), {'palette':['#cc0909','#e67525','#fff825']}, 'zones');
 ```
 
-![im_07_04](./im/im_07_04.png)
+![Layered Mask](./im/im_06_04.png)
 
 4. **Cell Statistics and Band Math**
 
@@ -235,7 +233,7 @@ Map.setCenter(126.25, -8.5, 9);
 Map.addLayer(ntl_tls, nighttimeLightsVis, '"VIIRS-DNB Dec 2017"');
 ```
 
-![im_07_05](./im/im_07_05.png)
+![Scaling Image](./im/im_06_05.png)
 
 ```javascript
 // Reduce image to find the mean and standard deviation
@@ -258,7 +256,7 @@ Map.setCenter(126.25, -8.5, 9);
 Map.addLayer(ntl_tls_std, nighttimeLightsVis, 'Scaled Image');
 ```
 
-![im_07_06](./im/im_07_06.png)
+![Rescaled Image](./im/im_06_06.png)
 
 5. **Expressions**
 
@@ -277,7 +275,7 @@ Map.setCenter(lon, lat, 7);
 Map.addLayer(dmsp1996, nighttimeLightsVis, '1996 Composite')
 ```
 
-![im_07_07](./im/im_07_07.png)
+![Before Inversion](./im/im_06_07.png)
 
 ```javascript
 // Use Expression to invert the pixels
@@ -285,7 +283,7 @@ var dmsp1996_inv = dmsp1996.multiply(-1).add(63)
 Map.addLayer(dmsp1996_inv, nighttimeLightsVis, '1996 Composite Inverse')
 ```
 
- ![im_07_08](./im/im_07_08.png)
+ ![Inverted Image](./im/im_06_08.png)
 
 6. **Expression (Continued)**
 
@@ -321,7 +319,7 @@ Map.setCenter(lon, lat, 7);
 Map.addLayer(viirs2015med.mask(viirs2015med), nighttimeLightsVis, '2015 Monthly Median')
 ```
 
-![im_07_09](./im/im_07_09.png)
+![Composite Image](./im/im_06_09.png)
 
 ------> Research alternative to loop - convert function in 7.4.3 to `.map`
 
@@ -351,6 +349,8 @@ Refer to lab 01 for more information and some examples of importing and exportin
 ## Conclusion
 
 As noted earlier, this lab is more of a JavaScript supplement to the excellent World Bank tutorial. There are many data and remote sensing libraries in Python that can help you take your work to the next stage.   
+
+
 
 
 
